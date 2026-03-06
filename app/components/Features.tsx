@@ -77,6 +77,13 @@ export default function Collections() {
         ))}
 
       </div>
+
+            {/* Discover More Button */}
+      <div className="flex justify-center mt-16">
+        <button className="border border-black px-8 py-3 text-sm uppercase tracking-widest bg-white text-black hover:bg-black hover:text-white transition duration-300 cursor-pointer">
+          Discover More
+        </button>
+      </div>
     </section>
   );
 }
