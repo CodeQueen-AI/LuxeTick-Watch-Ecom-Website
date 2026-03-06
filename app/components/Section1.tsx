@@ -5,22 +5,22 @@ export default function WatchSection() {
     {
       name: "Tatum",
       price: "Rs.131,596.80",
-      img: "/watch1.png",
+      img: "/Img5.png",
     },
     {
       name: "Theo",
       price: "Rs.43,078.77",
-      img: "/watch2.png",
+      img: "/Img6.png",
     },
     {
       name: "Xavier",
       price: "Rs.88,321.32",
-      img: "/watch3.png",
+      img: "/Img7.png",
     },
     {
       name: "Pro-mariner",
       price: "Rs.302,731.64",
-      img: "/watch4.png",
+      img: "/Img8.png",
     },
   ];
 
