@@ -7,10 +7,10 @@ export default function HomePage() {
       {/* Left Side */}
       <div className="w-1/2 bg-[#0b1d3a] flex items-center justify-center">
         <Image
-          src="/watch1.jpg"
+          src="/watch1.png"
           alt="left image"
-          width={350}
-          height={350}
+          width={220}
+          height={220}
           className="object-contain"
         />
       </div>
@@ -18,10 +18,10 @@ export default function HomePage() {
       {/* Right Side */}
       <div className="w-1/2 bg-white flex items-center justify-center">
         <Image
-          src="/watch2.jpg"
+          src="/watch2.png"
           alt="right image"
-          width={350}
-          height={350}
+          width={220}
+          height={220}
           className="object-contain"
         />
       </div>
@@ -29,10 +29,10 @@ export default function HomePage() {
       {/* Center Image */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <Image
-          src="/watch3.jpg"
+          src="/watch3.png"
           alt="center image"
-          width={420}
-          height={420}
+          width={220}
+          height={220}
           className="object-contain"
         />
       </div>
