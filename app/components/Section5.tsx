@@ -8,7 +8,7 @@ export default function WatchSection() {
       {/* LEFT IMAGE */}
       <div className="w-1/2 relative">
         <Image
-          src="/watch-left.jpg"
+          src="/Img11.webp"
           alt="Casio Watch"
           fill
           className="object-cover"
@@ -19,7 +19,7 @@ export default function WatchSection() {
       <div className="w-1/2 relative">
 
         <Image
-          src="/watch-right.jpg"
+          src="/Img12.webp"
           alt="Edifice Watch"
           fill
           className="object-cover"
