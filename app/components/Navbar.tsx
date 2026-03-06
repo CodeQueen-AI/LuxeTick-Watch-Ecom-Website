@@ -35,7 +35,8 @@ export default function Page() {
 
         {/* Background split */}
         <div className="absolute inset-0 flex -z-10">
-          <div className="w-1/2 bg-[#0b1d3a]"></div>
+          {/* <div className="w-1/2 bg-[#0b1d3a]"></div> */}
+            <div className="w-1/2 bg-[#09162c]"></div>
           <div className="w-1/2 bg-white"></div>
         </div>
 
