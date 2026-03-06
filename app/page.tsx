@@ -7,7 +7,7 @@ export default function HomePage() {
       {/* Left Side */}
       <div className="w-1/2 bg-[#0b1d3a] flex items-center justify-center">
         <Image
-          src="/left.png"
+          src="/watch1.jpg"
           alt="left image"
           width={350}
           height={350}
@@ -18,7 +18,7 @@ export default function HomePage() {
       {/* Right Side */}
       <div className="w-1/2 bg-white flex items-center justify-center">
         <Image
-          src="/right.png"
+          src="/watch2.jpg"
           alt="right image"
           width={350}
           height={350}
@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* Center Image */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <Image
-          src="/center.png"
+          src="/watch3.jpg"
           alt="center image"
           width={420}
           height={420}
