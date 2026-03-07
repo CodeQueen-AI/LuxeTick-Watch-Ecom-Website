@@ -2,28 +2,32 @@
 
 import Image from "next/image";
 
-export default function FullImagePage() {
+export default function WatchAboutPage() {
   return (
     <div className="w-full min-h-screen bg-white font-poppins">
       {/* Full Image */}
-      <div className="w-full relative h-[70vh] md:h-[80vh] lg:h-[90vh]">
+      <div className="w-full relative h-[80vh] md:h-[90vh] lg:h-[100vh]">
         <Image
           src="/about.webp" 
-          alt="Full Image"
+          alt="Watch Image"
           fill
           className="object-cover"
         />
       </div>
 
-      {/* About Section */}
+      {/* About Text */}
       <section className="max-w-4xl mx-auto px-6 py-12 text-center">
-        <h2 className="text-4xl font-bold mb-6">About This Image</h2>
-        <p className="text-lg leading-relaxed text-gray-700">
-          Yeh section image ke baad aata hai aur yahan aap pura about text likh
-          sakti hain. Aap chahein to paragraph multiple lines mei bhi likh sakti
-          hain. Yeh responsive hai, yani chhote screens par bhi acha lagega. 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-gray-800">
+          This watch represents the perfect combination of style and precision. 
+          Its sleek and modern design makes it suitable for any occasion, whether 
+          formal or casual. Crafted from high-quality materials with exceptional 
+          attention to detail, it ensures durability and long-lasting performance. 
+          The watch not only keeps accurate time but also enhances your overall 
+          look, adding a touch of elegance and sophistication to your outfit. 
+          Its timeless design, advanced features, and luxurious finish make it 
+          a must-have accessory for anyone who values both fashion and functionality. 
+          Owning this watch is not just about telling time; it’s about making a 
+          statement and embracing a lifestyle of refinement and quality.
         </p>
       </section>
     </div>
