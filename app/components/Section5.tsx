@@ -94,24 +94,34 @@ export default function WatchSection() {
         <div className="absolute inset-0 flex flex-col justify-between text-white poppins">
 
           {/* TOP TEXT */}
-          <div className="text-center pt-16">
+          <div className="text-center pt-5">
             <p className="text-lg">New collection</p>
 
-            <h1 className="text-6xl font-semibold mt-2">
+            <h1 className="text-4xl font-extralight mt-2">
               Edifice
             </h1>
           </div>
 
           {/* BOTTOM TEXT */}
-          <div className="text-center pb-16">
+          {/* <div className="pb-10">
 
-            <div className="border-t border-white w-80 mx-auto mb-4"></div>
+            <div className="border-t border-white w-80 mx-auto mb-20"></div>
 
             <p className="text-lg">
               Shop new collection
             </p>
 
-          </div>
+          </div> */}
+
+          <div className="pb-10 pt-20">
+
+  <div className="border-t border-white w-[90%] ml-10 mb-4"></div>
+
+  <p className="text-lg ml-10">
+    Shop new collection
+  </p>
+
+</div>
 
         </div>
 
