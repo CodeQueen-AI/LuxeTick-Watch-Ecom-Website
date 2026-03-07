@@ -1,6 +1,4 @@
 "use client";
-
-import { FaTruck, FaTag, FaUndo, FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoPricetagsOutline } from "react-icons/io5";
@@ -9,7 +7,6 @@ import { GrUndo } from "react-icons/gr";
 export default function Features() {
   return (
     <section className="w-full bg-gray-100 py-16">
-
       {/* Google Font */}
       <style>
         {`
@@ -20,12 +17,11 @@ export default function Features() {
         }
         `}
       </style>
-
       <div className="max-w-7xl mx-auto grid grid-cols-4 text-center gap-12 px-6 poppins">
 
         {/* Feature 1 */}
         <div>
-          <FaTruck className="text-4xl mx-auto mb-4" />
+          <TbTruckDelivery className="text-4xl mx-auto mb-4" />
 
           <h3 className="text-lg font-semibold">
             Free Shipping
@@ -38,7 +34,7 @@ export default function Features() {
 
         {/* Feature 2 */}
         <div>
-          <FaTag className="text-4xl mx-auto mb-4" />
+          <IoPricetagsOutline className="text-4xl mx-auto mb-4" />
 
           <h3 className="text-lg font-semibold">
             Brand Authenticity
@@ -51,7 +47,7 @@ export default function Features() {
 
         {/* Feature 3 */}
         <div>
-          <FaUndo className="text-4xl mx-auto mb-4" />
+          <GrUndo className="text-4xl mx-auto mb-4" />
 
           <h3 className="text-lg font-semibold">
             Buy Now Pay Later
@@ -64,7 +60,7 @@ export default function Features() {
 
         {/* Feature 4 */}
         <div>
-          <FaStar className="text-4xl mx-auto mb-4" />
+          <FaRegStar className="text-4xl mx-auto mb-4" />
 
           <h3 className="text-lg font-semibold">
             5 star Google Rating
