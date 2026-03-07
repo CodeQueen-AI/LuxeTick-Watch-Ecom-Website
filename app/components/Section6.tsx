@@ -24,7 +24,7 @@ export default function SeasonCollection() {
 
         {/* Heading */}
         <h1 className="text-4xl text-center mb-16">
-          <span className="allura text-5xl">Season</span> Collection
+          <span className="allura text-5xl">Season Collection</span>
         </h1>
 
         {/* Watches Grid */}
