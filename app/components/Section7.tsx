@@ -1,6 +1,10 @@
 "use client";
 
 import { FaTruck, FaTag, FaUndo, FaStar } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
+import { IoPricetagsOutline } from "react-icons/io5";
+import { GrUndo } from "react-icons/gr";
 
 export default function Features() {
   return (
