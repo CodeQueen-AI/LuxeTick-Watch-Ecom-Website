@@ -8,7 +8,7 @@ export default function FullImagePage() {
       {/* Full Image */}
       <div className="w-full relative h-[70vh] md:h-[80vh] lg:h-[90vh]">
         <Image
-          src="/your-image.jpg" 
+          src="/about.webp" 
           alt="Full Image"
           fill
           className="object-cover"
