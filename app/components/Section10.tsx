@@ -1,43 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300","400","500","600","700"],
+});
 
 export default function HeroWatch() {
   return (
-    <div className="relative min-h-screen overflow-hidden font-sans">
+    <div className={`${poppins.className} relative min-h-screen overflow-hidden`}>
 
       {/* LEFT BG */}
       <div className="absolute left-0 top-0 w-1/2 h-full bg-[#dbdce0]" />
 
       {/* RIGHT BG */}
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-[#232637]" />
-
-      {/* NAVBAR */}
-      <nav className="relative z-10 max-w-7xl mx-auto flex justify-between pt-10 px-6">
-
-        <ul className="flex gap-8 text-[#232637] font-medium">
-          <li className="font-extrabold text-xl">Diesel</li>
-          <li>Store</li>
-          <li>Shop</li>
-          <li>Collection</li>
-        </ul>
-
-        <ul className="flex gap-8 text-white font-medium">
-          <li>Cart</li>
-          <li>Login/Register</li>
-          <li>Profile</li>
-        </ul>
-
-      </nav>
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-[#09162c]" />
 
       {/* BIG LETTER */}
-      {/* <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[35rem] font-black text-[#8263a3] leading-none">
-        S
-      </span> */}
-
       <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[42rem] font-bold text-[#8263a3]/90 leading-none select-none pointer-events-none">
-  S
-</span>
+        S
+      </span>
 
       {/* WATCH IMAGE */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
