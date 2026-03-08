@@ -1,11 +1,11 @@
 import Image from "next/image";
 export default function ProductShowcase() {
   const products = [
-    "/watch13.jpg",
-    "/watch14.jpg",
-    "/watch15.jpg",
-    "/watch16.jpg",
-    "/watch18.jpg",
+    "/watch/w12.jpg",
+    "/watch/w13.jpg",
+    "/watch/w14.jpg",
+    "/watch/w15.jpg",
+    "/watch/w16.jpg",
   ];
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
