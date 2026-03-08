@@ -19,7 +19,7 @@ export default function WatchSection() {
         {/* Image */}
         <div>
           <Image
-            src="/watch.jpg"
+            src="/watch20.jpg"
             alt="watch"
             width={600}
             height={400}
@@ -50,9 +50,10 @@ export default function WatchSection() {
             and can help anyone master long term health goals.
           </p>
 
-          <button className="bg-[#c2a45f] text-white px-8 py-3 tracking-widest text-sm hover:bg-[#a88d4c] transition">
+          <button className="bg-[#c2a45f] text-white px-8 py-3 tracking-widest text-sm hover:bg-[#a88d4c] transition cursor-pointer">
             SHOP NOW
           </button>
+          
 
         </div>
 
