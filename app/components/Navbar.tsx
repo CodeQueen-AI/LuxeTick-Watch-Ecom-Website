@@ -4,7 +4,6 @@ import { BsCart3 } from "react-icons/bs";
 export default function Page() {
   return (
     <>
-      {/* Google Fonts */}
       <style>
         {`
         @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
@@ -42,8 +41,8 @@ export default function Page() {
 
         {/* Logo */}
         <h1
-          className="text-5xl text-white tracking-tight"
-          style={{ fontFamily: "'Allura', cursive" }}
+          className="text-5xl text-white tracking-tight allura"
+          
         >
           Omega
         </h1>
