@@ -33,7 +33,7 @@ export default function WatchBanner() {
         </div>
         <div className="flex justify-center">
           <Image
-            src="/watch21.png"
+            src="/watch/w18.png"
             width={420}
             height={420}
             alt="watch"/>
