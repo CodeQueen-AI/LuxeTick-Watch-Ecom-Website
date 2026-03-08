@@ -21,7 +21,7 @@ export default function RacingSection() {
         </div>
         <div className="relative h-[500px] lg:h-auto">
           <Image
-            src="/Banner/B1.webp"
+            src="/Imges/Img8.webp"
             alt="watch"
             fill
             className="object-cover"/>
