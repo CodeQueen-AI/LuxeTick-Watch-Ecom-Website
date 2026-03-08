@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function DiscoverSection() {
   const items = [
-    { title: "MEN", img: "/Banner/D1.avif" },
-    { title: "WOMEN", img: "/Banner/D2.avif" },
-    { title: "JAZZMASTER", img: "/Banner/D3.avif" },
-    { title: "AUTOMATIC", img: "/Banner/D4.avif" },
-    { title: "KHAKKI NAVY", img: "/Banner/D5.webp" },
-    { title: "PILOT", img: "/Banner/D6.avif" },
+    { title: "MEN", img: "/Discover/D1.avif" },
+    { title: "WOMEN", img: "/Discover/D2.avif" },
+    { title: "JAZZMASTER", img: "/Discover/D3.avif" },
+    { title: "AUTOMATIC", img: "/Discover/D4.avif" },
+    { title: "KHAKKI NAVY", img: "/Discover/D5.webp" },
+    { title: "PILOT", img: "/Discover/D6.avif" },
   ];
 
   return (
