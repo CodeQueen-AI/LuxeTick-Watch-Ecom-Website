@@ -6,7 +6,7 @@ export default function SmartWatchSection() {
     <div className="w-full min-h-screen flex flex-col md:flex-row bg-[#09162c] poppins">
       <div className="w-full md:w-1/2 h-80 md:h-auto relative">
         <Image
-          src="/watch9.jpg" 
+          src="/watch/w11.jpg" 
           alt="Smart Watch"
           width={900}
           height={900}/>
