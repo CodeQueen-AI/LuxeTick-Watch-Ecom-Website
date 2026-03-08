@@ -13,7 +13,7 @@ const allura = Allura({
 
 export default function WatchSection() {
   return (
-    <section className={`bg-gray-100 py-20 ${poppins.className}`}>
+    <section className={`py-20 ${poppins.className}`}>
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         {/* Image */}
@@ -21,9 +21,8 @@ export default function WatchSection() {
           <Image
             src="/watch20.jpg"
             alt="watch"
-            width={600}
-            height={400}
-            className="w-full rounded"
+            width={400}
+            height={200}
           />
         </div>
 
