@@ -4,15 +4,15 @@ export default function Collections() {
   const watches = [
     {
       title: "ANATOM",
-      img: "/imgs/Img1.avif",
+      img: "/Imges/Img1.avif",
     },
     {
       title: "CENTRIX",
-      img: "/imgs/Img2.avif",
+      img: "/Imges/Img2.avif",
     },
     {
       title: "TRUE SQUARE",
-      img: "/imgs/Img3.avif",
+      img: "/Imges/Img3.avif",
     },
   ];
   return (
