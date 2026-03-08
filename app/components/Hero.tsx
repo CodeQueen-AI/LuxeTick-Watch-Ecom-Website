@@ -5,7 +5,7 @@ export default function HomePage() {
     <section className="w-full h-[85vh] relative flex poppins">
       <div className="w-1/2 bg-[#09162c] flex flex-col items-center justify-start pt-8 gap-4">
         <Image
-          src="/watch/watch1.png"
+          src="/watch/w1.png"
           alt="left image"
           width={220}
           height={220}
@@ -16,7 +16,7 @@ export default function HomePage() {
       </div>
       <div className="w-1/2 bg-white flex flex-col items-center justify-start pt-8 gap-4">
         <Image
-          src="/watch/watch2.png"
+          src="/watch/w2.png"
           alt="right image"
           width={220}
           height={220}
@@ -27,7 +27,7 @@ export default function HomePage() {
       </div>
       <div className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2">
         <Image
-          src="/watch/watch3.png"
+          src="/watch/w3.png"
           alt="center image"
           width={220}
           height={220}

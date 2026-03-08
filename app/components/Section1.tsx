@@ -1,10 +1,10 @@
 import Image from "next/image";
 export default function WatchSection() {
   const products = [
-    { name: "Tatum", price: "Rs.131,596.80", img: "/watch/watch4.webp" },
-    { name: "Theo", price: "Rs.43,078.77", img: "/watch/watch5.webp" },
-    { name: "Xavier", price: "Rs.88,321.32", img: "/watch/watch6.webp" },
-    { name: "Pro-mariner", price: "Rs.302,731.64", img: "/watch/watch7.webp" },
+    { name: "Tatum", price: "Rs.131,596.80", img: "/watch/w4.webp" },
+    { name: "Theo", price: "Rs.43,078.77", img: "/watch/w5.webp" },
+    { name: "Xavier", price: "Rs.88,321.32", img: "/watch/w6.webp" },
+    { name: "Pro-mariner", price: "Rs.302,731.64", img: "/watch/w7.webp" },
   ];
   return (
     <section className="py-12 poppins">
