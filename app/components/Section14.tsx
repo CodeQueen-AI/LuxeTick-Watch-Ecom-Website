@@ -3,10 +3,10 @@
 export default function Collection() {
   return (
     <section className="py-20">
-      <h1 className="text-center text-7xl font-semibold mb-12 allura">
+      <h1 className="text-center text-7xl font-extralight mb-12 allura">
         Collection
       </h1>
-      <div className="w-[70%] mx-auto grid grid-cols-3 gap-5">
+      <div className="w-[70%] mx-auto grid grid-cols-3 gap-5 cursor-pointer">
         <div className="relative h-[450px] bg-[url('/watch/w20.jpg')] bg-cover bg-center group">
           <Overlay name="Rado" />
         </div>
