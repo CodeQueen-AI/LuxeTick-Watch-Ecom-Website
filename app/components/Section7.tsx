@@ -7,26 +7,13 @@ import { GrUndo } from "react-icons/gr";
 export default function Features() {
   return (
     <section className="w-full py-16">
-      {/* Google Font */}
-      <style>
-        {`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-        .poppins{
-          font-family:'Poppins', sans-serif;
-        }
-        `}
-      </style>
       <div className="max-w-7xl mx-auto grid grid-cols-4 text-center gap-12 px-6 poppins">
-
         {/* Feature 1 */}
         <div>
           <TbTruckDelivery className="text-4xl mx-auto mb-4" />
-
           <h3 className="text-lg font-semibold">
             Free Shipping
           </h3>
-
           <p className="text-gray-600 mt-1">
             All over Pakistan
           </p>
@@ -35,11 +22,9 @@ export default function Features() {
         {/* Feature 2 */}
         <div>
           <IoPricetagsOutline className="text-4xl mx-auto mb-4" />
-
           <h3 className="text-lg font-semibold">
             Brand Authenticity
           </h3>
-
           <p className="text-gray-600 mt-1">
             100% Genuine Products
           </p>
@@ -48,11 +33,9 @@ export default function Features() {
         {/* Feature 3 */}
         <div>
           <GrUndo className="text-4xl mx-auto mb-4" />
-
           <h3 className="text-lg font-semibold">
             Buy Now Pay Later
           </h3>
-
           <p className="text-gray-600 mt-1">
             10 month interest free payment options
           </p>
@@ -61,18 +44,14 @@ export default function Features() {
         {/* Feature 4 */}
         <div>
           <FaRegStar className="text-4xl mx-auto mb-4" />
-
           <h3 className="text-lg font-semibold">
             5 star Google Rating
           </h3>
-
           <p className="text-gray-600 mt-1">
             1000+ reviews
           </p>
         </div>
-
       </div>
-
     </section>
   );
 }
