@@ -8,6 +8,8 @@ import Sec5 from './components/Sec5'
 import Sec6 from './components/Sec6'
 import Sec7 from './components/Sec7'
 import Sec8 from './components/Sec8'
+import Sec9 from './components/Sec9'
+import Sec10 from './components/Sec10'
 import Section1 from './components/Section1'
 import Section2 from './components/Section2'
 import Section8 from './components/Section8'
@@ -29,6 +31,8 @@ export default function Page() {
     <Sec6/>
     <Sec7/>
     <Sec8/>
+    <Sec9/>
+    <Sec10/>
     <Section1/>
     <Section2/>
     <Section8/>
