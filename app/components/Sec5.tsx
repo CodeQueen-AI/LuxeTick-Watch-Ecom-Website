@@ -1,5 +1,5 @@
 "use client";
-export default function Hero() {
+export default function sec() {
   return (
     <section className="w-full overflow-hidden poppins">
       <div className="max-w-9xl mx-auto px-6 py-12 relative">
