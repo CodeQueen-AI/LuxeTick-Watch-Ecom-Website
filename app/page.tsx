@@ -1,4 +1,3 @@
-import Navbar from './components/Navbar'
 import Home from './components/Hero'
 import Sec1 from './components/Sec1'
 import Sec2 from './components/Sec2'
@@ -15,11 +14,9 @@ import Sec12 from './components/Sec12'
 import Sec13 from './components/Sec13'
 import Sec14 from './components/Sec14'
 import Sec15 from './components/Sec15'
-import Footer from './components/footer'
 export default function Page() {
   return (
     <div>
-    <Navbar/>
     <Home/>
     <Sec1/>
     <Sec2/>
@@ -36,7 +33,6 @@ export default function Page() {
     <Sec13/>
     <Sec14/>
     <Sec15/>
-    <Footer/>
     </div>
   );
 }
