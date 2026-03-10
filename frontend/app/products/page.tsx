@@ -5,13 +5,13 @@ import Link from "next/link";
 
 const products = [
   { id: 1, name: "Classic Watch", price: "$250", img: "/products/p1.jpg" },
-  { id: 2, name: "Luxury Gold", price: "$450", img: "/products/p1.jpg" },
-  { id: 3, name: "Sporty Chrono", price: "$300", img: "/products/p1.jpg" },
-  { id: 4, name: "Elegant Black", price: "$350", img: "/products/p1.jpg" },
-  { id: 5, name: "Classic Watch", price: "$250", img: "/products/p1.jpg" },
-  { id: 6, name: "Luxury Gold", price: "$450", img: "/products/p1.jpg" },
-  { id: 7, name: "Sporty Chrono", price: "$300", img: "/products/p1.jpg" },
-  { id: 8, name: "Elegant Black", price: "$350", img: "/products/p1.jpg" },
+  { id: 2, name: "Luxury Gold", price: "$450", img: "/products/p2.jpg" },
+  { id: 3, name: "Sporty Chrono", price: "$300", img: "/products/p3.jpg" },
+  { id: 4, name: "Elegant Black", price: "$350", img: "/products/p4.jpg" },
+  { id: 5, name: "Classic Watch", price: "$250", img: "/products/p5.jpg" },
+  { id: 6, name: "Luxury Gold", price: "$450", img: "/products/p6.jpg" },
+  { id: 7, name: "Sporty Chrono", price: "$300", img: "/products/p7.jpg" },
+  { id: 8, name: "Elegant Black", price: "$350", img: "/products/p8.jpg" },
 ];
 export default function ProductsPage() {
   return (
@@ -47,7 +47,7 @@ export default function ProductsPage() {
               >
                 View
               </Link>
-              <span className="font-semibold text-3xl">{product.price}</span>
+              <span className="font-medium font-serif text-3xl">{product.price}</span>
             </div>
 
           </div>
