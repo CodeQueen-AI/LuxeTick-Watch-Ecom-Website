@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { FiMinus } from "react-icons/fi";
-import { useCart } from '../Context/cartcontext';
+import { useCart } from '../Context/cartcontext'
 import Image from "next/image";
 import { loadStripe } from "@stripe/stripe-js";
 
