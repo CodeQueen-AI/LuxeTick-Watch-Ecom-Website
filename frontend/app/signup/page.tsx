@@ -1,8 +1,14 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function SignupPage() {
+
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <section className="w-full min-h-screen flex poppins">
 
@@ -33,18 +39,29 @@ export default function SignupPage() {
           </div>
 
           {/* Password */}
-          <div className="mb-10">
+          <div className="mb-10 relative">
             <label className="text-sm">Password</label>
+
             <input
-              type="password"
-              className="w-full border-b border-black outline-none py-2"
+              type={showPassword ? "text" : "password"}
+              className="w-full border-b border-black outline-none py-2 pr-8"
             />
+
+            {/* Eye Icon */}
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-0 bottom-3 cursor-pointer text-lg"
+            >
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            </span>
           </div>
 
-          {/* Button */}
-          <button className="w-48 bg-black text-white border border-white py-3 hover:bg-white hover:text-black hover:border-black transition cursor-pointer">
-            Sign Up
-          </button>
+          {/* Button Center */}
+          <div className="flex justify-center">
+            <button className="w-48 bg-black text-white border border-white py-3 hover:bg-white hover:text-black hover:border-black transition cursor-pointer">
+              Sign Up
+            </button>
+          </div>
 
           {/* Login Link */}
           <p className="text-sm mt-6 text-center">
