@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const products = [
-  { id: 1, name: "Classic Watch", price: "$250", img: "/products/p1.jpg" },
-  { id: 2, name: "Luxury Gold", price: "$450", img: "/products/p2.jpg" },
-  { id: 3, name: "Sporty Chrono", price: "$300", img: "/products/p3.jpg" },
-  { id: 4, name: "Elegant Black", price: "$350", img: "/products/p4.jpg" },
-  { id: 5, name: "Classic Watch", price: "$250", img: "/products/p5.jpg" },
-  { id: 6, name: "Luxury Gold", price: "$450", img: "/products/p6.jpg" },
-  { id: 7, name: "Sporty Chrono", price: "$300", img: "/products/p7.jpg" },
-  { id: 8, name: "Elegant Black", price: "$350", img: "/products/p8.jpg" },
+  { id: 1, name: "Black Leather", price: "$250", img: "/products/p1.jpg" },
+  { id: 2, name: "Rose Gold", price: "$350", img: "/products/p2.jpg" },
+  { id: 3, name: "White Dial", price: "$200", img: "/products/p3.jpg" },
+  { id: 4, name: "Silver Chrono", price: "$450", img: "/products/p4.jpg" },
+  { id: 5, name: "Rose Slim", price: "$350", img: "/products/p5.jpg" },
+  { id: 6, name: "Black Steel", price: "$450", img: "/products/p6.jpg" },
+  { id: 7, name: "Gold Bracelet", price: "$380", img: "/products/p7.jpg" },
+  { id: 8, name: "Brown Leather", price: "$220", img: "/products/p8.jpg" },
 ];
 export default function ProductsPage() {
   return (
