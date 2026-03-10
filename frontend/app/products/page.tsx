@@ -8,6 +8,10 @@ const products = [
   { id: 2, name: "Luxury Gold", price: "$450", img: "/products/p1.jpg" },
   { id: 3, name: "Sporty Chrono", price: "$300", img: "/products/p1.jpg" },
   { id: 4, name: "Elegant Black", price: "$350", img: "/products/p1.jpg" },
+  { id: 5, name: "Classic Watch", price: "$250", img: "/products/p1.jpg" },
+  { id: 6, name: "Luxury Gold", price: "$450", img: "/products/p1.jpg" },
+  { id: 7, name: "Sporty Chrono", price: "$300", img: "/products/p1.jpg" },
+  { id: 8, name: "Elegant Black", price: "$350", img: "/products/p1.jpg" },
 ];
 export default function ProductsPage() {
   return (
