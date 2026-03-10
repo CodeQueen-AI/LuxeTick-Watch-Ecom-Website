@@ -23,43 +23,35 @@ export default function ProductsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
         {products.map((product) => (
-  <div
-    key={product.id}
-    className="relative flex flex-col items-start border border-gray-300 p-4 transition">
+          <div
+            key={product.id}
+            className="flex flex-col items-start border border-gray-300 p-4 transition">
+            
+            {/* Image */}
+            <div className="w-full h-60 relative mb-4">
+              <Image
+                src={product.img}
+                alt={product.name}
+                fill
+                className="object-contain"/>
+            </div>
 
-    {/* Discount Tag for id 1, 4, 7 */}
-    {[1, 4, 7].includes(product.id) && (
-      <span className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded">
-        20% OFF
-      </span>
-    )}
+            {/* Name */}
+            <h2 className="text-xl font-medium mb-2">{product.name}</h2>
 
-    {/* Image */}
-    <div className="w-full h-60 relative mb-4">
-      <Image
-        src={product.img}
-        alt={product.name}
-        fill
-        className="object-contain"
-      />
-    </div>
+            {/* Button + Price */}
+            <div className="flex items-center justify-between w-full mt-auto">
+              <Link
+                href={`/products/${product.id}`}
+                className="px-4 py-1 border border-black bg-black text-white hover:bg-white hover:text-black transition cursor-pointer text-sm"
+              >
+                View
+              </Link>
+              <span className="font-medium font-serif text-3xl">{product.price}</span>
+            </div>
 
-    {/* Name */}
-    <h2 className="text-xl font-medium mb-2">{product.name}</h2>
-
-    {/* Button + Price */}
-    <div className="flex items-center justify-between w-full mt-auto">
-      <Link
-        href={`/products/${product.id}`}
-        className="px-4 py-1 border border-black bg-black text-white hover:bg-white hover:text-black transition cursor-pointer text-sm"
-      >
-        View
-      </Link>
-      <span className="font-medium font-serif text-3xl">{product.price}</span>
-    </div>
-
-  </div>
-))}
+          </div>
+        ))}
 
       </div>
     </section>
