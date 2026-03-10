@@ -3,6 +3,7 @@ import { Poppins, Allura } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer";
+import { CartProvider } from "./Context/cartcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,9 +26,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${allura.variable}`}>
+        <CartProvider>
         <Navbar />
         {children}
         <Footer />
+        </CartProvider>
       </body>
     </html>
   );
