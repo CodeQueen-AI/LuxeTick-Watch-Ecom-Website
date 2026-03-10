@@ -1,5 +1,6 @@
 "use client";
 import { BsCart3 } from "react-icons/bs";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -30,10 +31,11 @@ export default function Page() {
 
         <BsCart3 size={24} className="cursor-pointer" />
 
-        {/* Signup Button */}
-        <button className="border border-black bg-black text-white px-6 py-2 hover:bg-white hover:text-black transition cursor-pointer">
-          SIGN UP
-        </button>
+          <Link href="/signup">
+          <button className="border border-black bg-black text-white px-6 py-2 hover:bg-white hover:text-black transition cursor-pointer">
+            SIGN UP
+          </button>
+        </Link>
 
       </div>
     </nav>
