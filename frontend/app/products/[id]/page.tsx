@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { useCart } from "../../Context/cartcontext";
+import { useCart } from '../../Context/cartcontext'
 
 interface Product {
   id: number;
