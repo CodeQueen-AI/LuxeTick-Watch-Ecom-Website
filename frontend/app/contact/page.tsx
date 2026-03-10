@@ -41,7 +41,6 @@ export default function ContactPage() {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full border-b border-black outline-none py-2"
-                placeholder="Enter your name"
                 required
               />
             </div>
@@ -55,7 +54,6 @@ export default function ContactPage() {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full border-b border-black outline-none py-2"
-                placeholder="Enter your email"
                 required
               />
             </div>
@@ -69,7 +67,6 @@ export default function ContactPage() {
                 onChange={handleChange}
                 className="w-full border-b border-black outline-none py-2 resize-none"
                 rows={4}
-                placeholder="Write your message"
                 required
               />
             </div>
@@ -91,7 +88,7 @@ export default function ContactPage() {
       {/* Right Side Image */}
       <div className="w-1/2 relative">
         <Image
-          src="/watch/w28.jpg" // replace with your premium watch image
+          src="/watch/w29.jpg" // replace with your premium watch image
           alt="contact image"
           fill
           className="object-cover"
