@@ -44,15 +44,8 @@ export default function ProductDetailPage() {
     setTimeout(() => setShowPopup(false), 3000);
   };
 
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-  }, []);
-
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
+    <section className="poppins overflow-hidden">
       <div className="container px-4 md:px-5 py-12 mx-auto">
         <div className="flex flex-col lg:flex-row lg:w-4/5 mx-auto">
           {/* Image */}
@@ -61,13 +54,13 @@ export default function ProductDetailPage() {
               alt={product.name}
               src={product.img}
               fill
-              className="object-contain rounded-lg"
+              className="object-contain"
             />
           </div>
 
           {/* Product Info */}
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-purple-900 font-serif" style={{ fontFamily: "'Dancing Script', cursive" }}>
+            <h1 className="text-7xl font-extralight mb-4 text-blue-950 allura">
               {product.name}
             </h1>
 
@@ -79,8 +72,8 @@ export default function ProductDetailPage() {
 
             {/* Price */}
             <fieldset className="border border-gray-300 rounded-xl px-4 py-3 shadow-sm mb-4">
-              <legend className="text-sm px-2 font-semibold text-gray-500">PRICE</legend>
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">{product.price}</p>
+              <legend className="text-sm px-2 font-semibold ">PRICE</legend>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-serif">{product.price}</p>
             </fieldset>
 
             {/* Quantity + Heart */}
@@ -98,7 +91,7 @@ export default function ProductDetailPage() {
 
             {/* Add to Cart Button */}
             <div className="w-full flex justify-center">
-              <button onClick={handleAddToCart} className="px-12 py-4 border border-white text-white bg-black font-bold hover:bg-white hover:text-black transition rounded">
+              <button onClick={handleAddToCart} className="px-12 py-4 border border-white text-white bg-black font-bold hover:bg-white hover:text-black hover:border-black cursor-pointer transition">
                 Add to Cart
               </button>
             </div>
@@ -106,15 +99,14 @@ export default function ProductDetailPage() {
             {/* Popup */}
             {showPopup && (
               <div className="fixed inset-x-0 top-4 z-[9999] flex justify-center">
-                <div className="relative w-3/4 max-w-md p-4 bg-white/20 backdrop-blur-md border-2 border-purple-600 shadow-lg flex items-center justify-center">
-                  <span className="absolute top-0 left-0 w-full h-1 bg-purple-600 rounded-t-xl"></span>
-                  <span className="text-purple-600 font-semibold text-lg z-10">
+                <div className="relative w-3/4 max-w-md p-4 bg-white/20 backdrop-blur-md border-2 border-black shadow-lg flex items-center justify-center">
+                  <span className="absolute top-0 left-0 w-full h-1 bg-black rounded-t-xl"></span>
+                  <span className="text-black font-semibold text-lg z-10">
                     Added to Cart!
                   </span>
                 </div>
               </div>
             )}
-
           </div>
         </div>
       </div>
