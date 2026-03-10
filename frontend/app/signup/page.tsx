@@ -1,11 +1,10 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SignupPage() {
   return (
-    <section className="w-full min-h-screen flex">
+    <section className="w-full min-h-screen flex poppins">
 
       {/* Left Side Form */}
       <div className="w-1/2 flex items-center justify-center bg-white">
@@ -43,13 +42,13 @@ export default function SignupPage() {
           </div>
 
           {/* Button */}
-          <button className="w-full bg-black text-white border border-white py-3 hover:bg-white hover:text-black hover:border-black transition">
+          <button className="w-48 bg-black text-white border border-white py-3 hover:bg-white hover:text-black hover:border-black transition cursor-pointer">
             Sign Up
           </button>
 
           {/* Login Link */}
           <p className="text-sm mt-6 text-center">
-            Already have an account?{" "}
+            Already have an Account?{" "}
             <Link href="/login" className="font-semibold underline">
               Login
             </Link>
