@@ -35,8 +35,8 @@ const Cart = () => {
     <div className="font-sans container mx-auto p-6">
       <div className="p-10 text-left">
         <div className="flex items-center">
-          <div className="w-2 h-12 bg-purple-800 rounded-full mr-4"></div>
-          <h1 className="text-6xl font-semibold" style={{ fontFamily: "'Dancing Script', cursive" }}>Your Cart</h1>
+          <div className="w-2 h-12 bg-black rounded-full mr-4"></div>
+          <h1 className="text-6xl font-extralight allura" >Your Cart</h1>
         </div>
 
         {cartItems.length === 0 ? (
@@ -97,47 +97,6 @@ const Cart = () => {
                   ))}
                 </tbody>
               </table>
-            </div>
-
-            {/* Mobile View */}
-            <div className="sm:hidden">
-              {cartItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="border rounded-lg mb-4 p-4 flex flex-col items-start bg-gray-50"
-                >
-                  <div className="flex items-center w-full mb-4">
-                    <Image src={item.image} alt={item.name} width={64} height={64} className="rounded-lg mr-4" />
-                    <div>
-                      <h3 className="text-sm font-medium">{item.name}</h3>
-                      <p className="text-sm text-gray-600">${item.price}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-                        className="text-gray-500 focus:outline-none cursor-pointer"
-                      >
-                        <FiMinus />
-                      </button>
-                      <span className="mx-2 text-gray-700">{item.quantity}</span>
-                      <button
-                        onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-                        className="text-gray-500 focus:outline-none cursor-pointer"
-                      >
-                        <GoPlus />
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-red-600 focus:outline-none cursor-pointer"
-                    >
-                      <FaTrash className="h-5 w-5" />
-                    </button>
-                  </div>
-                </div>
-              ))}
             </div>
 
             {/* Checkout Button */}
