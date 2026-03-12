@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+
 export default function WatchSection() {
   return (
     <section className="py-20 poppins">
@@ -19,18 +21,20 @@ export default function WatchSection() {
             As You
           </h1>
           <p className="text-gray-600 leading-relaxed">
-            With more than 10 years experience in the field, Withings
-            invents, designs, and new entry manufactures a range of
-            award-winning.
+            With more than 10 years experience in the field Withings
+            invents designs and new entry manufactures a range of
+            award-winning
           </p>
           <p className="text-gray-600 leading-relaxed">
             Come clinically validated smart health devices and
-            associated apps. Withings provides an the comfort of home,
-            and can help anyone master long term health goals.
+            associated apps Withings provides an the comfort of home
+            and can help anyone master long term health goals
           </p>
+          <Link href="/products">
           <button className="bg-[#c2a45f] text-white px-8 py-3 tracking-widest text-sm hover:bg-[#a88d4c] transition cursor-pointer">
-            SHOP NOW
+            SEE MORE
           </button>
+          </Link>
         </div>
       </div>
     </section>
