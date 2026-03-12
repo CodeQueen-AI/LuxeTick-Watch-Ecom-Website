@@ -1,8 +1,29 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useCart } from "../Context/cartcontext";
 
 export default function SeasonCollection() {
+  const { addToCart } = useCart();
+  const products = [
+    {
+      id: 1,
+      name: "Kenneth Cole New York",
+      price: 5000,
+      image: "/watch/w8.webp",
+    },
+    {
+      id: 2,
+      name: "Lee Cooper",
+      price: 4240,
+      image: "/watch/w9.webp",
+    },
+    {
+      id: 3,
+      name: "Edifice",
+      price: 7600,
+      image: "/watch/w10.webp",
+    },
+  ];
   return (
     <section className="w-full py-20">
       <div className="max-w-7xl mx-auto poppins px-6">
@@ -10,57 +31,31 @@ export default function SeasonCollection() {
           <span className="allura text-6xl">Season Collection</span>
         </h1>
         <div className="grid grid-cols-3 gap-12">
-          <div>
-            <div className="relative w-full h-[420px]">
-              <Image
-                src="/watch/w8.webp"
-                alt="Kenneth Cole"
-                fill
-                className="object-cover cursor-pointer"/>
-            </div>
-            <h2 className="text-2xl mt-6">
-              Kenneth Cole New York
-            </h2>
-          <Link href={"/products"}>
-            <button className="mt-6 border border-gray-400 px-6 py-2 hover:bg-black hover:text-white transition cursor-pointer">
-              Shop Now
-            </button>
-            </Link>
-          </div>
-          <div>
-            <div className="relative w-full h-[420px]">
-              <Image
-                src="/watch/w9.webp"
-                alt="Lee Cooper"
-                fill
-                className="object-cover"/>
-            </div>
-            <h2 className="text-2xl mt-6">
-              Lee Cooper
-            </h2>
-            <Link href={"/products"}>
-            <button className="mt-6 border border-gray-400 px-6 py-2 hover:bg-black hover:text-white transition cursor-pointer">
-              Shop Now
-            </button>
-            </Link>
-          </div>
-          <div>
-            <div className="relative w-full h-[420px]">
-              <Image
-                src="/watch/w10.webp"
-                alt="Edifice"
-                fill
-                className="object-cover"/>
-            </div>
-            <h2 className="text-2xl mt-6">
-              Edifice
-            </h2>
-            <Link href={"/products"}>
-            <button className="mt-6 border border-gray-400 px-6 py-2 hover:bg-black hover:text-white transition cursor-pointer">
-              Shop Now
-            </button>
-            </Link>
-          </div>
+          {products.map((item) => (
+            <div key={item.id}>
+              <div className="relative w-full h-[420px]">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover cursor-pointer"/>
+              </div>
+              <h2 className="text-2xl mt-6">
+                {item.name}
+              </h2>
+              <button
+                onClick={() =>
+                  addToCart({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    image: item.image,
+                    quantity: 1,
+                  })}
+                className="mt-6 border border-gray-400 px-6 py-2 hover:bg-black hover:text-white transition cursor-pointer">
+                Shop Now
+              </button>
+            </div>))}
         </div>
       </div>
     </section>
