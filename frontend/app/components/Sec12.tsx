@@ -7,7 +7,7 @@ export default function WatchSection() {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <Image
-            src="/Imges/Img7.jpg"
+            src="/Imges/Img6.jpg"
             alt="watch"
             width={400}
             height={200}/>
