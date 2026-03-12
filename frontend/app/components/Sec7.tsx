@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Collections() {
   const watches = [
     {
@@ -18,8 +18,8 @@ export default function Collections() {
   return (
     <section className="py-20 px-10 poppins">
       <div className="text-center max-w-2xl mx-auto mb-16">
-        <h2 className="text-4xl">
-          Explore Our <span  className="text-5xl tracking-wide allura">Collections</span>
+        <h2 className="text-5xl font-serif">
+          Explore Our <span  className="text-6xl tracking-wide allura">Collections</span>
         </h2>
         <p className="text-gray-700 mt-5 text-sm leading-relaxed">
           Our watch collection showcases a perfect blend of timeless design and modern craftsmanship
@@ -51,10 +51,12 @@ export default function Collections() {
         ))}
       </div>
       <div className="flex justify-center mt-16">
+        <Link href={"/products"}>
         <button className="border border-black px-8 py-3 text-sm uppercase tracking-widest bg-white
          text-black hover:bg-black hover:text-white transition duration-300 cursor-pointer">
           Discover More
         </button>
+        </Link>
       </div>
     </section>
   );
