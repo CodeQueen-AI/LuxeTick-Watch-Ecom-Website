@@ -14,13 +14,13 @@ export default function Footer() {
             Sign up for our newsletter and receive <br />
             latest updates
           </p>
-          <div className="flex items-center bg-white rounded-lg px-4 py-3 w-[320px]">
+          <div className="flex items-center bg-gray-200 rounded-lg px-3 py-3 w-[270px]">
             <HiOutlineMail className="text-gray-400 text-xl mr-3" />
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 outline-none text-gray-500"/>
-            <IoArrowForward className="text-gray-500 text-xl cursor-pointer" />
+              className="flex-1 outline-none"/>
+            <IoArrowForward className="text-xl cursor-pointer" />
           </div>
         </div>
         <div>
