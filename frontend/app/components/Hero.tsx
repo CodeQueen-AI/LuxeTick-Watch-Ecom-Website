@@ -1,9 +1,8 @@
 import Image from "next/image";
-
 export default function HomePage() {
   return (
-    <section className="w-full h-[85vh] relative flex poppins">
-      <div className="w-1/2 bg-[#09162c] flex flex-col items-center justify-start pt-8 gap-4">
+    <section className="w-full h-[90vh] relative flex poppins">
+      <div className="w-1/2 bg-[#09162c] flex flex-col items-center justify-start pt-1.5 gap-4">
         <Image
           src="/watch/w1.png"
           alt="left image"
@@ -14,7 +13,7 @@ export default function HomePage() {
           Sell
         </button>
       </div>
-      <div className="w-1/2 bg-white flex flex-col items-center justify-start pt-8 gap-4">
+      <div className="w-1/2 bg-white flex flex-col items-center justify-start pt-1.5 gap-4">
         <Image
           src="/watch/w2.png"
           alt="right image"
