@@ -2,6 +2,7 @@
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Image from "next/image";
 import { useCart } from "../Context/cartcontext";
+import Link from "next/link";
 
 export default function CartDrawer({ isOpen, setIsOpen }) {
   const { cartItems, removeFromCart } = useCart();
@@ -99,10 +100,13 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
 
           <hr className="my-6" />
 
+          
           <div className="flex gap-3">
+            <Link href="/Cart">
   <button className="flex-1 border rounded-full py-3 px-2 text-sm font-semibold hover:bg-black hover:text-white transition">
     Cart
   </button>
+  </Link>
 
   <button className="flex-1 border rounded-full py-2 text-sm font-semibold hover:bg-black hover:text-white transition">
     Checkout
