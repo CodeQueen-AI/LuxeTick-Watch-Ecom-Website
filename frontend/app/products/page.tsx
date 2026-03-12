@@ -240,10 +240,10 @@ export default function ProductsPage() {
       </div> */}
 
       {/* Pagination */}
-<div className="flex justify-center items-center gap-4 mt-16">
+<div className="flex justify-center items-center gap-4 mt-16 ">
   {/* Previous */}
   <button
-    className={`px-4 py-2 border p-3 transition ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"}`}
+    className={`cursor-pointer px-4 py-2 border p-3 transition ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"}`}
     onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
     disabled={currentPage === 1}
   >
@@ -251,11 +251,11 @@ export default function ProductsPage() {
   </button>
 
   {/* Current Page */}
-  <span className="px-4 py-2 border bg-black text-white">{currentPage}</span>
+  <span className="cursor-pointer px-4 py-2 border bg-black text-white">{currentPage}</span>
 
   {/* Next */}
   <button
-    className={`px-4 py-2 border p-3 transition ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"}`}
+    className={`cursor-pointer px-4 py-2 border p-3 transition ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"}`}
     onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
     disabled={currentPage === totalPages}
   >
