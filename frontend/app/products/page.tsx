@@ -854,11 +854,35 @@ export default function ProductsPage() {
                 </Link>
 
                 {/* Tags / Badges */}
-                <div className="absolute top-2 left-2 flex flex-col gap-1">
+                {/* <div className="absolute top-2 left-2 flex flex-col gap-1">
                   {product.inStock && <span className="bg-green-600 text-white text-xs px-2 py-1 rounded">IN STOCK</span>}
                   {product.newArrival && <span className="bg-black text-white text-xs px-2 py-1 rounded">NEW</span>}
                   {product.discount && <span className="bg-red-600 text-white text-xs px-2 py-1 rounded">-{product.discount}%</span>}
-                </div>
+                </div> */}
+
+                {/* Tags / Badges */}
+<div className="absolute top-2 left-2 flex flex-col gap-2">
+  {product.inStock && (
+    <span className="bg-green-100 text-green-800 text-[10px] font-semibold px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-105">
+      IN STOCK
+    </span>
+  )}
+  {/* {product.newArrival && (
+    <span className="bg-black text-white text-[10px] font-semibold px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-105">
+      NEW
+    </span>
+  )} */}
+  {product.newArrival && (
+  <span className="bg-blue-600 text-white text-[10px] font-semibold px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-105">
+    NEW
+  </span>
+)}
+  {product.discount && (
+    <span className="bg-red-100 text-red-700 text-[10px] font-semibold px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-105">
+      -{product.discount}%
+    </span>
+  )}
+</div>
 
                 <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition">
                   <button className="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition"><FiHeart className="text-red-500 text-xl" /></button>
