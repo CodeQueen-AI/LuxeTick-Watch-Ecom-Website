@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FiX } from "react-icons/fi";
+import { IoClose } from "react-icons/io5";
 import { useCart } from "../Context/cartcontext";
 
 export default function CartDrawer({ isOpen, setIsOpen }) {
@@ -36,8 +36,11 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
         <div className="flex justify-between items-center">
           <h2 className="text-3xl font-semibold">Shopping Cart</h2>
 
-          <button onClick={() => setIsOpen(false)}>
-            <FiX size={24} />
+          <button
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-1 text-lg font-medium hover:text-gray-600"
+          >
+            Close <IoClose size={22} />
           </button>
         </div>
 
@@ -48,18 +51,19 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between items-center gap-4"
+              className="flex justify-between items-center"
             >
-              <div className="flex items-center gap-4">
+              {/* Image + Text */}
+              <div className="flex items-center gap-5 ml-2">
                 <Image
                   src={item.image}
                   alt={item.name}
-                  width={80}
-                  height={80}
+                  width={85}
+                  height={85}
                   className="rounded-xl object-cover"
                 />
 
-                <div className="flex flex-col">
+                <div className="flex flex-col justify-center">
                   <p className="text-lg font-medium">{item.name}</p>
 
                   <p className="text-gray-600 text-sm">
@@ -71,18 +75,21 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
                 </div>
               </div>
 
+              {/* remove */}
               <button
                 onClick={() => removeFromCart(item.id)}
-                className="bg-gray-200 hover:bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center"
+                className="text-gray-500 hover:text-black"
               >
-                <FiX size={16} />
+                <IoClose size={20} />
               </button>
             </div>
           ))}
         </div>
 
         {/* Subtotal */}
-        <div className="mt-8">
+        <div className="mt-6">
+          <hr className="mb-4" />
+
           <div className="flex justify-between text-lg font-medium">
             <span>Subtotal</span>
 
@@ -101,10 +108,6 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
 
             <button className="w-full border rounded-full py-3 font-semibold hover:bg-black hover:text-white transition">
               Checkout
-            </button>
-
-            <button className="w-full border rounded-full py-3 font-semibold hover:bg-black hover:text-white transition">
-              Comparison
             </button>
           </div>
         </div>
