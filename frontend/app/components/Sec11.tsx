@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 export default function WatchOffer() {
   return (
     <section
@@ -11,9 +12,11 @@ export default function WatchOffer() {
         <h3 className="text-white text-3xl mt-3 font-medium">
           Special Collection
         </h3>
+        <Link href={"/products"}>
         <button className="mt-6 px-8 py-4 bg-[#e8cfa8] text-white text-lg hover:scale-110 transition duration-500">
           Shop Now
         </button>
+        </Link>
       </div>
     </section>
   );
