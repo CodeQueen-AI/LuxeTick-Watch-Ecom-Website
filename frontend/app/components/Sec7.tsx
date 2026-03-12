@@ -47,7 +47,6 @@ export default function Collections() {
               <span>Discover</span>
               <div className="w-8 h-[1px] bg-black"></div>
             </div>
-
           </div>
         ))}
       </div>
