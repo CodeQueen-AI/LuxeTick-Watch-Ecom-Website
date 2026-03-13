@@ -195,12 +195,41 @@ export default function ProductsPage() {
 
         {/* Products Grid */}
         <div className={`grid gap-8 flex-1 transition-all duration-500 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`}>
-          {currentProducts.map((product) => (
-            <div key={product.id} className="border p-5 hover:shadow-lg transition relative flex flex-col justify-between">
+          {/* {currentProducts.map((product) => (
+            <div key={product.id} className="border p-5 hover:shadow-lg transition relative flex flex-col justify-between"> */}
+            {currentProducts.map((product) => (
+  <div
+    key={product.id}
+    className={`border p-5 hover:shadow-lg transition relative flex flex-col justify-between 
+    ${product.outofstock ? "opacity-50 pointer-events-none" : ""}`}
+  >
 
               <div className="relative h-64 w-full bg-gray-100 group cursor-pointer">
 
-                
+                {/* Product Tags */}
+<div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
+
+  {product.outofstock && (
+    <span className="text-[10px] px-2 py-[3px] rounded-full bg-gray-700 text-white font-medium shadow">
+      Out Of Stock
+    </span>
+  )}
+
+  {product.discount && (
+    <span className="text-[10px] px-2 py-[3px] rounded-full bg-red-500 text-white font-medium shadow">
+      {product.discount}% OFF
+    </span>
+  )}
+
+  {product.new && (
+    <span className="text-[10px] px-2 py-[3px] rounded-full bg-blue-500 text-white font-medium shadow">
+      New Arrival
+    </span>
+  )}
+
+</div>
+
+
 
                 <Link href={`/products/${product.id}`}>
                   <Image src={product.img} alt={product.name} fill className="object-contain" />
