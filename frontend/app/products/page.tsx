@@ -201,7 +201,7 @@ export default function ProductsPage() {
   <div
     key={product.id}
     className={`border p-5 hover:shadow-lg transition relative flex flex-col justify-between 
-    ${product.outofstock ? "opacity-50" : ""}`}
+    ${product.outofstock ? "opacity-50 pointer-events-none" : ""}`}
   >
 
     <div className="relative h-64 w-full bg-gray-100 group cursor-pointer overflow-hidden">
@@ -229,7 +229,11 @@ export default function ProductsPage() {
 
       </div>
 
-      <Link href={`/products/${product.id}`}>
+      {/* Product Image */}
+      <Link
+        href={`/products/${product.id}`}
+        className={product.outofstock ? "pointer-events-none" : ""}
+      >
         <Image
           src={product.img}
           alt={product.name}
@@ -239,15 +243,17 @@ export default function ProductsPage() {
       </Link>
 
       {/* Heart & Cart Icons */}
-      <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition">
+      <div
+        className={`absolute top-2 right-2 flex flex-col gap-2 transition
+          ${product.outofstock ? "opacity-0" : "opacity-0 group-hover:opacity-100"}`}
+      >
         <button className="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition cursor-pointer">
           <FiHeart className="text-red-500 text-xl" />
         </button>
 
         <button
           onClick={() => handleAddCart(product)}
-          disabled={product.outofstock}
-          className="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition cursor-pointer disabled:opacity-40"
+          className="bg-white p-3 rounded-full shadow hover:bg-gray-200 transition cursor-pointer"
         >
           <BsCart3 className="text-gray-800 text-xl" />
         </button>
@@ -258,7 +264,10 @@ export default function ProductsPage() {
     <h3 className="text-lg mt-4 font-semibold">{product.name}</h3>
 
     <div className="mt-2 flex justify-between items-center">
-      <Link href={`/products/${product.id}`}>
+      <Link
+        href={`/products/${product.id}`}
+        className={product.outofstock ? "pointer-events-none" : ""}
+      >
         <button className="bg-black text-white px-6 py-2 border border-black hover:bg-white hover:text-black transition font-medium cursor-pointer">
           View
         </button>
