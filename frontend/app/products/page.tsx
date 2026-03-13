@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -172,7 +171,7 @@ export default function ProductsPage() {
 
             {/* Tags */}
             <div className="flex gap-2 mb-4 flex-wrap">
-              <span onClick={() => toggleTagFilter("discount")} className={`cursor-pointer px-2 py-1 text-[11px] rounded-full font-medium transition shadow-sm ${tagFilters.discount ? "bg-red-500 text-white" : "bg-gray-100 text-gray-700 hover:bg-red-200"}`}>Discount</span>
+              <span onClick={() => toggleTagFilter("discount")} className={`cursor-pointer px-2 py-1 text-[11px] rounded-full font-medium transition shadow-sm ${tagFilters.discount ? "bg-green-700 text-white" : "bg-gray-100 text-gray-700 hover:bg-red-200"}`}>Discount</span>
               <span onClick={() => toggleTagFilter("newArrival")} className={`cursor-pointer px-2 py-1 text-[11px] rounded-full font-medium transition shadow-sm ${tagFilters.newArrival ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-700 hover:bg-blue-200"}`}>New Arrival</span>
               <span onClick={() => toggleTagFilter("outOfStock")} className={`cursor-pointer px-2 py-1 text-[11px] rounded-full font-medium transition shadow-sm ${tagFilters.outOfStock ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-700 hover:text-white"}`}>Out of Stock</span>
             </div>
@@ -219,7 +218,7 @@ export default function ProductsPage() {
             ))}
 
             {/* Apply button for other filters */}
-            <button className="w-full bg-black text-white py-3 mt-4" onClick={applyFilters}>APPLY</button>
+            <button className="w-full bg-black text-white py-3 mt-4 cursor-pointer" onClick={applyFilters}>APPLY</button>
           </div>
         </div>
 
@@ -231,7 +230,7 @@ export default function ProductsPage() {
                 <div className="absolute top-2 left-2 flex flex-col gap-1 z-50">
                   {product.outofstock && <span className="text-[10px] font-medium px-2 py-[2px] rounded-full bg-gray-800 text-white shadow-sm uppercase tracking-wide">Out Of Stock</span>}
                   {product.discount && <span className="text-[10px] font-medium px-2 py-[2px] rounded-full bg-red-500 text-white shadow-sm uppercase tracking-wide">{product.discount}% OFF</span>}
-                  {product.new && <span className="text-[10px] font-medium px-2 py-[2px] rounded-full bg-blue-500 text-white shadow-sm uppercase tracking-wide">New Arrival</span>}
+                  {product.new && <span className="text-[10px] font-medium px-2 py-[2px] rounded-full bg-green-500 text-white shadow-sm uppercase tracking-wide">New</span>}
                 </div>
 
                 <Link href={`/products/${product.id}`} className={product.outofstock ? "pointer-events-none" : ""}>
