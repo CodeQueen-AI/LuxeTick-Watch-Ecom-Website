@@ -99,14 +99,31 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
 
           <hr className="my-6 text-gray-300" />
 
+
 <div className="flex gap-4 justify-center">
   <Link href="/Cart" className="flex-1">
-    <button className="w-full py-4 text-sm font-semibold border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all cursor-pointer">
+    <button
+      onClick={() => {
+        // Smoothly close drawer before navigating
+        setIsOpen(false);
+      }}
+      className="w-full py-4 text-sm font-semibold border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all cursor-pointer"
+    >
       Cart
     </button>
   </Link>
 
-  <button className="flex-1 w-full py-4 text-sm font-semibold border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all cursor-pointer">
+  <button
+    onClick={() => {
+      // Smoothly close drawer, then trigger checkout
+      setIsOpen(false);
+      setTimeout(() => {
+        // place your checkout logic here, e.g. redirect
+        console.log("Checkout triggered");
+      }, 300); // 300ms delay matches CSS transition
+    }}
+    className="flex-1 w-full py-4 text-sm font-semibold border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all cursor-pointer"
+  >
     Checkout
   </button>
 </div>
@@ -116,3 +133,33 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
