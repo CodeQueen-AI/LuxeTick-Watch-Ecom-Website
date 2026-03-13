@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import CartDrawer from "../cartdraw/page";
+import CartDrawer from "../Cart/cartdrawer"
 import { useCart } from "../Context/cartcontext";
 import { useWishlist } from "../Context/wishlistcontext"; 
 import { BsCart3 } from "react-icons/bs";
