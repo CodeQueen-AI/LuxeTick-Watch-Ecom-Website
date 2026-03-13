@@ -12,33 +12,33 @@ const productsData = [
   { id: 9, name: "Black Leather", brand: "Rolex", color: "Black", price: 250, strap: "Leather", category: "Luxury", gender: "Men", img: "/products/p1.jpg" , new: true},
   { id: 10, name: "Rose Gold", brand: "Casio", color: "Rose Gold", price: 350, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p2.jpg" },
   { id: 11, name: "White Dial", brand: "Fossil", color: "White", price: 200, strap: "Silicone", category: "Sport", gender: "Men", img: "/products/p3.jpg" },
-  { id: 12, name: "Silver Chrono", brand: "Seiko", color: "Silver", price: 450, strap: "Metal", category: "Smart Watch", gender: "Women", img: "/products/p4.jpg" , instock : true },
-  { id: 13, name: "Rose Slim", brand: "Casio", color: "Rose", price: 350, strap: "Leather", category: "Classic", gender: "Women", img: "/products/p5.jpg" , discount : "20%"},
+  { id: 12, name: "Silver Chrono", brand: "Seiko", color: "Silver", price: 450, strap: "Metal", category: "Smart Watch", gender: "Women", img: "/products/p4.jpg" , outofstock: true },
+  { id: 13, name: "Rose Slim", brand: "Casio", color: "Rose", price: 350, strap: "Leather", category: "Classic", gender: "Women", img: "/products/p5.jpg" , discount : 20},
   { id: 14, name: "Black Steel", brand: "Rolex", color: "Black", price: 450, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p6.jpg" },
   { id: 15, name: "Blue Sport", brand: "Omega", color: "Blue", price: 500, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p9.jpg" },
-  { id: 16, name: "Pink Elegance", brand: "Tag Heuer", color: "Pink", price: 450, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p10.jpg" , discount : "5%"},
+  { id: 16, name: "Pink Elegance", brand: "Tag Heuer", color: "Pink", price: 450, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p10.jpg" , discount : 5},
   { id: 17, name: "Gold Master", brand: "Rolex", color: "Gold", price: 650, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p11.jpg" },
   { id: 18, name: "Red Dial Classic", brand: "Seiko", color: "Red", price: 320, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p12.jpg" , new: true},
   { id: 19, name: "Silver Minimal", brand: "Casio", color: "Silver", price: 210, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p13.jpg" },
   { id: 20, name: "Gold Shine", brand: "Fossil", color: "Gold", price: 380, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p14.jpg" },
-  { id: 21, name: "Rose Beauty", brand: "Fossil", color: "Rose Gold", price: 340, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p15.jpg", instock : true },
+  { id: 21, name: "Rose Beauty", brand: "Fossil", color: "Rose Gold", price: 340, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p15.jpg", outofstock: true  },
   { id: 22, name: "Black Steel Pro", brand: "Casio", color: "Black", price: 410, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p16.jpg" },
   { id: 23, name: "Green Field", brand: "Seiko", color: "Green", price: 300, strap: "Nylon", category: "Sport", gender: "Men", img: "/products/p17.jpg" },
   { id: 24, name: "Rose Classic", brand: "Fossil", color: "Rose Gold", price: 360, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p18.jpg", new: true },
   { id: 25, name: "Black Diver", brand: "Rolex", color: "Black", price: 700, strap: "Rubber", category: "Sport", gender: "Men", img: "/products/p19.jpg" },
-  { id: 26, name: "Diamond Lady", brand: "Tag Heuer", color: "Silver", price: 520, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p20.jpg", discount : "10%" },
+  { id: 26, name: "Diamond Lady", brand: "Tag Heuer", color: "Silver", price: 520, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p20.jpg", discount : 10 },
   { id: 27, name: "Golden Charm", brand: "Rolex", color: "Gold", price: 620, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p21.jpg" },
   { id: 28, name: "Steel Chrono", brand: "Seiko", color: "Silver", price: 410, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p22.jpg" },
-  { id: 29, name: "Black Tactical", brand: "Casio", color: "Black", price: 290, strap: "Rubber", category: "Sport", gender: "Men", img: "/products/p23.jpg", instock : true },
+  { id: 29, name: "Black Tactical", brand: "Casio", color: "Black", price: 290, strap: "Rubber", category: "Sport", gender: "Men", img: "/products/p23.jpg", outofstock: true  },
   { id: 30, name: "Blue Royal", brand: "Omega", color: "Blue", price: 540, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p24.jpg" },
   { id: 31, name: "Golden Chrono", brand: "Rolex", color: "Gold", price: 680, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p25.jpg" },
   { id: 32, name: "Blue Mesh", brand: "Fossil", color: "Blue", price: 260, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p26.jpg" },
   { id: 33, name: "Skeleton Dial", brand: "Tag Heuer", color: "Brown", price: 590, strap: "Leather", category: "Luxury", gender: "Men", img: "/products/p27.jpg" , new: true},
   { id: 34, name: "Brown Classic", brand: "Seiko", color: "Brown", price: 370, strap: "Leather", category: "Classic", gender: "Men", img: "/products/p28.jpg" },
-  { id: 35, name: "Sport Racer", brand: "Casio", color: "Blue", price: 330, strap: "Leather", category: "Sport", gender: "Men", img: "/products/p29.jpg", discount : "15%" },
+  { id: 35, name: "Sport Racer", brand: "Casio", color: "Blue", price: 330, strap: "Leather", category: "Sport", gender: "Men", img: "/products/p29.jpg", discount : 15 },
   { id: 36, name: "Golden Edge", brand: "Rolex", color: "Gold", price: 640, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p30.jpg" },
   { id: 37, name: "Silver Pro", brand: "Omega", color: "Silver", price: 470, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p31.jpg" },
-  { id: 38, name: "Rose Mini", brand: "Fossil", color: "Rose Gold", price: 310, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p32.jpg", instock : true },
+  { id: 38, name: "Rose Mini", brand: "Fossil", color: "Rose Gold", price: 310, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p32.jpg",outofstock: true  },
   { id: 39, name: "Steel Classic", brand: "Seiko", color: "Silver", price: 420, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p33.jpg" },
   { id: 40, name: "Beige Fashion", brand: "Casio", color: "Beige", price: 280, strap: "Fabric", category: "Classic", gender: "Women", img: "/products/p34.jpg" },
   { id: 41, name: "Black Gold Mix", brand: "Rolex", color: "Black", price: 610, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p35.jpg" },
@@ -200,28 +200,7 @@ export default function ProductsPage() {
 
               <div className="relative h-64 w-full bg-gray-100 group cursor-pointer">
 
-                {/* Product Tags */}
-<div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
-
-  {product.instock && (
-    <span className="text-[10px] px-2 py-[2px] rounded-full bg-green-500 text-white font-medium shadow">
-      In Stock
-    </span>
-  )}
-
-  {product.discount && (
-    <span className="text-[10px] px-2 py-[2px] rounded-full bg-red-500 text-white font-medium shadow">
-      {product.discount} OFF
-    </span>
-  )}
-
-  {product.new && (
-    <span className="text-[10px] px-2 py-[2px] rounded-full bg-blue-500 text-white font-medium shadow">
-      New Arrival
-    </span>
-  )}
-
-</div>
+                
 
                 <Link href={`/products/${product.id}`}>
                   <Image src={product.img} alt={product.name} fill className="object-contain" />
