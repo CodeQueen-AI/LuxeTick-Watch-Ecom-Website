@@ -20,41 +20,41 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 9, name: "Black Leather", brand: "Rolex", color: "Black", price: 250, strap: "Leather", category: "Luxury", gender: "Men", img: "/products/p1.jpg", description: "Classic black leather watch with a timeless design." },
-  { id: 10, name: "Rose Gold", brand: "Casio", color: "Rose Gold", price: 350, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p2.jpg", description: "Elegant rose gold watch perfect for formal occasions.", new: true },
-  { id: 11, name: "White Dial", brand: "Fossil", color: "White", price: 200, strap: "Silicone", category: "Sport", gender: "Men", img: "/products/p3.jpg", description: "Sporty white dial watch with comfortable silicone strap." },
-  { id: 12, name: "Silver Chrono", brand: "Seiko", color: "Silver", price: 450, strap: "Metal", category: "Smart Watch", gender: "Women", img: "/products/p4.jpg", description: "Modern silver chronograph with smart features.", outofstock: true },
-  { id: 13, name: "Rose Slim", brand: "Casio", color: "Rose", price: 350, strap: "Leather", category: "Classic", gender: "Women", img: "/products/p5.jpg", description: "Slim and stylish rose-colored leather watch." },
-  { id: 14, name: "Black Steel", brand: "Rolex", color: "Black", price: 450, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p6.jpg", description: "Luxury black steel watch with a bold design.", discount: 5 },
-  { id: 15, name: "Blue Sport", brand: "Omega", color: "Blue", price: 500, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p9.jpg", description: "Durable blue sports watch with metal strap." },
-  { id: 16, name: "Pink Elegance", brand: "Tag Heuer", color: "Pink", price: 450, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p10.jpg", description: "Elegant pink watch for women with a luxury feel.", discount: 5 },
-  { id: 17, name: "Gold Master", brand: "Rolex", color: "Gold", price: 650, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p11.jpg", description: "Golden masterpiece for the ultimate luxury lover.", new: true },
-  { id: 18, name: "Red Dial Classic", brand: "Seiko", color: "Red", price: 320, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p12.jpg", description: "Classic red dial watch for men." },
-  { id: 19, name: "Silver Minimal", brand: "Casio", color: "Silver", price: 210, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p13.jpg", description: "Minimalistic silver watch with elegant design.", outofstock: true },
-  { id: 20, name: "Gold Shine", brand: "Fossil", color: "Gold", price: 380, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p14.jpg", description: "Shining gold watch to add glamour to any outfit." },
-  { id: 21, name: "Rose Beauty", brand: "Fossil", color: "Rose Gold", price: 340, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p15.jpg", description: "Beautiful rose gold watch for everyday elegance." },
-  { id: 22, name: "Black Steel Pro", brand: "Casio", color: "Black", price: 410, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p16.jpg", description: "Professional black steel sports watch." },
-  { id: 23, name: "Green Field", brand: "Seiko", color: "Green", price: 300, strap: "Nylon", category: "Sport", gender: "Men", img: "/products/p17.jpg", description: "Green nylon strap watch designed for outdoor activities.", discount: 10 },
-  { id: 24, name: "Rose Classic", brand: "Fossil", color: "Rose Gold", price: 360, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p18.jpg", description: "Timeless rose gold classic watch.", new: true },
-  { id: 25, name: "Black Diver", brand: "Rolex", color: "Black", price: 700, strap: "Rubber", category: "Sport", gender: "Men", img: "/products/p19.jpg", description: "High-end black diver watch for water sports." },
-  { id: 26, name: "Diamond Lady", brand: "Tag Heuer", color: "Silver", price: 520, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p20.jpg", description: "Silver luxury watch with diamond accents.", new: true },
-  { id: 27, name: "Golden Charm", brand: "Rolex", color: "Gold", price: 620, strap: "Metal", category: "Luxury", gender: "Women", img: "/products/p21.jpg", description: "Charming golden watch perfect for gifting." },
-  { id: 28, name: "Steel Chrono", brand: "Seiko", color: "Silver", price: 410, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p22.jpg", description: "Silver steel chronograph for sports enthusiasts." },
-  { id: 29, name: "Black Tactical", brand: "Casio", color: "Black", price: 290, strap: "Rubber", category: "Sport", gender: "Men", img: "/products/p23.jpg", description: "Tactical black watch built for tough conditions.", outofstock: true },
-  { id: 30, name: "Blue Royal", brand: "Omega", color: "Blue", price: 540, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p24.jpg", description: "Royal blue luxury watch with metal strap." },
-  { id: 31, name: "Golden Chrono", brand: "Rolex", color: "Gold", price: 680, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p25.jpg", description: "Golden chronograph for precision and style.", discount: 15 },
-  { id: 32, name: "Blue Mesh", brand: "Fossil", color: "Blue", price: 260, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p26.jpg", description: "Blue mesh watch for a modern classic look." },
-  { id: 33, name: "Skeleton Dial", brand: "Tag Heuer", color: "Brown", price: 590, strap: "Leather", category: "Luxury", gender: "Men", img: "/products/p27.jpg", description: "Luxury skeleton dial watch showcasing inner mechanics.", new: true },
-  { id: 34, name: "Brown Classic", brand: "Seiko", color: "Brown", price: 370, strap: "Leather", category: "Classic", gender: "Men", img: "/products/p28.jpg", description: "Classic brown leather watch for daily wear." },
-  { id: 35, name: "Sport Racer", brand: "Casio", color: "Blue", price: 330, strap: "Leather", category: "Sport", gender: "Men", img: "/products/p29.jpg", description: "Blue leather strap watch designed for racing." },
-  { id: 36, name: "Golden Edge", brand: "Rolex", color: "Gold", price: 640, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p30.jpg", description: "Golden edge luxury watch with elegant finish." },
-  { id: 37, name: "Silver Pro", brand: "Omega", color: "Silver", price: 470, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p31.jpg", description: "Professional silver watch for sports.", outofstock: true },
-  { id: 38, name: "Rose Mini", brand: "Fossil", color: "Rose Gold", price: 310, strap: "Metal", category: "Classic", gender: "Women", img: "/products/p32.jpg", description: "Mini rose gold watch for women." },
-  { id: 39, name: "Steel Classic", brand: "Seiko", color: "Silver", price: 420, strap: "Metal", category: "Classic", gender: "Men", img: "/products/p33.jpg", description: "Classic steel watch for everyday wear." },
-  { id: 40, name: "Beige Fashion", brand: "Casio", color: "Beige", price: 280, strap: "Fabric", category: "Classic", gender: "Women", img: "/products/p34.jpg", description: "Fashionable beige watch with fabric strap.", discount: 20 },
-  { id: 41, name: "Black Gold Mix", brand: "Rolex", color: "Black", price: 610, strap: "Metal", category: "Luxury", gender: "Men", img: "/products/p35.jpg", description: "Black and gold mix watch for luxurious style." },
-  { id: 42, name: "Minimal Lady", brand: "Fossil", color: "Black", price: 290, strap: "Leather", category: "Classic", gender: "Women", img: "/products/p36.jpg", description: "Minimalist black leather watch for women.", new: true },
-  { id: 43, name: "Black Chronograph", brand: "Tag Heuer", color: "Black", price: 560, strap: "Metal", category: "Sport", gender: "Men", img: "/products/p37.jpg", description: "Black chronograph watch for sporty men." }
+  { id: 9, name: "Black Leather", brand: "Rolex", color: "Black", price: 250, strap: "Leather", category: "Luxury", gender: "Men", image: "/products/p1.jpg", description: "Classic black leather watch with a timeless design." },
+  { id: 10, name: "Rose Gold", brand: "Casio", color: "Rose Gold", price: 350, strap: "Metal", category: "Classic", gender: "Women", image: "/products/p2.jpg", description: "Elegant rose gold watch perfect for formal occasions.", new: true },
+  { id: 11, name: "White Dial", brand: "Fossil", color: "White", price: 200, strap: "Silicone", category: "Sport", gender: "Men", image: "/products/p3.jpg", description: "Sporty white dial watch with comfortable silicone strap." },
+  { id: 12, name: "Silver Chrono", brand: "Seiko", color: "Silver", price: 450, strap: "Metal", category: "Smart Watch", gender: "Women", image: "/products/p4.jpg", description: "Modern silver chronograph with smart features.", outofstock: true },
+  { id: 13, name: "Rose Slim", brand: "Casio", color: "Rose", price: 350, strap: "Leather", category: "Classic", gender: "Women", image: "/products/p5.jpg", description: "Slim and stylish rose-colored leather watch." },
+  { id: 14, name: "Black Steel", brand: "Rolex", color: "Black", price: 450, strap: "Metal", category: "Luxury", gender: "Men", image: "/products/p6.jpg", description: "Luxury black steel watch with a bold design.", discount: 5 },
+  { id: 15, name: "Blue Sport", brand: "Omega", color: "Blue", price: 500, strap: "Metal", category: "Classic", gender: "Men", image: "/products/p9.jpg", description: "Durable blue sports watch with metal strap." },
+  { id: 16, name: "Pink Elegance", brand: "Tag Heuer", color: "Pink", price: 450, strap: "Metal", category: "Luxury", gender: "Women", image: "/products/p10.jpg", description: "Elegant pink watch for women with a luxury feel.", discount: 5 },
+  { id: 17, name: "Gold Master", brand: "Rolex", color: "Gold", price: 650, strap: "Metal", category: "Luxury", gender: "Men", image: "/products/p11.jpg", description: "Golden masterpiece for the ultimate luxury lover.", new: true },
+  { id: 18, name: "Red Dial Classic", brand: "Seiko", color: "Red", price: 320, strap: "Metal", category: "Classic", gender: "Men", image: "/products/p12.jpg", description: "Classic red dial watch for men." },
+  { id: 19, name: "Silver Minimal", brand: "Casio", color: "Silver", price: 210, strap: "Metal", category: "Classic", gender: "Women", image: "/products/p13.jpg", description: "Minimalistic silver watch with elegant design.", outofstock: true },
+  { id: 20, name: "Gold Shine", brand: "Fossil", color: "Gold", price: 380, strap: "Metal", category: "Classic", gender: "Women", image: "/products/p14.jpg", description: "Shining gold watch to add glamour to any outfit." },
+  { id: 21, name: "Rose Beauty", brand: "Fossil", color: "Rose Gold", price: 340, strap: "Metal", category: "Classic", gender: "Women", image: "/products/p15.jpg", description: "Beautiful rose gold watch for everyday elegance." },
+  { id: 22, name: "Black Steel Pro", brand: "Casio", color: "Black", price: 410, strap: "Metal", category: "Sport", gender: "Men", image: "/products/p16.jpg", description: "Professional black steel sports watch." },
+  { id: 23, name: "Green Field", brand: "Seiko", color: "Green", price: 300, strap: "Nylon", category: "Sport", gender: "Men", image: "/products/p17.jpg", description: "Green nylon strap watch designed for outdoor activities.", discount: 10 },
+  { id: 24, name: "Rose Classic", brand: "Fossil", color: "Rose Gold", price: 360, strap: "Metal", category: "Classic", gender: "Women", image: "/products/p18.jpg", description: "Timeless rose gold classic watch.", new: true },
+  { id: 25, name: "Black Diver", brand: "Rolex", color: "Black", price: 700, strap: "Rubber", category: "Sport", gender: "Men", image: "/products/p19.jpg", description: "High-end black diver watch for water sports." },
+  { id: 26, name: "Diamond Lady", brand: "Tag Heuer", color: "Silver", price: 520, strap: "Metal", category: "Luxury", gender: "Women", image: "/products/p20.jpg", description: "Silver luxury watch with diamond accents.", new: true },
+  { id: 27, name: "Golden Charm", brand: "Rolex", color: "Gold", price: 620, strap: "Metal", category: "Luxury", gender: "Women", image: "/products/p21.jpg", description: "Charming golden watch perfect for gifting." },
+  { id: 28, name: "Steel Chrono", brand: "Seiko", color: "Silver", price: 410, strap: "Metal", category: "Sport", gender: "Men", image: "/products/p22.jpg", description: "Silver steel chronograph for sports enthusiasts." },
+  { id: 29, name: "Black Tactical", brand: "Casio", color: "Black", price: 290, strap: "Rubber", category: "Sport", gender: "Men", image: "/products/p23.jpg", description: "Tactical black watch built for tough conditions.", outofstock: true },
+  { id: 30, name: "Blue Royal", brand: "Omega", color: "Blue", price: 540, strap: "Metal", category: "Luxury", gender: "Men", image: "/products/p24.jpg", description: "Royal blue luxury watch with metal strap." },
+  { id: 31, name: "Golden Chrono", brand: "Rolex", color: "Gold", price: 680, strap: "Metal", category: "Luxury", gender: "Men", image: "/products/p25.jpg", description: "Golden chronograph for precision and style.", discount: 15 },
+  { id: 32, name: "Blue Mesh", brand: "Fossil", color: "Blue", price: 260, strap: "Metal", category: "Classic", gender: "Men", image: "/products/p26.jpg", description: "Blue mesh watch for a modern classic look." },
+  { id: 33, name: "Skeleton Dial", brand: "Tag Heuer", color: "Brown", price: 590, strap: "Leather", category: "Luxury", gender: "Men", image: "/products/p27.jpg", description: "Luxury skeleton dial watch showcasing inner mechanics.", new: true },
+  { id: 34, name: "Brown Classic", brand: "Seiko", color: "Brown", price: 370, strap: "Leather", category: "Classic", gender: "Men", image: "/products/p28.jpg", description: "Classic brown leather watch for daily wear." },
+  { id: 35, name: "Sport Racer", brand: "Casio", color: "Blue", price: 330, strap: "Leather", category: "Sport", gender: "Men", image: "/products/p29.jpg", description: "Blue leather strap watch designed for racing." },
+  { id: 36, name: "Golden Edge", brand: "Rolex", color: "Gold", price: 640, strap: "Metal", category: "Luxury", gender: "Men", image: "/products/p30.jpg", description: "Golden edge luxury watch with elegant finish." },
+  { id: 37, name: "Silver Pro", brand: "Omega", color: "Silver", price: 470, strap: "Metal", category: "Sport", gender: "Men", image: "/products/p31.jpg", description: "Professional silver watch for sports.", outofstock: true },
+  { id: 38, name: "Rose Mini", brand: "Fossil", color: "Rose Gold", price: 310, strap: "Metal", category: "Classic", gender: "Women", image: "/products/p32.jpg", description: "Mini rose gold watch for women." },
+  { id: 39, name: "Steel Classic", brand: "Seiko", color: "Silver", price: 420, strap: "Metal", category: "Classic", gender: "Men", image: "/products/p33.jpg", description: "Classic steel watch for everyday wear." },
+  { id: 40, name: "Beige Fashion", brand: "Casio", color: "Beige", price: 280, strap: "Fabric", category: "Classic", gender: "Women", image: "/products/p34.jpg", description: "Fashionable beige watch with fabric strap.", discount: 20 },
+  { id: 41, name: "Black Gold Mix", brand: "Rolex", color: "Black", price: 610, strap: "Metal", category: "Luxury", gender: "Men", image: "/products/p35.jpg", description: "Black and gold mix watch for luxurious style." },
+  { id: 42, name: "Minimal Lady", brand: "Fossil", color: "Black", price: 290, strap: "Leather", category: "Classic", gender: "Women", image: "/products/p36.jpg", description: "Minimalist black leather watch for women.", new: true },
+  { id: 43, name: "Black Chronograph", brand: "Tag Heuer", color: "Black", price: 560, strap: "Metal", category: "Sport", gender: "Men", image: "/products/p37.jpg", description: "Black chronograph watch for sporty men." }
 ];
 
 export default function ProductDetailPage() {
@@ -81,7 +81,7 @@ export default function ProductDetailPage() {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.img,
+      image: product.image,
       quantity: quantity,
     });
 
@@ -98,7 +98,7 @@ export default function ProductDetailPage() {
           <div className="lg:w-1/2 w-full relative mb-6 lg:mb-0 h-80 sm:h-96 lg:h-[500px]">
             <Image
               alt={product.name}
-              src={product.img}
+              src={product.image}
               fill
               className="object-contain"
             />
