@@ -199,6 +199,30 @@ export default function ProductsPage() {
             <div key={product.id} className="border p-5 hover:shadow-lg transition relative flex flex-col justify-between">
 
               <div className="relative h-64 w-full bg-gray-100 group cursor-pointer">
+
+                {/* Product Tags */}
+<div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
+
+  {product.instock && (
+    <span className="text-[10px] px-2 py-[2px] rounded-full bg-green-500 text-white font-medium shadow">
+      In Stock
+    </span>
+  )}
+
+  {product.discount && (
+    <span className="text-[10px] px-2 py-[2px] rounded-full bg-red-500 text-white font-medium shadow">
+      {product.discount} OFF
+    </span>
+  )}
+
+  {product.new && (
+    <span className="text-[10px] px-2 py-[2px] rounded-full bg-blue-500 text-white font-medium shadow">
+      New Arrival
+    </span>
+  )}
+
+</div>
+
                 <Link href={`/products/${product.id}`}>
                   <Image src={product.img} alt={product.name} fill className="object-contain" />
                 </Link>
