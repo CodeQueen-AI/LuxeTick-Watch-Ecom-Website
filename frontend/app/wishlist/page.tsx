@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle, AiFillHeart } from "react-icons/ai";
 import { FaTrash } from "react-icons/fa";
@@ -41,65 +40,69 @@ export default function WishlistPage() {
         </div>
       )}
 
-      {/* Empty Wishlist */}
       {wishlistItems.length === 0 ? (
         <div className="flex flex-col items-center gap-4 py-40">
           <AiOutlineCloseCircle size={60} className="text-gray-300" />
           <p className="text-xl text-center">Your Wishlist is Empty!</p>
-          <Link href="/">
-            <button className="mt-4 px-6 py-3 bg-black text-white border border-black hover:bg-white hover:text-black transition">
-              Browse Products
-            </button>
-          </Link>
         </div>
       ) : (
         <>
-          {/* Heading with pink heart */}
+          {/* Heading */}
           <h1 className="text-6xl font-extralight allura text-center mb-10 flex items-center justify-center gap-3">
             <AiFillHeart className="text-pink-500 text-4xl" />
             My Wishlist
           </h1>
 
-          {/* Table of Wishlist */}
+          {/* Table */}
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
-              <thead className="border-b border-gray-300">
-                <tr className="text-left text-sm uppercase">
-                  <th className="pb-4">Items</th>
+              <thead className="border-b border-gray-300 text-left text-sm uppercase">
+                <tr>
+                  <th className="pb-4">Image</th>
+                  <th className="pb-4">Name</th>
+                  <th className="pb-4">Price</th>
+                  <th className="pb-4">Actions</th>
+                  <th className="pb-4">Remove</th>
                 </tr>
               </thead>
               <tbody>
                 {wishlistItems.map((item) => (
                   <tr key={item.id} className="border-b border-gray-300">
-                    <td className="py-6">
-                      <div className="flex flex-col items-start gap-3">
-                        {/* Image */}
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={120}
-                          height={120}
-                          className="object-contain"
-                        />
-                        {/* Name */}
-                        <span className="font-medium text-lg">{item.name}</span>
-                        {/* Price */}
-                        <span className="text-gray-700 text-base">${item.price}</span>
-                        {/* Add to Cart button */}
-                        <button
-                          onClick={() => handleAddCart(item)}
-                          className="px-4 py-1 bg-black text-white text-sm rounded hover:bg-white hover:text-black border border-black transition"
-                        >
-                          Add to Cart
-                        </button>
-                        {/* Remove icon */}
-                        <button
-                          onClick={() => handleRemove(item.id)}
-                          className="text-pink-500 hover:text-pink-600 transition mt-1"
-                        >
-                          <FaTrash size={20} />
-                        </button>
-                      </div>
+                    {/* Image */}
+                    <td className="py-4">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={70}
+                        height={70}
+                        className="object-contain"
+                      />
+                    </td>
+
+                    {/* Name */}
+                    <td className="py-4 font-medium">{item.name}</td>
+
+                    {/* Price */}
+                    <td className="py-4 text-gray-700">${item.price}</td>
+
+                    {/* Add to Cart */}
+                    <td className="py-4">
+                      <button
+                        onClick={() => handleAddCart(item)}
+                        className="px-3 py-1 bg-black text-white text-sm rounded hover:bg-white hover:text-black border border-black transition"
+                      >
+                        Add to Cart
+                      </button>
+                    </td>
+
+                    {/* Remove Icon */}
+                    <td className="py-4">
+                      <button
+                        onClick={() => handleRemove(item.id)}
+                        className="text-pink-500 hover:text-pink-600 transition"
+                      >
+                        <FaTrash />
+                      </button>
                     </td>
                   </tr>
                 ))}
