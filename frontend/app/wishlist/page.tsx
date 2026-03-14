@@ -19,9 +19,9 @@ export default function WishlistPage() {
     setTimeout(() => setToast(""), 2500);
   };
 
-  const handleRemove = (id) => {
-    removeFromWishlist(id);
-    setToast("Removed from Wishlist");
+  const handleRemove = (product) => {
+    removeFromWishlist(product.id);
+    setToast(`${product.name} Removed From Wishlist`);
     setType("reject");
     setTimeout(() => setToast(""), 2500);
   };
@@ -61,13 +61,13 @@ export default function WishlistPage() {
                   <th className="pb-4">Image</th>
                   <th className="pb-4">Name</th>
                   <th className="pb-4">Price</th>
-                  <th className="pb-4">Actions</th>
+                  <th className="pb-4 pl-4">Actions</th>
                   <th className="pb-4">Remove</th>
                 </tr>
               </thead>
               <tbody>
                 {wishlistItems.map((item) => (
-                  <tr key={item.id} className="border-b border-gray-300">
+                  <tr key={item.id} className="border-b border-gray-300 hover:shadow-sm transition">
                     {/* Image */}
                     <td className="py-4">
                       <Image
@@ -83,10 +83,10 @@ export default function WishlistPage() {
                     <td className="py-4 font-medium">{item.name}</td>
 
                     {/* Price */}
-                    <td className="py-4 text-gray-700">${item.price}</td>
+                    <td className="py-4">${item.price}</td>
 
                     {/* Add to Cart */}
-                    <td className="py-4">
+                    <td className="py-4 pl-4">
                       <button
                         onClick={() => handleAddCart(item)}
                         className="px-3 py-1 bg-black text-white text-sm  hover:bg-white hover:text-black border border-black transition cursor-pointer"
@@ -98,8 +98,8 @@ export default function WishlistPage() {
                     {/* Remove Icon */}
                     <td className="py-4">
                       <button
-                        onClick={() => handleRemove(item.id)}
-                        className="text-pink-500 hover:text-pink-600 transition cursor-pointer"
+                        onClick={() => handleRemove(item)}
+                        className="text-red-500 hover:text-red-600 transition cursor-pointer"
                       >
                         <FaTrash />
                       </button>
