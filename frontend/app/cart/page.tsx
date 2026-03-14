@@ -106,8 +106,7 @@ const Cart = () => {
                           src={item.image}
                           alt={item.name}
                           width={70}
-                          height={70}
-                          className="rounded-lg"/>
+                          height={70}/>
                         <span className="font-medium">
                           {item.name}
                         </span>
