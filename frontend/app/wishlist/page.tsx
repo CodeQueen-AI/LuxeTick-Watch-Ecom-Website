@@ -75,32 +75,21 @@ export default function WishlistPage() {
                         alt={item.name}
                         width={70}
                         height={70}
-                        className="object-contain"
-                      />
+                        className="object-contain"/>
                     </td>
-
-                    {/* Name */}
                     <td className="py-4 font-medium">{item.name}</td>
-
-                    {/* Price */}
                     <td className="py-4">${item.price}</td>
-
-                    {/* Add to Cart */}
                     <td className="py-4 pl-4">
                       <button
                         onClick={() => handleAddCart(item)}
-                        className="px-3 py-1 bg-black text-white text-sm  hover:bg-white hover:text-black border border-black transition cursor-pointer"
-                      >
+                        className="px-3 py-1 bg-black text-white text-sm  hover:bg-white hover:text-black border border-black transition cursor-pointer">
                         Add to Cart
                       </button>
                     </td>
-
-                    {/* Remove Icon */}
                     <td className="py-4">
                       <button
                         onClick={() => handleRemove(item)}
-                        className="text-red-500 hover:text-red-600 transition cursor-pointer"
-                      >
+                        className="text-red-500 hover:text-red-600 transition cursor-pointer">
                         <FaTrash />
                       </button>
                     </td>
