@@ -1,42 +1,29 @@
-import Order from "../Models/orders.js"
+import Order from "../models/order.js";
 
+// Create order
 export const createOrder = async (req, res) => {
-
   try {
+    const { productName, image, price } = req.body;
 
-    const order = new Order({
-      userId: req.user.id,
-      productName: req.body.productName,
-      image: req.body.image,
-      price: req.body.price
+    const order = await Order.create({
+      user: req.user.id,
+      productName,
+      image,
+      price,
     });
 
-    const savedOrder = await order.save();
-
-    res.status(201).json(savedOrder);
-
-  } catch (error) {
-
-    res.status(500).json({ message: error.message });
-
+    res.status(201).json(order);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
-
 };
 
-
-
+// Get logged in user's orders
 export const getMyOrders = async (req, res) => {
-
   try {
-
-    const orders = await Order.find({ userId: req.user.id });
-
-    res.json(orders);
-
-  } catch (error) {
-
-    res.status(500).json({ message: error.message });
-
+    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 });
+    res.json(orders); // ✅ directly array
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
-
 };
