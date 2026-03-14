@@ -101,7 +101,7 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
 
 
 <div className="flex gap-4 justify-center">
-  <Link href="/Cart" className="flex-1">
+  <Link href="/cart" className="flex-1">
     <button
       onClick={() => {
         // Smoothly close drawer before navigating
