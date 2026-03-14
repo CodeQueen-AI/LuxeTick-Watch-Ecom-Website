@@ -58,7 +58,7 @@ const generateFilters = (products) => ({
 
 export default function ProductsPage() {
   const { addToCart } = useCart();
-  const { addToWishlist, removeFromWishlist, wishlistItems } = useWishlist(); // new wishlist hooks
+  const { addToWishlist, removeFromWishlist, wishlistItems } = useWishlist(); 
 
   const [toast, setToast] = useState("");
   const [openFilter, setOpenFilter] = useState(false);
