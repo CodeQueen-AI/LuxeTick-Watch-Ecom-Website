@@ -112,7 +112,6 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
       Cart
     </button>
   </Link>
-      <Link href={"/checkout"}>
   <button
     onClick={() => {
       // Smoothly close drawer, then trigger checkout
@@ -126,7 +125,6 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
   >
     Checkout
   </button>
-  </Link>
 </div>
         </div>
       </div>
