@@ -1,11 +1,23 @@
-import express from 'express';
-import { signup, login } from '../controllers/authController.js';
+import jwt from "jsonwebtoken";
 
-const router = express.Router();
+const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
 
-router.post('/signup', signup);
-router.post('/login', login);
+  if (!authHeader) {
+    return res.status(401).json({ message: "No token provided" });
+  }
 
-export default router;
+  const token = authHeader.split(" ")[1];
 
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+    req.user = decoded; // ⭐ IMPORTANT LINE
+
+    next();
+  } catch (error) {
+    res.status(401).json({ message: "Invalid token" });
+  }
+};
+
+export default authMiddleware;
