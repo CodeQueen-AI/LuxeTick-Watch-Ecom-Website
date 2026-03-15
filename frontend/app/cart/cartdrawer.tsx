@@ -6,7 +6,6 @@ import Link from "next/link";
 
 export default function CartDrawer({ isOpen, setIsOpen }) {
   const { cartItems, removeFromCart } = useCart();
-
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
