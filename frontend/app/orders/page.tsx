@@ -272,19 +272,20 @@ export default function OrderHistory() {
     );
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto p-6 poppins">
       
       <h1 className="text-3xl font-bold mb-8 text-center">
-        My Orders
+        Orders History
       </h1>
 
-      <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+      <div className="overflow-hidden">
 
         <table className="w-full">
 
-          <thead className="bg-gray-50 text-gray-600 text-sm uppercase">
+          <thead className="text-sm uppercase">
             <tr>
               <th className="p-4 text-left">Order ID</th>
+              <th className="p-4 text-left">Image</th>
               <th className="p-4 text-left">Product</th>
               <th className="p-4 text-left">Date</th>
               <th className="p-4 text-left">Price</th>
@@ -300,7 +301,7 @@ export default function OrderHistory() {
                 className="border-t hover:bg-gray-50 transition"
               >
 
-                <td className="p-4 text-sm text-gray-500">
+                <td className="p-4 text-sm">
                   {order._id.slice(-6)}
                 </td>
 
@@ -317,11 +318,11 @@ export default function OrderHistory() {
                   </span>
                 </td>
 
-                <td className="p-4 text-gray-500">
+                <td className="p-4">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
 
-                <td className="p-4 font-semibold text-gray-700">
+                <td className="p-4 font-semibold">
                   ${order.price}
                 </td>
 
