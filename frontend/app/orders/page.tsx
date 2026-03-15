@@ -107,6 +107,112 @@
 
 
 
+// "use client";
+// import { useState, useEffect } from "react";
+// import Image from "next/image";
+
+// export default function OrderHistory() {
+//   const [orders, setOrders] = useState([]);
+//   const [error, setError] = useState("");
+//   const [loading, setLoading] = useState(true);
+
+//   // image URL fix
+//   const getImageUrl = (img) => {
+//     if (!img) return "/placeholder.png";
+//     if (img.startsWith("http")) return img;
+//     return `http://localhost:5000/${img}`;
+//   };
+
+//   useEffect(() => {
+//     const fetchOrders = async () => {
+//       const token = localStorage.getItem("token");
+
+//       if (!token) {
+//         setError("Please login first.");
+//         setLoading(false);
+//         return;
+//       }
+
+//       try {
+//         const res = await fetch("http://localhost:5000/api/orders/my-orders", {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         });
+
+//         const data = await res.json();
+
+//         if (Array.isArray(data)) {
+//           setOrders(data);
+//         } else {
+//           setError("No orders found.");
+//         }
+//       } catch (err) {
+//         setError("Server error.");
+//       }
+
+//       setLoading(false);
+//     };
+
+//     fetchOrders();
+//   }, []);
+
+//   if (loading) return <p className="text-center mt-10">Loading...</p>;
+//   if (error) return <p className="text-center mt-10 text-red-600">{error}</p>;
+
+//   return (
+//     <div className="max-w-5xl mx-auto p-6">
+//       <h1 className="text-2xl font-bold mb-6">My Orders</h1>
+
+//       <table className="w-full border">
+//         <thead className="bg-gray-100">
+//           <tr>
+//             <th className="p-3">Order ID</th>
+//             <th className="p-3">Product</th>
+//             <th className="p-3">Date</th>
+//             <th className="p-3">Price</th>
+//             <th className="p-3">Status</th>
+//           </tr>
+//         </thead>
+
+//         <tbody>
+//           {orders.map((order) => (
+//             <tr key={order._id} className="border-t">
+//               <td className="p-3">{order._id}</td>
+
+//               <td className="p-3 flex items-center gap-2">
+//                 <Image
+//                   src={getImageUrl(order.image)}
+//                   alt="product"
+//                   width={40}
+//                   height={40}
+//                 />
+//                 {order.productName}
+//               </td>
+
+//               <td className="p-3">
+//                 {new Date(order.date).toLocaleDateString()}
+//               </td>
+
+//               <td className="p-3">${order.price}</td>
+
+//               <td className="p-3">{order.status}</td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -116,11 +222,9 @@ export default function OrderHistory() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // image URL fix
   const getImageUrl = (img) => {
     if (!img) return "/placeholder.png";
-    if (img.startsWith("http")) return img;
-    return `http://localhost:5000/${img}`;
+    return `/watch/${img}`;
   };
 
   useEffect(() => {
@@ -157,50 +261,93 @@ export default function OrderHistory() {
     fetchOrders();
   }, []);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
-  if (error) return <p className="text-center mt-10 text-red-600">{error}</p>;
+  if (loading)
+    return (
+      <p className="text-center mt-20 text-gray-500 text-lg">Loading orders...</p>
+    );
+
+  if (error)
+    return (
+      <p className="text-center mt-20 text-red-600 text-lg">{error}</p>
+    );
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">My Orders</h1>
+    <div className="max-w-6xl mx-auto p-6">
+      
+      <h1 className="text-3xl font-bold mb-8 text-center">
+        My Orders
+      </h1>
 
-      <table className="w-full border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-3">Order ID</th>
-            <th className="p-3">Product</th>
-            <th className="p-3">Date</th>
-            <th className="p-3">Price</th>
-            <th className="p-3">Status</th>
-          </tr>
-        </thead>
+      <div className="bg-white shadow-lg rounded-xl overflow-hidden">
 
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order._id} className="border-t">
-              <td className="p-3">{order._id}</td>
+        <table className="w-full">
 
-              <td className="p-3 flex items-center gap-2">
-                <Image
-                  src={getImageUrl(order.image)}
-                  alt="product"
-                  width={40}
-                  height={40}
-                />
-                {order.productName}
-              </td>
-
-              <td className="p-3">
-                {new Date(order.date).toLocaleDateString()}
-              </td>
-
-              <td className="p-3">${order.price}</td>
-
-              <td className="p-3">{order.status}</td>
+          <thead className="bg-gray-50 text-gray-600 text-sm uppercase">
+            <tr>
+              <th className="p-4 text-left">Order ID</th>
+              <th className="p-4 text-left">Product</th>
+              <th className="p-4 text-left">Date</th>
+              <th className="p-4 text-left">Price</th>
+              <th className="p-4 text-left">Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+
+            {orders.map((order) => (
+              <tr
+                key={order._id}
+                className="border-t hover:bg-gray-50 transition"
+              >
+
+                <td className="p-4 text-sm text-gray-500">
+                  {order._id.slice(-6)}
+                </td>
+
+                <td className="p-4 flex items-center gap-3">
+                  <Image
+                    src={getImageUrl(order.image)}
+                    alt={order.productName}
+                    width={50}
+                    height={50}
+                    className="rounded-lg"
+                  />
+                  <span className="font-medium">
+                    {order.productName}
+                  </span>
+                </td>
+
+                <td className="p-4 text-gray-500">
+                  {new Date(order.date).toLocaleDateString()}
+                </td>
+
+                <td className="p-4 font-semibold text-gray-700">
+                  ${order.price}
+                </td>
+
+                <td className="p-4">
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm font-medium
+                    ${
+                      order.status === "Pending"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : order.status === "Shipped"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-green-100 text-green-700"
+                    }`}
+                  >
+                    {order.status}
+                  </span>
+                </td>
+
+              </tr>
+            ))}
+
+          </tbody>
+        </table>
+
+      </div>
+
     </div>
   );
 }
