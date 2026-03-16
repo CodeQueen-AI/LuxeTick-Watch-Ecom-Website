@@ -140,29 +140,101 @@
 
 
 
+// import Order from "../Models/orders.js";
+
+// // Single order
+// export const createOrder = async (req, res) => {
+//   try {
+//     const { productName, image, price } = req.body;
+//     const order = await Order.create({ user: req.user.id, productName, image, price, status: "Pending", date: new Date() });
+//     console.log("Order created:", order);
+//     res.status(201).json(order);
+//   } catch (err) {
+//     console.error("Error creating order:", err.message);
+//     res.status(500).json({ message: err.message });
+//   }
+// };
+
+// // Get logged-in user's orders
+// export const getMyOrders = async (req, res) => {
+//   try {
+//     const orders = await Order.find({ user: req.user.id }).sort({ date: -1 });
+//     console.log("Orders fetched:", orders);
+//     res.json(orders);
+//   } catch (err) {
+//     console.error("Error fetching orders:", err.message);
+//     res.status(500).json({ message: err.message });
+//   }
+// };
+
+// // Create multiple orders from cart
+// export const createOrdersFromCart = async (req, res) => {
+//   try {
+//     const { cartItems } = req.body;
+//     console.log("Cart items received for order creation:", cartItems);
+
+//     if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0)
+//       return res.status(400).json({ message: "Cart is empty" });
+
+//     const orders = await Promise.all(cartItems.map(item =>
+//       Order.create({ user: req.user.id, productName: item.name, image: item.image, price: item.price, status: "Pending", date: new Date() })
+//     ));
+
+//     console.log("Multiple orders created:", orders);
+//     res.status(201).json({ message: "Orders created successfully", orders });
+//   } catch (err) {
+//     console.error("Error creating multiple orders:", err.message);
+//     res.status(500).json({ message: err.message });
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import Order from "../Models/orders.js";
 
-// Single order
+// Create single order
 export const createOrder = async (req, res) => {
   try {
-    const { productName, image, price } = req.body;
-    const order = await Order.create({ user: req.user.id, productName, image, price, status: "Pending", date: new Date() });
+    const { productName, image, price, quantity } = req.body;
+
+    const order = await Order.create({
+      user: req.user.id,
+      productName,
+      image,
+      price,
+      quantity,
+      status: "Pending",
+      date: new Date(),
+    });
+
     console.log("Order created:", order);
+
     res.status(201).json(order);
   } catch (err) {
     console.error("Error creating order:", err.message);
-    res.status(500).json({ message: err.message });
-  }
-};
-
-// Get logged-in user's orders
-export const getMyOrders = async (req, res) => {
-  try {
-    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 });
-    console.log("Orders fetched:", orders);
-    res.json(orders);
-  } catch (err) {
-    console.error("Error fetching orders:", err.message);
     res.status(500).json({ message: err.message });
   }
 };
@@ -171,19 +243,49 @@ export const getMyOrders = async (req, res) => {
 export const createOrdersFromCart = async (req, res) => {
   try {
     const { cartItems } = req.body;
+
     console.log("Cart items received for order creation:", cartItems);
 
-    if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0)
+    if (!cartItems || cartItems.length === 0) {
       return res.status(400).json({ message: "Cart is empty" });
+    }
 
-    const orders = await Promise.all(cartItems.map(item =>
-      Order.create({ user: req.user.id, productName: item.name, image: item.image, price: item.price, status: "Pending", date: new Date() })
-    ));
+    const orders = await Promise.all(
+      cartItems.map((item) =>
+        Order.create({
+          user: req.user.id,
+          productName: item.name,
+          image: item.image,
+          price: item.price,
+          quantity: item.quantity,
+          status: "Pending",
+          date: new Date(),
+        })
+      )
+    );
 
     console.log("Multiple orders created:", orders);
-    res.status(201).json({ message: "Orders created successfully", orders });
+
+    res.status(201).json({
+      message: "Orders created successfully",
+      orders,
+    });
   } catch (err) {
-    console.error("Error creating multiple orders:", err.message);
+    console.error("Error creating orders:", err.message);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Get logged in user's orders
+export const getMyOrders = async (req, res) => {
+  try {
+    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 });
+
+    console.log("Orders fetched:", orders);
+
+    res.json(orders);
+  } catch (err) {
+    console.error("Error fetching orders:", err.message);
     res.status(500).json({ message: err.message });
   }
 };
