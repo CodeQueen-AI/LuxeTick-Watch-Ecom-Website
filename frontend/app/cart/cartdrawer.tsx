@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export default function CartDrawer({ isOpen, setIsOpen }) {
   const { cartItems, removeFromCart } = useCart();
-
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -33,7 +32,6 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
           </button>
         </div>
         <hr className="my-6 text-gray-300" />
-        {/* Products */}
         <div className="flex-1 overflow-y-auto space-y-6">
           {cartItems.map((item) => (
             <div key={item.id}
