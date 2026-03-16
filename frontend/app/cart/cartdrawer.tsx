@@ -1,6 +1,7 @@
 "use client";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
+// import { useCart } from "../context/cartcontext";
 import { useCart } from "../context/cartcontext";
 import Link from "next/link";
 
