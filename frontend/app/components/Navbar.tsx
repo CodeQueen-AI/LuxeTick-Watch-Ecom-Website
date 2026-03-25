@@ -100,9 +100,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import CartDrawer from "../cart/cartdrawer";
-import { useCart } from "../context/cartcontext";
-import { useWishlist } from "../context/wishlistcontext";
+import CartDrawer from "../(site)/cart/cartdrawer";
+import { useCart } from "../(site)/context/cartcontext";
+import { useWishlist } from "../(site)/context/wishlistcontext";
 import { BsCart3 } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { FaUserCircle } from "react-icons/fa";

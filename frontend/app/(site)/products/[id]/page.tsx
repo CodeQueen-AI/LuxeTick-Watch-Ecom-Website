@@ -7,8 +7,8 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 // import { useCart } from "../../context/cartcontext";
 // import { useWishlist } from "../../context/wishlistcontext";
 
-import {useCart} from "@/app/context/cartcontext"
-import { useWishlist } from "@/app/context/wishlistcontext";
+import {useCart} from "@/app/(site)/context/cartcontext"
+import { useWishlist } from "@/app/(site)/context/wishlistcontext";
 
 interface Product {
   id: number;

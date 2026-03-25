@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { FiFilter, FiPlus, FiX, FiMinus, FiHeart } from "react-icons/fi";
 import { BsCart3 } from "react-icons/bs";
 import { AiOutlineCheckCircle, AiOutlineProduct } from "react-icons/ai";
-import { useCart } from "../context/cartcontext"; 
-import { useWishlist } from "../context/wishlistcontext";
+import { useCart } from "../(site)/context/cartcontext"; 
+import { useWishlist } from "../(site)/context/wishlistcontext";
 
 const productsData = [
   { id: 9, name: "Red Dial Classic", brand: "Seiko", color: "Red", price: 320, strap: "Metal", category: "Classic", gender: "Men", image: "/products/p12.jpg" },
