@@ -9,12 +9,15 @@ import {
   MdShoppingCart, 
   MdLogout 
 } from 'react-icons/md';
+import { MdAdd } from 'react-icons/md';
 
 const navItems = [
   { href: '/admin',          label: 'Dashboard', icon: MdDashboard },
   { href: '/admin/products', label: 'Products',  icon: MdOutlineInventory2 },
   { href: '/admin/users',    label: 'Users',     icon: MdPeopleAlt },
   { href: '/admin/orders',   label: 'Orders',    icon: MdShoppingCart },
+  { href: '/admin/products', label: 'Products', icon: MdOutlineInventory2 },
+  { href: '/admin/products/add', label: 'Add Product', icon: MdAdd },   // ← Naya
 ];
 
 export default function DashboardLayout({

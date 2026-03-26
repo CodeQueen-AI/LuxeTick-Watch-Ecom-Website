@@ -104,6 +104,9 @@ import dotenv from 'dotenv';
 import authRoutes from './auth/routes/auth.js';
 import orderRoutes from './orders/routes/orders.js';
 import userRoutes from './auth/routes/users.js';
+import productRoutes from './products/routes/products.js';
+
+
 
 dotenv.config();
 
@@ -121,6 +124,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
+// Routes ke andar yeh line add kar do
+app.use('/api/products', productRoutes);
 
 // Test Route
 app.get('/', (req, res) => {
