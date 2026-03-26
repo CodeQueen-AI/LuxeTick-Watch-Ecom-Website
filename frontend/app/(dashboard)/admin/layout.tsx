@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-// React Icons import (different libraries se best matching icons)
 import { 
   MdDashboard, 
   MdOutlineInventory2, 
@@ -13,26 +11,10 @@ import {
 } from 'react-icons/md';
 
 const navItems = [
-  { 
-    href: '/dashboard', 
-    label: 'Dashboard', 
-    icon: MdDashboard 
-  },
-  { 
-    href: '/dashboard/products', 
-    label: 'Products', 
-    icon: MdOutlineInventory2 
-  },
-  { 
-    href: '/dashboard/users', 
-    label: 'Users', 
-    icon: MdPeopleAlt 
-  },
-  { 
-    href: '/dashboard/orders', 
-    label: 'Orders', 
-    icon: MdShoppingCart 
-  },
+  { href: '/admin',          label: 'Dashboard', icon: MdDashboard },
+  { href: '/admin/products', label: 'Products',  icon: MdOutlineInventory2 },
+  { href: '/admin/users',    label: 'Users',     icon: MdPeopleAlt },
+  { href: '/admin/orders',   label: 'Orders',    icon: MdShoppingCart },
 ];
 
 export default function DashboardLayout({
@@ -43,59 +25,79 @@ export default function DashboardLayout({
   const pathname = usePathname();
 
   return (
-    <div className="flex h-screen bg-gray-950 text-white overflow-hidden">
+    <div className="flex h-screen bg-zinc-950 text-white overflow-hidden font-sans">
       {/* Sidebar */}
-      <div className="w-72 bg-gray-900 border-r border-gray-800 flex flex-col">
-        <div className="p-6 border-b border-gray-800">
-          <h1 className="text-3xl font-bold tracking-tight">Ecommerce</h1>
-          <p className="text-gray-400 text-sm mt-1">Admin Panel</p>
+      <div className="w-72 bg-zinc-900 border-r border-zinc-800 flex flex-col">
+        {/* Logo Section */}
+        <div className="p-8 border-b border-zinc-800">
+          <h1 className="text-4xl font-bold tracking-tighter text-white">
+            Luxe<span className="text-indigo-500">Tick</span>
+          </h1>
+          <p className="text-zinc-400 text-sm mt-1">Admin Dashboard</p>
         </div>
 
-        <nav className="flex-1 px-4 py-6">
+        {/* Navigation */}
+        <nav className="flex-1 px-6 py-8">
+          <p className="text-xs uppercase tracking-widest text-zinc-500 mb-4 px-4">MAIN</p>
+          
           {navItems.map((item) => {
             const isActive = pathname === item.href;
-            const Icon = item.icon;   // React Icons ke liye yeh line zaroori hai
+            const Icon = item.icon;
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 px-4 py-3.5 rounded-xl mb-2 transition-all font-medium ${
+                className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl mb-2 transition-all duration-200 font-medium ${
                   isActive
-                    ? 'bg-indigo-600 text-white'
-                    : 'hover:bg-gray-800 text-gray-300'
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+                    : 'hover:bg-zinc-800 text-zinc-300 hover:text-white'
                 }`}
               >
-                <Icon size={22} />   {/* size aur color easily control kar sakte ho */}
-                {item.label}
+                <Icon size={24} className={isActive ? 'text-white' : 'text-zinc-400'} />
+                <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-4 border-t border-gray-800">
-          <button className="flex items-center gap-3 w-full px-4 py-3 text-red-400 hover:bg-gray-800 rounded-xl transition">
-            <MdLogout size={22} />
-            Logout
+        {/* Logout Button */}
+        <div className="p-6 border-t border-zinc-800 mt-auto">
+          <button className="flex items-center gap-3 w-full px-5 py-3.5 text-red-400 hover:bg-red-950/50 hover:text-red-300 rounded-2xl transition-all duration-200">
+            <MdLogout size={24} />
+            <span className="font-medium">Logout</span>
           </button>
         </div>
       </div>
 
-      {/* Main Area */}
+      {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         {/* Top Header */}
-        <header className="bg-gray-900 border-b border-gray-800 px-8 py-5 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold">Dashboard Overview</h2>
+        <header className="bg-zinc-900 border-b border-zinc-800 px-10 py-6 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold text-white">Welcome back, Admin</h2>
+            <p className="text-zinc-400 text-sm">Manage your store efficiently</p>
+          </div>
+
           <div className="flex items-center gap-6">
-            <div className="text-sm text-gray-400">March 25, 2026</div>
-            <div className="w-9 h-9 bg-indigo-600 rounded-full flex items-center justify-center font-bold">
+            <div className="text-sm text-zinc-400 font-medium">
+              {new Date().toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </div>
+
+            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center font-bold text-lg shadow-md">
               S
             </div>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-auto p-8 bg-gray-950">{children}</main>
+        <main className="flex-1 overflow-auto p-10 bg-zinc-950">
+          {children}
+        </main>
       </div>
     </div>
   );
