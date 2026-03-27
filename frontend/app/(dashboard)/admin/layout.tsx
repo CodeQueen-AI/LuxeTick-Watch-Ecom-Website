@@ -7,42 +7,41 @@ import {
   MdOutlineInventory2, 
   MdPeopleAlt, 
   MdShoppingCart, 
-  MdLogout 
+  MdLogout, 
+  MdAdd 
 } from 'react-icons/md';
-import { MdAdd } from 'react-icons/md';
+
+// For Google Fonts in Next.js 13+ use next/font/google
+import { Poppins, Allura } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400','500','600','700'] });
+const allura = Allura({ subsets: ['latin'], weight: '400' });
 
 const navItems = [
-  { href: '/admin',          label: 'Dashboard', icon: MdDashboard },
-  { href: '/admin/products', label: 'Products',  icon: MdOutlineInventory2 },
-  { href: '/admin/users',    label: 'Users',     icon: MdPeopleAlt },
-  { href: '/admin/orders',   label: 'Orders',    icon: MdShoppingCart },
+  { href: '/admin', label: 'Dashboard', icon: MdDashboard },
   { href: '/admin/products', label: 'Products', icon: MdOutlineInventory2 },
-  { href: '/admin/products/add', label: 'Add Product', icon: MdAdd },   // ← Naya
+  { href: '/admin/products/add', label: 'Add Product', icon: MdAdd },
+  { href: '/admin/users', label: 'Users', icon: MdPeopleAlt },
+  { href: '/admin/orders', label: 'Orders', icon: MdShoppingCart },
 ];
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-screenoverflow-hidden font-sans">
+    <div className={`flex h-screen overflow-hidden ${poppins.className}`}>
       {/* Sidebar */}
-      <div className="w-72 bg-white border-r border-whiteflex flex-col">
+      <aside className="w-72 flex flex-col border-r border-gray-200 shadow-sm">
         {/* Logo Section */}
-        <div className="p-8 border-b border-white">
-          <h1 className="text-4xl font-bold tracking-tighter">
-            Luxe<span className="text-indigo-500">Tick</span>
+        <div className="p-8 border-b border-gray-200">
+          <h1 className={`text-6xl font-bold tracking-tighter text-[#09162c] ${allura.className}`}>
+            Luxe<span className="text-indigo-800">Tick</span>
           </h1>
-          <p className="text-zinc-400 text-sm mt-1">Admin Dashboard</p>
+          <p className="text-gray-800 text-lg mt-1 font-serif">Admin Dashboard</p>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-6 py-8">
-          <p className="text-xs uppercase tracking-widest text-white mb-4 px-4">MAIN</p>
-          
+        <nav className="flex-1 px-4 py-8">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             const Icon = item.icon;
@@ -51,13 +50,13 @@ export default function DashboardLayout({
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl mb-2 transition-all duration-200 font-medium ${
+                className={`flex items-center gap-3 px-5 py-3 rounded-xl mb-2 transition-all duration-200 font-medium ${
                   isActive
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                    : 'hover:bg-zinc-800 text-zinc-300 hover:text-white'
+                    ? 'bg-indigo-600 text-white shadow'
+                    : 'hover:bg-gray-100 hover:text-gray-900'
                 }`}
               >
-                <Icon size={24} className={isActive ? 'text-white' : 'text-zinc-400'} />
+                <Icon size={24} className={isActive ? 'text-white' : 'text-gray-500'} />
                 <span>{item.label}</span>
               </Link>
             );
@@ -65,40 +64,36 @@ export default function DashboardLayout({
         </nav>
 
         {/* Logout Button */}
-        <div className="p-6 border-t border-zinc-800 mt-auto">
-          <button className="flex items-center gap-3 w-full px-5 py-3.5 text-red-400 hover:bg-red-950/50 hover:text-red-300 rounded-2xl transition-all duration-200">
+        <div className="p-6 border-t border-gray-200 mt-auto">
+          <button className="flex items-center gap-3 w-full px-5 py-3 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-200">
             <MdLogout size={24} />
             <span className="font-medium">Logout</span>
           </button>
         </div>
-      </div>
+      </aside>
 
-      {/* Main Content Area */}
+      {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Top Header */}
-        <header className="bg-zinc-900 border-b border-zinc-800 px-10 py-6 flex items-center justify-between">
+        <header className="bg-white border-b border-gray-200 px-10 py-6 flex items-center justify-between shadow-sm">
           <div>
-            <h2 className="text-2xl font-semibold text-white">Welcome back, Admin</h2>
-            <p className="text-zinc-400 text-sm">Manage your store efficiently</p>
+            <h2 className="text-2xl font-semibold text-gray-900">Welcome back, Admin</h2>
+            <p className="text-gray-500 text-sm">Manage your store efficiently</p>
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="text-sm text-zinc-400 font-medium">
-              {new Date().toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
+            <div className="text-sm text-gray-500 font-medium">
+              {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </div>
 
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center font-bold text-lg shadow-md">
+            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center font-bold text-white shadow-md">
               S
             </div>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-auto p-10 bg-zinc-950">
+        <main className="flex-1 overflow-auto p-10 bg-gray-50">
           {children}
         </main>
       </div>
