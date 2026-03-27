@@ -21,7 +21,7 @@ export default function Hero() {
           </h1>
           <p className="mt-6 text-gray-600 text-lg">
             Explore the legend of the Hamilton Murph, an iconic watch whose story
-            blends cinematic emotion with timeless craftsmanship.
+            blends cinematic emotion with timeless craftsmanship
           </p>
           <Link href={"/products"}>
           <button className="mt-8 px-8 py-3 border border-gray-400 text-gray-800 hover:bg-black hover:text-white font-semibold transition cursor-pointer">

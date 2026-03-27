@@ -5,7 +5,6 @@ import { useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 export default function SeasonCollection() {
-
   const { addToCart } = useCart();
   const [toast, setToast] = useState("");
 
@@ -41,7 +40,6 @@ export default function SeasonCollection() {
     });
 
     setToast(item.name);
-
     setTimeout(() => {
       setToast("");
     }, 2500);
@@ -55,8 +53,7 @@ export default function SeasonCollection() {
           <p className="text-sm">
             <span className="font-semibold">{toast}</span> Added To Cart!
           </p>
-        </div>
-      )}
+        </div>)}
       <div className="max-w-7xl mx-auto poppins px-6">
         <h1 className="text-4xl text-center mb-16">
           <span className="allura text-6xl">Season Collection</span>
