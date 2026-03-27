@@ -7,7 +7,6 @@ export default function Footer() {
   return (
     <footer className="w-full py-7 px-16 poppins border-t border-gray-200">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
-        {/* Newsletter Section */}
         <div>
           <h2 className="text-3xl font-semibold mb-6">Let's Get in Touch</h2>
           <p className="text-gray-800 mb-6 leading-relaxed">
@@ -18,7 +17,7 @@ export default function Footer() {
             <HiOutlineMail className="text-gray-400 text-xl mr-3" />
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter Your Email"
               className="flex-1 outline-none bg-transparent placeholder-gray-400"/>
             <IoArrowForward className="text-xl cursor-pointer  transition-colors duration-300" />
           </div>
@@ -36,7 +35,6 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-
         {/* Information */}
         <div>
           <h3 className="text-xl font-semibold mb-6">Information</h3>
@@ -69,17 +67,11 @@ export default function Footer() {
             )}
           </div>
         </div>
-
       </div>
-
       {/* Footer Bottom */}
-      {/* <div className="mt-1.5 text-center  text-sm border-t border-gray-200 pt-6">
+      <div className="mt-4 text-center text-sm border-t border-gray-200 pt-3">
         © {new Date().getFullYear()} LuxeTick All rights reserved
-      </div> */}
-      {/* Footer Bottom */}
-<div className="mt-4 text-center text-sm border-t border-gray-200 pt-3">
-  © {new Date().getFullYear()} LuxeTick All rights reserved
-</div>
+      </div>
     </footer>
   );
 }
