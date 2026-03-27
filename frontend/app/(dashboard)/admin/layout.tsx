@@ -17,7 +17,6 @@ const navItems = [
   { href: '/admin/users', label: 'Users', icon: HiOutlineUsers },
   { href: '/admin/products', label: 'Products', icon: BsCart2 },
   { href: '/admin/products/add', label: 'Add Product', icon: HiOutlineShoppingBag },
-  
   { href: '/admin/orders', label: 'Orders', icon: MdOutlineBorderColor },
 ];
 
@@ -87,7 +86,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </nav>
 
         {/* Logout */}
-        <div className="p-6 border-t border-gray-200 mt-auto">
+        <div className="p-6 border-t border-gray-200 mt-auto cursor-pointer">
           <button className="relative flex items-center gap-3 w-full px-5 py-3 text-red-500 rounded-xl transition-all duration-300 group overflow-hidden">
             
             {/* Hover bg */}
@@ -95,10 +94,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             <MdOutlineLogout
               size={23}
-              className="relative z-10 transition-all duration-300 group-hover:scale-105"
+              className="relative z-10 transition-all duration-300 group-hover:scale-105  cursor-pointer"
             />
 
-            <span className="relative z-10 font-medium transition-all duration-300 group-hover:translate-x-1">
+            <span className="relative z-10 font-medium transition-all duration-300 group-hover:translate-x-1 cursor-pointer">
               Logout
             </span>
           </button>
@@ -107,27 +106,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       {/* Main */}
       <div className="flex-1 flex flex-col">
-        
-        {/* Header */}
-        <header className="bg-white border-b border-gray-200 px-10 py-6 flex items-center justify-between shadow-sm">
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900">Welcome back, Admin</h2>
-            <p className="text-gray-500 text-sm">Manage your store efficiently</p>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <div className="text-sm text-gray-500 font-medium">
-              {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
-            </div>
-
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center font-bold text-white shadow-md">
-              S
-            </div>
-          </div>
-        </header>
-
         {/* Content */}
-        <main className="flex-1 overflow-auto p-10 bg-gray-50">
+        <main className="flex-1 overflow-auto p-10">
           {children}
         </main>
       </div>
