@@ -9,11 +9,22 @@
 
 
 
+// import type { NextConfig } from "next";
+
+// const nextConfig: NextConfig = {
+//   images: {
+//     domains: ["localhost"],
+//   },
+// };
+
+// export default nextConfig;
+
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "res.cloudinary.com"], // added Cloudinary
   },
 };
 
