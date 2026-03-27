@@ -99,6 +99,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+dotenv.config();
 
 // Routes
 import authRoutes from './auth/routes/auth.js';
@@ -107,12 +108,8 @@ import userRoutes from './auth/routes/users.js';
 import productRoutes from './products/routes/products.js';
 
 
-
-dotenv.config();
-
 const app = express();
 
-// ==================== Middlewares ====================
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
@@ -124,12 +121,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
-// Routes ke andar yeh line add kar do
 app.use('/api/products', productRoutes);
 
 // Test Route
 app.get('/', (req, res) => {
-  res.send('🚀 LuxeTick Backend is running successfully...');
+  res.send('LuxeTick Backend is running successfully...');
 });
 
 // ==================== 404 Handler ====================
@@ -148,6 +144,12 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
 });
+
+
+console.log("ENV CHECK:");
+console.log(process.env.CLOUDINARY_CLOUD_NAME);
+console.log(process.env.CLOUDINARY_API_KEY);
+console.log(process.env.CLOUDINARY_API_SECRET);
 
 // Start Server
 const PORT = process.env.PORT || 5000;

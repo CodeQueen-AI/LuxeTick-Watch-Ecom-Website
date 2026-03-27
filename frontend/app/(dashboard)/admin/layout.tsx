@@ -28,12 +28,12 @@ export default function DashboardLayout({
   const pathname = usePathname();
 
   return (
-    <div className="flex h-screen bg-zinc-950 text-white overflow-hidden font-sans">
+    <div className="flex h-screenoverflow-hidden font-sans">
       {/* Sidebar */}
-      <div className="w-72 bg-zinc-900 border-r border-zinc-800 flex flex-col">
+      <div className="w-72 bg-white border-r border-whiteflex flex-col">
         {/* Logo Section */}
-        <div className="p-8 border-b border-zinc-800">
-          <h1 className="text-4xl font-bold tracking-tighter text-white">
+        <div className="p-8 border-b border-white">
+          <h1 className="text-4xl font-bold tracking-tighter">
             Luxe<span className="text-indigo-500">Tick</span>
           </h1>
           <p className="text-zinc-400 text-sm mt-1">Admin Dashboard</p>
@@ -41,7 +41,7 @@ export default function DashboardLayout({
 
         {/* Navigation */}
         <nav className="flex-1 px-6 py-8">
-          <p className="text-xs uppercase tracking-widest text-zinc-500 mb-4 px-4">MAIN</p>
+          <p className="text-xs uppercase tracking-widest text-white mb-4 px-4">MAIN</p>
           
           {navItems.map((item) => {
             const isActive = pathname === item.href;
