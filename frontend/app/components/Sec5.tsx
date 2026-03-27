@@ -16,7 +16,7 @@ export default function sec() {
           </h1>
           <p
             className="text-center max-w-sm text-base leading-relaxed font-extralight line-clamp-3">
-            Explore our stylish shoes and accessories quality, comfort and trend all in one place
+            Explore our stylish watch and luxury quality, comfort and trend all in one place
           </p>
           <h1 className="text-[120px] font-serif leading-none mr-[-20px]">
             Style<span className="text-orange-500">.</span>
