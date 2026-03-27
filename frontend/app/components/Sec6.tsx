@@ -5,10 +5,8 @@ import { useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 export default function SmartWatchSection() {
-
   const { addToCart } = useCart();
   const [toast, setToast] = useState("");
-
   const product = {
     id: 4,
     name: "Smart Watch",
@@ -19,9 +17,7 @@ export default function SmartWatchSection() {
 
   const handleAdd = () => {
     addToCart(product);
-
     setToast(product.name);
-
     setTimeout(() => {
       setToast("");
     }, 2500);

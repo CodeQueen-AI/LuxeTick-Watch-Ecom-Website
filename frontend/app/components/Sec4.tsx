@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 export default function DiscoverSection() {
   const items = [
     { title: "MEN", img: "/Discover/D1.avif" },

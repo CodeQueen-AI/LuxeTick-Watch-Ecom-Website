@@ -5,7 +5,6 @@ import { useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 export default function WatchSection() {
-
   const { addToCart } = useCart();
   const [toast, setToast] = useState("");
 
@@ -26,7 +25,6 @@ export default function WatchSection() {
     });
 
     setToast(item.name);
-
     setTimeout(() => setToast(""), 2500);
   };
 
