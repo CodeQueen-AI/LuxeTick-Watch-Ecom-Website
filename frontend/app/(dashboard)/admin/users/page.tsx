@@ -206,7 +206,7 @@ export default function UsersPage() {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center h-40 text-gray-500">
+      <div className="flex justify-center items-center h-40">
         Loading users...
       </div>
     );
@@ -215,7 +215,7 @@ export default function UsersPage() {
     return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <div className="p-8 min-h-screen bg-gray-50">
+    <div className="p-8 min-h-screen">
       {/* Center Heading */}
       <div className="text-center mb-8">
         <h2 className="text-5xl font-serif font-extralight">Users</h2>
@@ -240,7 +240,7 @@ export default function UsersPage() {
       </div>
 
       {/* Users Table */}
-      <div className="overflow-hidden bg-white rounded-2xl shadow-sm border">
+      <div className="overflow-hidden">
         <table className="w-full text-sm">
           <thead className="text-xs uppercase tracking-wide bg-gray-50">
             <tr>
@@ -314,7 +314,7 @@ export default function UsersPage() {
                   {editUserId === user._id ? (
                     <button
                       onClick={() => handleUpdate(user._id)}
-                      className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition"
+                      className="px-3 py-1 bg-green-600 text-white  hover:bg-green-700 transition cursor-pointer"
                     >
                       Save
                     </button>
