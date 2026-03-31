@@ -351,7 +351,7 @@
 
 
 
-import Product from "../models/Product.js";
+import Product from "../Models/Product.js"
 import cloudinary from "../config/cloudinary.js"; // ✅ use config file
 import multer from "multer";
 
@@ -429,3 +429,13 @@ export const getAllProducts = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+
+
+
+
+
+
+
+
+
