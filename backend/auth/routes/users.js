@@ -1,35 +1,9 @@
-// import express from 'express';
-// const router = express.Router();
-
-// // Import User Model (agar tumhara model yahan hai)
-// import User from "../Models/user.js"     // apna correct path daal do
-
-// // GET /api/users  →  Admin ke liye saare users
-// router.get('/', async (req, res) => {
-//   try {
-//     const users = await User.find()
-//       .select('-password')           // password security ke liye mat bhejo
-//       .sort({ createdAt: -1 });      // sabse naye pehle
-
-//     res.status(200).json(users);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ 
-//       message: "Server Error while fetching users" 
-//     });
-//   }
-// });
-
-// export default router;
-
-
 import express from "express";
 const router = express.Router();
 
 import User from "../Models/user.js";
 
-
-// 🔹 GET all users
+// GET all users
 router.get("/", async (req, res) => {
   try {
     const users = await User.find()
@@ -43,7 +17,7 @@ router.get("/", async (req, res) => {
 });
 
 
-// 🔹 CREATE user
+// CREATE user
 router.post("/", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -58,7 +32,7 @@ router.post("/", async (req, res) => {
 });
 
 
-// 🔹 UPDATE user
+// UPDATE user
 router.put("/:id", async (req, res) => {
   try {
     const { name, email } = req.body;
@@ -80,7 +54,7 @@ router.put("/:id", async (req, res) => {
 });
 
 
-// 🔹 DELETE user
+// DELETE user
 router.delete("/:id", async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
@@ -94,6 +68,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ message: "Error deleting user" });
   }
 });
-
 
 export default router;
