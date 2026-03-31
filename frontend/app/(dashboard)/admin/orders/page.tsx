@@ -59,7 +59,6 @@
 
 
 'use client';
-
 import { useEffect, useState } from 'react';
 
 type Order = {
