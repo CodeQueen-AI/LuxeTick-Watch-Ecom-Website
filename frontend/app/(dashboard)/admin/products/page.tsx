@@ -78,7 +78,7 @@ export default function ProductsPage() {
   }, []);
 
   return (
-    <div className="bg-gray-900 min-h-screen p-8 text-white rounded-3xl border border-gray-800">
+    <div className="min-h-screen p-8 ">
       
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl font-semibold">All Products</h2>
