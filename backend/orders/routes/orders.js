@@ -13,6 +13,6 @@ router.get("/my-orders", authMiddleware, getMyOrders);
 router.get("/all", getAllOrders);    
 
 // Temporary: ye login system lagane ke bad uncomment krdena
-router.get("/all", authMiddleware, getAllOrders);
+// router.get("/all", authMiddleware, getAllOrders);
 
 export default router;
