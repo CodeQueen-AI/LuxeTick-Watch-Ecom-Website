@@ -144,6 +144,7 @@
 
 import { useEffect, useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { CiEdit } from "react-icons/ci";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<any[]>([]);
@@ -187,25 +188,26 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gray-900 text-white">
-      <h2 className="text-3xl font-semibold mb-6">All Products</h2>
+    <div className="min-h-screen p-8">
+      <h2 className="text-5xl font-extralight font-serif text-center mb-6">All Products</h2>
 
-      {loading && <p className="text-gray-400">Loading products...</p>}
+      {loading && <p>Loading products...</p>}
 
       {!loading && products.length === 0 && (
         <p className="text-gray-400">No products found</p>
       )}
 
       {!loading && products.length > 0 && (
-        <div className="overflow-x-auto rounded-xl border border-gray-700">
+        <div className="overflow-x-auto text-sm">
           <table className="w-full text-left">
-            <thead className="bg-gray-800 text-gray-400">
+            <thead className="bg-gray-100">
               <tr>
                 <th className="py-4 px-3">Image</th>
                 <th className="py-4 px-3">Name</th>
                 <th className="py-4 px-3">Category</th>
                 <th className="py-4 px-3">Price</th>
                 <th className="py-4 px-3">Stock</th>
+                <th className="py-4 px-3">Discount</th>
                 <th className="py-4 px-3 text-center">Actions</th>
               </tr>
             </thead>
@@ -214,39 +216,39 @@ export default function ProductsPage() {
               {products.map((p) => (
                 <tr
                   key={p._id}
-                  className="border-b border-gray-700 hover:bg-gray-800/50 transition"
+                  className="border-b border-gray-300"
                 >
                   <td className="py-3 px-3">
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="w-14 h-14 object-cover rounded-xl"
+                      className="w-14 h-14 object-cover"
                     />
                   </td>
-                  <td className="py-3 px-3">{p.name}</td>
+                  <td className="py-3 px-3 capitalize">{p.name}</td>
                   <td className="py-3 px-3">{p.category || "—"}</td>
                   <td className="py-3 px-3">${p.price}</td>
                   <td className="py-3 px-3">
                     <span
-                      className={`px-3 py-1 rounded-full text-xs ${
+                      className={`px-3 py-1 text-xs ${
                         p.stock > 30
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-orange-500/20 text-orange-400"
+                          ? "bg-red-500/20 text-red-600"
+                          : "bg-green-500/20 text-green-700"
                       }`}
                     >
-                      {p.stock} in stock
+                      {p.stock}
                     </span>
                   </td>
                   <td className="py-3 px-3 flex justify-center gap-3">
                     <button
                       onClick={() => alert("Edit product: " + p._id)}
-                      className="p-2 rounded-lg hover:bg-gray-700 transition"
+                      className="cursor-pointer text-2xl"
                     >
-                      <FiEdit className="text-blue-400" />
+                      <CiEdit className="text-blue-700" />
                     </button>
                     <button
                       onClick={() => handleDelete(p._id)}
-                      className="p-2 rounded-lg hover:bg-gray-700 transition"
+                      className="cursor-pointer text-xl"
                     >
                       <FiTrash2 className="text-red-500" />
                     </button>
