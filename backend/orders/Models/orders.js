@@ -37,5 +37,7 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-const Order = mongoose.model("Order", orderSchema);
+// ⚡ Avoid Overwrite Error
+const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
+
 export default Order;
