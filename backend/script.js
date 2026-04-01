@@ -105,6 +105,9 @@ import authRoutes from './auth/routes/auth.js';
 import orderRoutes from './orders/routes/orders.js';
 import userRoutes from './auth/routes/users.js';
 import productRoutes from './products/routes/products.js';
+import authRoutes from "./routes/auth.js";
+
+app.use("/api/auth", authRoutes);
 
 
 const app = express();
@@ -156,3 +159,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📍 Test Route: http://localhost:${PORT}/`);
 });
+
