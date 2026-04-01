@@ -1,86 +1,9 @@
-// "use client";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-// import { ADMIN_EMAIL, ADMIN_PASSWORD } from "@/app/(dashboard)/lib/auth";
-// import { FiEye, FiEyeOff } from "react-icons/fi";
-
-// export default function AdminLogin() {
-//   const router = useRouter();
-
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [show, setShow] = useState(false);
-
-//   const handleLogin = (e: any) => {
-//     e.preventDefault();
-
-//     if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-//       localStorage.setItem("admin", "true");
-//       router.push("/admin");
-//     } else {
-//       alert("Invalid credentials ❌");
-//     }
-//   };
-
-//   return (
-//     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-indigo-100 via-white to-indigo-200">
-      
-//       <form
-//         onSubmit={handleLogin}
-//         className="bg-white/80 backdrop-blur-md p-10 shadow-xl w-[380px] border border-gray-200"
-//       >
-//         {/* Title */}
-//         <h2 className="text-3xl font-extralight font-serif  text-center mb-8">
-//           Admin Login
-//         </h2>
-
-//         {/* Email */}
-//         <div className="mb-6">
-//           <label className="text-lg">Email</label>
-//           <input
-//             type="email"
-//             className="w-full mt-2 px-2 py-2 bg-transparent border-b-2 border-gray-300 focus:border-[#09162c] outline-none transition"
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//         </div>
-
-//         {/* Password */}
-//         <div className="mb-8 relative">
-//           <label className="text-sm">Password</label>
-//           <input
-//             type={show ? "text" : "password"}
-//             className="w-full mt-2 px-2 py-2 bg-transparent border-b-2 border-gray-300 focus:border-[#09162c] outline-none transition pr-10"
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-
-//           {/* Eye Icon */}
-//           <span
-//             onClick={() => setShow(!show)}
-//             className="absolute right-2 top-9 cursor-pointer text-gray-500 hover:text-[#09162c]"
-//           >
-//             {show ? <FiEyeOff size={20} /> : <FiEye size={20} />}
-//           </span>
-//         </div>
-
-//         {/* Button */}
-//         <button
-//           type="submit"
-//           className="w-full py-3 bg-[#09162c] text-white font-semibold hover:bg-[#09162c] transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
-//         >
-//           Login to Dashboard
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ADMIN_EMAIL, ADMIN_PASSWORD } from "@/app/(dashboard)/lib/auth";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -89,41 +12,28 @@ export default function AdminLogin() {
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
 
-  // 🔔 Toast state
-  const [toast, setToast] = useState("");
-  const [type, setType] = useState<"success" | "error">("success");
-
-  const showToast = (message: string, toastType: "success" | "error") => {
-    setToast(message);
-    setType(toastType);
-
-    setTimeout(() => {
-      setToast("");
-    }, 3000);
-  };
+  // ❗ Error state
+  const [error, setError] = useState("");
 
   const handleLogin = (e: any) => {
     e.preventDefault();
 
-    // ❗ Empty fields check
+    // Empty fields
     if (!email || !password) {
-      showToast("Please fill all fields", "error");
+      setError("Please fill all fields");
       return;
     }
 
-    // ❌ Wrong credentials
+    // Wrong credentials
     if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
-      showToast("Invalid email or password", "error");
+      setError("Invalid email or password");
       return;
     }
 
-    // ✅ Success
+    // Success
+    setError("");
     localStorage.setItem("admin", "true");
-    showToast("Login successful 🎉", "success");
-
-    setTimeout(() => {
-      router.push("/admin");
-    }, 1000);
+    router.push("/admin");
   };
 
   return (
@@ -149,7 +59,7 @@ export default function AdminLogin() {
         </div>
 
         {/* Password */}
-        <div className="mb-8 relative">
+        <div className="mb-4 relative">
           <label className="text-sm">Password</label>
           <input
             type={show ? "text" : "password"}
@@ -166,6 +76,13 @@ export default function AdminLogin() {
           </span>
         </div>
 
+        {/* ❗ ERROR MESSAGE */}
+        {error && (
+          <p className="text-red-500 text-sm mb-4">
+            {error}
+          </p>
+        )}
+
         {/* Button */}
         <button
           type="submit"
@@ -174,18 +91,6 @@ export default function AdminLogin() {
           Login to Dashboard
         </button>
       </form>
-
-      {/* 🔔 TOAST */}
-      {toast && (
-        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white border shadow-xl px-5 py-3 z-50 animate-slideIn">
-          {type === "success" ? (
-            <AiOutlineCheckCircle className="text-green-500 text-2xl" />
-          ) : (
-            <AiOutlineCloseCircle className="text-red-500 text-2xl" />
-          )}
-          <p className="text-sm font-medium">{toast}</p>
-        </div>
-      )}
     </div>
   );
 }
