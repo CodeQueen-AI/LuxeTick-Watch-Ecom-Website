@@ -167,8 +167,8 @@ const allura = Allura({ subsets: ["latin"], weight: "400" });
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: RxDashboard },
   { href: "/admin/users", label: "Users", icon: HiOutlineUsers },
-  { href: "/admin/products", label: "Products", icon: BsCart2 },
   { href: "/admin/products/add", label: "Add Product", icon: HiOutlineShoppingBag },
+  { href: "/admin/products", label: "Products", icon: BsCart2 },
   { href: "/admin/orders", label: "Orders", icon: MdOutlineBorderColor },
 ];
 
