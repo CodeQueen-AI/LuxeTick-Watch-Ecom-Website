@@ -186,63 +186,75 @@ export default function AddProductPage() {
     <div className="max-w-2xl mx-auto mt-1 p-6">
       <h2 className="text-4xl font-serif font-extralight text-center mb-8">Add Product</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
+
         {/* Product Name */}
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-1">Product Name</label>
-          <input name="name" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" placeholder="Enter product name" />
+          <input name="name" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
         </div>
+
         {/* Description */}
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-1">Description</label>
-          <textarea name="description" required rows={3} className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" placeholder="Enter description" />
+          <textarea name="description" required rows={3} className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
         </div>
-        {/* Price, Stock, Discount + Gender */}
-        <div className="grid grid-cols-3 gap-4">
+
+        {/* Price | Stock */}
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Price</label>
-            <input name="price" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+            <input name="price" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
           </div>
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Stock</label>
-            <input name="stock" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+            <input name="stock" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
           </div>
+        </div>
+
+        {/* Discount | Gender */}
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Discount %</label>
-            <input name="discount" type="number" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
-            <label className="block text-gray-700 text-sm font-medium mb-1 mt-2">Gender</label>
-            <select name="gender" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm">
+            <input name="discount" type="number" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
+          </div>
+          <div>
+            <label className="block text-gray-700 text-sm font-medium mb-1">Gender</label>
+            <select name="gender" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm">
               <option value="" disabled hidden>Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           </div>
         </div>
-        {/* Brand & Category */}
+
+        {/* Brand | Category */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Brand</label>
-            <input name="brand" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+            <input name="brand" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
           </div>
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Category</label>
-            <input name="category" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+            <input name="category" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
           </div>
         </div>
-        {/* Color & Strap */}
+
+        {/* Color | Strap */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Color</label>
-            <input name="color" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+            <input name="color" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
           </div>
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Strap</label>
-            <input name="strap" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+            <input name="strap" className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-[#09162c] shadow-sm"/>
           </div>
         </div>
+
         {/* Product Image */}
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-1">Product Image</label>
-          <label className="flex items-center gap-2 px-4 py-3 border border-gray-300 rounded-xl cursor-pointer hover:bg-gray-100 transition">
+          <label className="flex items-center gap-2 px-4 py-3 border border-gray-300 cursor-pointer hover:bg-gray-100 transition">
             <FiUpload className="text-xl text-gray-500" />
             <span className="text-gray-700">Upload Image</span>
             <input
@@ -253,14 +265,15 @@ export default function AddProductPage() {
               onChange={handleImageChange}
               className="hidden"/>
           </label>
-          {preview && (<img src={preview} alt="Preview" className="w-24 h-24 object-cover rounded-xl mt-2 border"/>)}
+          {preview && (<img src={preview} alt="Preview" className="w-24 h-24 object-cover mt-2 border"/>)}
         </div>
+
         {/* Submit Button */}
         <div className="text-center">
           <button
             type="submit"
             disabled={loading}
-            className="px-10 py-3 bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 cursor-pointer">
+            className="px-10 py-3 bg-[#09162c] text-white font-semibold shadow hover:bg-[#0e2141] transition disabled:opacity-50 cursor-pointer">
             {loading ? "Adding..." : "Add Product"}
           </button>
         </div>
