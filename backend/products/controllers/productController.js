@@ -24,7 +24,7 @@ export const createProduct = async (req, res) => {
       category,
       gender,
     } = req.body;
-
+    console.log(req.body)
     // Upload image to Cloudinary
     const uploadResult = await new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(

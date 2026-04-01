@@ -5,7 +5,8 @@
   "main": "script.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon script.js"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,8 @@
     "mongoose": "^9.2.4",
     "multer": "^2.1.1",
     "nodemailer": "^8.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

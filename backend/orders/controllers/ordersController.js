@@ -112,7 +112,7 @@ export const getAllOrders = async (req, res) => {
       .populate("user", "name email")
       .sort({ date: -1 });
 
-    console.log(`Admin fetched ${orders.length} orders`);
+    console.log(`Admin fetched ${orders} orders`);
 
     res.status(200).json({
       success: true,

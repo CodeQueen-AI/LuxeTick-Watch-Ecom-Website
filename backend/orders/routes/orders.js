@@ -29,7 +29,7 @@ import {
   createOrdersFromCart,
   getAllOrders,
 } from "../controllers/ordersController.js";
-import Order from "../models/orders.js"; // ⚡ status update ke liye
+import Order from "../Models/orders.js"
 
 const router = express.Router();
 

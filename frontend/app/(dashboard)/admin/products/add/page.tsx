@@ -56,12 +56,16 @@ export default function AddProductPage() {
         {/* Stock & Discount */}
         <div className="grid grid-cols-2 gap-4">
           <div>
+            <label className="block text-gray-700 text-sm font-medium mb-1">Price</label>
+            <input name="price" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
+          </div>
+          <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Stock</label>
-            <input name="stock" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" placeholder="Stock quantity" />
+            <input name="stock" type="number" required className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
           </div>
           <div>
             <label className="block text-gray-700 text-sm font-medium mb-1">Discount %</label>
-            <input name="discount" type="number" defaultValue={0} className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" placeholder="Discount %" />
+            <input name="discount" type="number" defaultValue={0} className="w-full border border-gray-300 px-4 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"/>
           </div>
         </div>
         {/* Brand & Category */}

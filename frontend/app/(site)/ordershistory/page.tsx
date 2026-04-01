@@ -35,7 +35,7 @@ export default function OrderHistory() {
         });
 
         const data = await res.json();
-
+        console.log(data)
         if (res.status === 401) {
           setError("Session expired. Please login again.");
           localStorage.removeItem("token");

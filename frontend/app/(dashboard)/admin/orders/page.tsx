@@ -209,6 +209,7 @@ export default function OrdersPage() {
         });
         if (!res.ok) throw new Error('Failed to fetch orders');
         const data = await res.json();
+        console.log(data)
         setOrders(Array.isArray(data) ? data : Array.isArray(data.orders) ? data.orders : []);
       } catch (err: any) {
         console.error(err);
