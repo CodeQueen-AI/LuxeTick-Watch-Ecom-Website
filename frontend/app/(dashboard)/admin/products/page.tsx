@@ -100,7 +100,7 @@ export default function ProductsPage() {
                         : "—"}
                     </span>
                   </td>
-                  <td className="py-3 px-3 flex gap-3 justify-center">
+                  {/* <td className="py-3 px-3 flex gap-3 justify-center">
                     <button
                       onClick={() => alert("Edit product: " + p._id)}
                       className="cursor-pointer text-2xl">
@@ -111,7 +111,28 @@ export default function ProductsPage() {
                       className="cursor-pointer text-xl">
                       <FiTrash2 className="text-red-500" />
                     </button>
-                  </td>
+                  </td> */}
+                  <td className="py-3 px-3">
+  <div className="flex items-center justify-center gap-2">
+    
+    {/* EDIT */}
+    <button
+      onClick={() => alert("Edit product: " + p._id)}
+      className="p-2 rounded-md bg-blue-100 transition cursor-pointer"
+    >
+      <CiEdit className="text-blue-600 text-xl" />
+    </button>
+
+    {/* DELETE */}
+    <button
+      onClick={() => handleDelete(p._id)}
+      className="p-2 rounded-md bg-red-100 transition cursor-pointer"
+    >
+      <FiTrash2 className="text-red-600 text-base" />
+    </button>
+
+  </div>
+</td>
                 </tr>
               ))}
             </tbody>
@@ -121,3 +142,13 @@ export default function ProductsPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
