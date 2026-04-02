@@ -1,5 +1,6 @@
 import express from "express";
-import { createProduct, getAllProducts, upload } from "../controllers/productController.js";
+import { createProduct, getAllProducts, updateProduct, upload } from "../controllers/productController.js";
+// import { createProduct, getAllProducts, upload } from "../controllers/productController.js";
 import Product from "../Models/Product.js"
 import cloudinary from "../config/cloudinary.js";
 const router = express.Router();
@@ -71,5 +72,6 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ message: err.message || "Server error" });
   }
 });
+router.put("/:id", upload.single("image"), updateProduct);
 
 export default router;

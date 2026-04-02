@@ -68,3 +68,45 @@ export const getAllProducts = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+
+// UPDATE PRODUCT (🔥 ADD THIS)
+export const updateProduct = async (req, res) => {
+  try {
+    const updateData = {
+      ...req.body,
+    };
+
+    // 🧠 IMPORTANT: newArrival ko boolean me convert karo
+    if (req.body.newArrival !== undefined) {
+      updateData.newArrival =
+        req.body.newArrival === "true" ||
+        req.body.newArrival === true;
+    }
+
+    // 🖼️ agar new image ayi ho
+    if (req.file) {
+      const uploadResult = await new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "luxe_tick_products", resource_type: "image" },
+          (error, result) => (error ? reject(error) : resolve(result))
+        );
+        stream.end(req.file.buffer);
+      });
+
+      updateData.image = uploadResult.secure_url;
+      updateData.publicId = uploadResult.public_id;
+    }
+
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+
+    res.json({ product });
+  } catch (error) {
+    console.error("Error in updateProduct:", error);
+    res.status(500).json({ message: "Update failed" });
+  }
+};

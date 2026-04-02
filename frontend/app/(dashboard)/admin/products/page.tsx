@@ -236,7 +236,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gray-50">
+    <div className="min-h-screen p-8">
       <h2 className="text-5xl font-extralight font-serif text-center mb-6">
         All Products
       </h2>
@@ -248,7 +248,7 @@ export default function ProductsPage() {
       )}
 
       {!loading && products.length > 0 && (
-        <div className="overflow-x-auto text-sm shadow rounded-lg bg-white">
+        <div className="overflow-x-auto text-sm  bg-white">
           <table className="w-full text-left">
             <thead className="bg-gray-100">
               <tr>
@@ -268,7 +268,7 @@ export default function ProductsPage() {
                   <td className="py-3 px-3">
                     <img
                       src={p.image}
-                      className="w-14 h-14 object-cover rounded"
+                      className="w-14 h-14 object-cover"
                     />
                   </td>
                   <td className="py-3 px-3 capitalize">{p.name}</td>
@@ -290,15 +290,15 @@ export default function ProductsPage() {
                     <div className="flex justify-center gap-2">
                       <button
                         onClick={() => handleEdit(p)}
-                        className="p-2 bg-blue-100 rounded-md hover:bg-blue-200"
+                        className="p-2 bg-blue-100 rounded-md hover:bg-blue-200 cursor-pointer"
                       >
-                        <CiEdit className="text-blue-600 text-lg" />
+                        <CiEdit className="text-blue-600 text-2xl" />
                       </button>
                       <button
                         onClick={() => handleDelete(p._id)}
-                        className="p-2 bg-red-100 rounded-md hover:bg-red-200"
+                        className="p-2 bg-red-100 rounded-md hover:bg-red-200 cursor-pointer"
                       >
-                        <FiTrash2 className="text-red-600" />
+                        <FiTrash2 className="text-red-600"/>
                       </button>
                     </div>
                   </td>
@@ -326,7 +326,7 @@ export default function ProductsPage() {
           } flex flex-col pointer-events-auto`}
         >
           <div className="p-6 flex-1 overflow-y-auto">
-            <h2 className="text-2xl mb-6 font-semibold border-b pb-3">
+            <h2 className="text-2xl mb-6 font-serif font-extralight text-center pb-3">
               Edit Product
             </h2>
 
@@ -347,9 +347,9 @@ export default function ProductsPage() {
                 <div key={field.name} className="flex flex-col gap-1">
                   <label className="font-medium">{field.label}</label>
                   {field.type === "textarea" ? (
-                    <textarea name={field.name} defaultValue={field.value} className="w-full border p-2 rounded"/>
+                    <textarea name={field.name} defaultValue={field.value} className="w-full border border-gray-300 p-2"/>
                   ) : (
-                    <input type={field.type} name={field.name} defaultValue={field.value} className="w-full border p-2 rounded"/>
+                    <input type={field.type} name={field.name} defaultValue={field.value} className="w-full border border-gray-300 p-2"/>
                   )}
                 </div>
               ))}
@@ -357,35 +357,30 @@ export default function ProductsPage() {
               {/* Gender */}
               <div className="flex flex-col gap-1">
                 <label className="font-medium">Gender</label>
-                <select name="gender" defaultValue={editProduct?.gender} className="w-full border p-2 rounded">
+                <select name="gender" defaultValue={editProduct?.gender} className="w-full border p-2 border-gray-300">
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
               </div>
 
-              {/* New Arrival */}
-              <div className="flex items-center gap-2 mt-1">
-                <input type="checkbox" name="newArrival" defaultChecked={editProduct?.newArrival}/>
-                <label>New Arrival</label>
-              </div>
 
               {/* Image Upload */}
-              <label className="flex items-center gap-2 border p-2 rounded cursor-pointer mt-2">
+              <label className="flex items-center gap-2 border border-gray-300 p-2 cursor-pointer mt-2">
                 <FiUpload />
                 Upload Image
                 <input type="file" name="image" hidden onChange={handleImageChange}/>
               </label>
 
               {preview && (
-                <img src={preview} className="w-32 h-32 object-cover mt-2 rounded" />
+                <img src={preview} className="w-32 h-32 object-cover mt-2" />
               )}
 
               {/* Buttons */}
               <div className="flex gap-3 mt-4">
-                <button type="button" onClick={() => setDrawerOpen(false)} className="flex-1 bg-gray-200 py-2 rounded hover:bg-gray-300">
+                <button type="button" onClick={() => setDrawerOpen(false)} className="flex-1 bg-gray-200 py-2  hover:bg-gray-300 cursor-pointer">
                   Cancel
                 </button>
-                <button type="submit" className="flex-1 bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+                <button type="submit" className="flex-1 bg-[#09162c] text-white py-2 hover:bg-[#0c1a30] cursor-pointer">
                   Update
                 </button>
               </div>
@@ -397,3 +392,14 @@ export default function ProductsPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
