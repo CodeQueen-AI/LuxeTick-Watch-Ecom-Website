@@ -85,26 +85,40 @@ export const createOrdersFromCart = async (req, res) => {
 };
 
 // Get My Orders
+// export const getMyOrders = async (req, res) => {
+//   try {
+//     const orders = await Order.find({ user: req.user?.id })
+//       .sort({ date: -1 });
+
+//     res.status(200).json({
+//       success: true,
+//       orders,
+//     });
+
+//   } catch (err) {
+//     console.error("Error fetching my Orders:", err.message);
+
+//     res.status(500).json({
+//       success: false,
+//       message: "Server error while fetching orders",
+//     });
+//   }
+// };
+
 export const getMyOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.user?.id })
-      .sort({ date: -1 });
+    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 });
 
+    // Frontend expects array directly in data
     res.status(200).json({
       success: true,
-      orders,
+      orders, // this is correct
     });
-
   } catch (err) {
-    console.error("Error fetching my Orders:", err.message);
-
-    res.status(500).json({
-      success: false,
-      message: "Server error while fetching orders",
-    });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
-
 // Admin: Get All Orders 
 export const getAllOrders = async (req, res) => {
   try {
