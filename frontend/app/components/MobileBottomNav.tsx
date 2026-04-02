@@ -295,7 +295,7 @@ export default function MobileBottomNav() {
                   ${
                     isActive
                       ? "bg-white text-[#09162c] p-3 rounded-full scale-110 shadow-md"
-                      : "text-gray-400"
+                      : "text-white"
                   }`}
                 >
                   {item.icon}
@@ -312,7 +312,7 @@ export default function MobileBottomNav() {
                 ${
                   profileOpen
                     ? "bg-white text-[#09162c] p-3 rounded-full scale-110 shadow-md"
-                    : "text-gray-400"
+                    : "text-white"
                 }`}
               >
                 <FaRegUser />
