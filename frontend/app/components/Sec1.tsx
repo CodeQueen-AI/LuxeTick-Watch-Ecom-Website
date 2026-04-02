@@ -1,13 +1,9 @@
 "use client";
 import Image from "next/image";
-import { useCart } from "../(site)/context/cartcontext";
-import { useState } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import Link from "next/link";
 
 export default function SeasonCollection() {
-  const { addToCart } = useCart();
-  const [toast, setToast] = useState("");
-
   const products = [
     {
       id: 1,
@@ -29,31 +25,8 @@ export default function SeasonCollection() {
     },
   ];
 
-  const handleAdd = (item: any) => {
-
-    addToCart({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      image: item.image,
-      quantity: 1,
-    });
-
-    setToast(item.name);
-    setTimeout(() => {
-      setToast("");
-    }, 2500);
-  };
-
   return (
     <section className="w-full py-20 relative poppins">
-      {toast && (
-        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white border border-gray-200 shadow-xl px-5 py-3 animate-slideIn">
-          <AiOutlineCheckCircle  className="text-green-500" size={22} />
-          <p className="text-sm">
-            <span className="font-semibold">{toast}</span> Added To Cart!
-          </p>
-        </div>)}
       <div className="max-w-7xl mx-auto poppins px-6">
         <h1 className="text-4xl text-center mb-16">
           <span className="allura text-6xl">Season Collection</span>
@@ -71,11 +44,11 @@ export default function SeasonCollection() {
               <h2 className="text-2xl mt-6">
                 {item.name}
               </h2>
-              <button
-                onClick={() => handleAdd(item)}
-                className="mt-6 border border-gray-400 px-6 py-2 hover:bg-black hover:text-white transition cursor-pointer">
+              <Link href="/products">
+              <button className="mt-6 border border-gray-400 px-6 py-2 hover:bg-black hover:text-white transition cursor-pointer">
                 Shop Now
               </button>
+              </Link>
             </div>
           ))}
         </div>
