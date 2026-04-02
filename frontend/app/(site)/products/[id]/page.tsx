@@ -95,7 +95,7 @@ export default function ProductDetailPage() {
           <div className="lg:w-1/2 w-full lg:pl-10 flex flex-col justify-between">
             <div>
 
-              <h1 className="text-6xl font-extralight mb-4 text-blue-950 allura text-center lg:text-left">
+              <h1 className="text-6xl font-extralight mb-4 text-blue-950 allura text-center lg:text-left capitalize">
                 {product?.name}
               </h1>
 

@@ -149,7 +149,7 @@ export default function AddProductPage() {
 
       {/* 🔥 Toast Notification */}
       {toast && (
-        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white border px-5 py-3 z-50">
+        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white px-5 py-3 z-50">
           {type === "success" ? (
             <AiOutlineCheckCircle className="text-green-500 text-2xl" />
           ) : (
