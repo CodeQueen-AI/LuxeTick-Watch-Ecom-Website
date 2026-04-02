@@ -197,8 +197,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   // ⏳ Prevent flicker before auth check
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen text-xl font-semibold">
-        Checking auth...
+      <div className="flex items-center justify-center h-screen font-serif font-extralight text-3xl">
+        Loading ... 
       </div>
     );
   }
@@ -268,7 +268,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="p-6 border-t border-gray-200 mt-auto">
           <button
             onClick={handleLogout}
-            className="relative flex items-center gap-3 w-full px-5 py-3 text-red-500 rounded-xl transition-all duration-300 group overflow-hidden"
+            className="relative flex items-center gap-3 w-full px-5 py-3 text-red-500 rounded-xl transition-all cursor-pointer duration-300 group overflow-hidden"
           >
             {/* Hover bg */}
             <span className="absolute inset-0 bg-red-50 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl" />
