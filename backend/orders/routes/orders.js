@@ -156,6 +156,46 @@
 
 
 
+// import express from "express";
+// import authMiddleware from "../../auth/middleware/authMiddleware.js";
+// import {
+//   createOrder,
+//   getMyOrders,
+//   createOrdersFromCart,
+//   getAllOrders,
+//   updateOrderStatus,
+//   deleteOrder
+// } from "../controllers/ordersController.js";
+
+// const router = express.Router();
+
+// // ---------------- User Routes ----------------
+// router.post("/create", authMiddleware, createOrder);
+// router.post("/create-multiple", authMiddleware, createOrdersFromCart);
+// router.get("/my-orders", authMiddleware, getMyOrders);
+// router.post("/check-stock", authMiddleware, checkStock);
+
+// // ---------------- Admin Routes ----------------
+// router.get("/all", getAllOrders);
+
+// // ---------------- Status Update Route ----------------
+// router.patch("/:id/status", authMiddleware, updateOrderStatus);
+
+// // ---------------- Delete Order Route ----------------
+// router.delete("/:id", authMiddleware, deleteOrder);
+
+// // ✅ YEH LINE IMPORTANT HAI - MAKE SURE THIS EXISTS
+// export default router;
+
+
+
+
+
+
+
+
+
+
 import express from "express";
 import authMiddleware from "../../auth/middleware/authMiddleware.js";
 import {
@@ -164,14 +204,15 @@ import {
   createOrdersFromCart,
   getAllOrders,
   updateOrderStatus,
-  deleteOrder
+  deleteOrder,
+  checkStock
 } from "../controllers/ordersController.js";
 
 const router = express.Router();
 
 // ---------------- User Routes ----------------
 router.post("/create", authMiddleware, createOrder);
-router.post("/create-multiple", authMiddleware, createOrdersFromCart);
+router.post("/create-from-cart", authMiddleware, createOrdersFromCart);
 router.get("/my-orders", authMiddleware, getMyOrders);
 
 // ---------------- Admin Routes ----------------
@@ -183,5 +224,7 @@ router.patch("/:id/status", authMiddleware, updateOrderStatus);
 // ---------------- Delete Order Route ----------------
 router.delete("/:id", authMiddleware, deleteOrder);
 
-// ✅ YEH LINE IMPORTANT HAI - MAKE SURE THIS EXISTS
+// ---------------- Check Stock Route ----------------
+router.post("/check-stock", authMiddleware, checkStock);
+
 export default router;
