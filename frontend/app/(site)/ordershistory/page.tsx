@@ -1277,41 +1277,28 @@ export default function OrderHistory() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 md:py-12">
+    <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header - Centered */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+          <h1 className="text-7xl tracking-tight allura">
             Order History
           </h1>
-          <p className="text-gray-500 mt-1">View and track all your orders</p>
-          
-          {/* Refresh Button - Centered below heading */}
-          <div className="mt-4">
-            <button
-              onClick={handleRefresh}
-              disabled={refreshing}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
-            >
-              <FiRefreshCw className={`w-4 h-4 ${refreshing ? "animate-spin" : ""}`} />
-              {refreshing ? "Refreshing..." : "Refresh"}
-            </button>
-          </div>
         </div>
 
         {/* Orders List - Simple Table Style */}
-        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+        <div className="overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 border-b border-gray-400 uppercase">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Product</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Order ID</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Quantity</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Price</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Total</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Status</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">Date</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Product</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Order ID</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Quantity</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Price</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Total</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Status</th>
+                  <th className="px-6 py-4 text-left text-sm font-serif font-extralight">Date</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -1326,7 +1313,7 @@ export default function OrderHistory() {
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           {order.image ? (
-                            <div className="relative w-14 h-14 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                            <div className="relative w-14 h-14 overflow-hidden flex-shrink-0">
                               <Image
                                 src={order.image}
                                 alt={order.productName}
@@ -1344,7 +1331,7 @@ export default function OrderHistory() {
                               <FiPackage className="w-6 h-6 text-gray-400" />
                             </div>
                           )}
-                          <span className="font-semibold text-gray-900 text-base">{order.productName}</span>
+                          <span className="font-semibold capitalize text-base">{order.productName}</span>
                         </div>
                        </td>
 
@@ -1356,13 +1343,13 @@ export default function OrderHistory() {
                        </td>
 
                       {/* Quantity */}
-                      <td className="px-6 py-4 text-gray-700 font-medium text-base">{order.quantity}</td>
+                      <td className="px-6 py-4 font-medium text-base font-serif">{order.quantity}</td>
 
                       {/* Price */}
-                      <td className="px-6 py-4 text-gray-700 text-base">${order.price.toLocaleString()}</td>
+                      <td className="px-6 py-4 text-base font-mono">${order.price.toLocaleString()}</td>
 
                       {/* Total */}
-                      <td className="px-6 py-4 font-bold text-gray-900 text-base">${totalAmount.toLocaleString()}</td>
+                      <td className="px-6 py-4 text-gray-900 text-base">${totalAmount.toLocaleString()}</td>
 
                       {/* Status - Larger Badge */}
                       <td className="px-6 py-4">
@@ -1373,7 +1360,7 @@ export default function OrderHistory() {
                        </td>
 
                       {/* Date */}
-                      <td className="px-6 py-4 text-gray-500 text-sm">{formatDate(order.date)}</td>
+                      <td className="px-6 py-4 text-sm">{formatDate(order.date)}</td>
                     </tr>
                   );
                 })}
@@ -1384,8 +1371,8 @@ export default function OrderHistory() {
 
         {/* Footer Stats */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500">
-            Total Orders: <span className="font-semibold text-gray-700">{orders.length}</span>
+          <p className="text-xl font-serif">
+            Total Orders: <span className="font-semibold ">{orders.length}</span>
           </p>
         </div>
       </div>
