@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -7,14 +7,15 @@ const productSchema = new mongoose.Schema({
   stock: { type: Number, required: true, default: 0 },
   discount: { type: Number, default: 0 },
   newArrival: { type: Boolean, default: false },
-  image: { type: String, required: true },
+  image: { type: String, required: true },   // ✅ make sure inside schema {}
   publicId: { type: String },
   brand: { type: String },
   color: { type: String },
   strap: { type: String },
   category: { type: String },
-  gender: { type: String, enum: ["Male", "Female"] },
-}, { timestamps: true });
+  gender: { type: String },
+}, { timestamps: true }); // add options as second argument
 
-const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
+const Product = mongoose.model("Product", productSchema);
+
 export default Product;
