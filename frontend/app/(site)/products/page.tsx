@@ -237,7 +237,8 @@ export default function ProductsPage() {
                 <div className="mt-4 flex flex-col gap-2">
                   <p className="font-medium text-xl font-serif">{product.name}</p>
                   <div className="flex justify-between items-center">
-                    <Link href={`/products/${product.id}`} className="bg-black text-white px-3 py-1 text-sm hover:bg-gray-800">View</Link>
+                  
+                    <Link href={`/products/${product._id}`} className="bg-black text-white px-3 py-1 text-sm hover:bg-gray-800">View</Link>
                     <p className="font-serif text-xl">${product.price}</p>
                   </div>
                 </div>
