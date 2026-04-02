@@ -1,7 +1,10 @@
+
+
 "use client";
 import { useEffect, useState } from "react";
 import { FiTrash2 } from "react-icons/fi";
 import { CiEdit } from "react-icons/ci";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<any[]>([]);
@@ -10,6 +13,10 @@ export default function ProductsPage() {
   const [editProduct, setEditProduct] = useState<any>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
+
+  // Toast state
+  const [toast, setToast] = useState<string | null>(null);
+  const [type, setType] = useState<"success" | "error">("success");
 
   // FETCH PRODUCTS
   useEffect(() => {
@@ -28,12 +35,24 @@ export default function ProductsPage() {
   }, []);
 
   // DELETE PRODUCT
-  const handleDelete = async (id: string) => {
-    if (!confirm("Delete this product?")) return;
-    const res = await fetch(`http://localhost:5000/api/products/${id}`, {
-      method: "DELETE",
-    });
-    if (res.ok) setProducts(products.filter((p) => p._id !== id));
+  const handleDelete = async (id: string, name: string) => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        setProducts(products.filter((p) => p._id !== id));
+        setType("success");
+        setToast(`Product "${name}" Deleted Successfully`);
+        setTimeout(() => setToast(null), 3000);
+      } else {
+        throw new Error("Delete failed");
+      }
+    } catch (err: any) {
+      setType("error");
+      setToast(err.message || "Delete failed");
+      setTimeout(() => setToast(null), 3000);
+    }
   };
 
   // TOGGLE NEW ARRIVAL
@@ -75,21 +94,30 @@ export default function ProductsPage() {
   const handleUpdate = async (e: any) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const res = await fetch(
-      `http://localhost:5000/api/products/${editProduct._id}`,
-      {
-        method: "PUT",
-        body: formData,
-      }
-    );
-    if (res.ok) {
-      const data = await res.json();
-      setProducts((prev) =>
-        prev.map((p) => (p._id === editProduct._id ? data.product : p))
+    try {
+      const res = await fetch(
+        `http://localhost:5000/api/products/${editProduct._id}`,
+        {
+          method: "PUT",
+          body: formData,
+        }
       );
-      setDrawerOpen(false);
-    } else {
-      alert("Update failed");
+      if (res.ok) {
+        const data = await res.json();
+        setProducts((prev) =>
+          prev.map((p) => (p._id === editProduct._id ? data.product : p))
+        );
+        setDrawerOpen(false);
+        setType("success");
+        setToast(`Product "${data.product.name}" Updated Successfully`);
+        setTimeout(() => setToast(null), 3000);
+      } else {
+        throw new Error("Update failed");
+      }
+    } catch (err: any) {
+      setType("error");
+      setToast(err.message || "Update failed");
+      setTimeout(() => setToast(null), 3000);
     }
   };
 
@@ -174,7 +202,7 @@ export default function ProductsPage() {
                         <CiEdit className="text-blue-600 text-xl" />
                       </button>
                       <button
-                        onClick={() => handleDelete(p._id)}
+                        onClick={() => handleDelete(p._id, p.name)}
                         className="p-2 bg-red-100 cursor-pointer"
                       >
                         <FiTrash2 className="text-red-600" />
@@ -312,6 +340,18 @@ export default function ProductsPage() {
           </form>
         </div>
       </div>
+
+      {/* ---------------- Toast Notification ---------------- */}
+      {toast && (
+        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white shadow-xl px-5 py-3 z-50">
+          {type === "success" ? (
+            <AiOutlineCheckCircle className="text-green-500 text-2xl" />
+          ) : (
+            <AiOutlineCloseCircle className="text-red-500 text-2xl" />
+          )}
+          <p className="text-sm">{toast}</p>
+        </div>
+      )}
     </div>
   );
 }
