@@ -322,6 +322,7 @@ import { BsCart2 } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { HiOutlineUsers } from "react-icons/hi2";
 import { MdOutlineBorderColor, MdOutlineLogout } from "react-icons/md";
+import { LuBotMessageSquare } from "react-icons/lu";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 const allura = Allura({ subsets: ["latin"], weight: "400" });
@@ -332,6 +333,7 @@ const navItems = [
   { href: "/admin/products/add", label: "Add Product", icon: HiOutlineShoppingBag },
   { href: "/admin/products", label: "Products", icon: BsCart2 },
   { href: "/admin/orders", label: "Orders", icon: MdOutlineBorderColor },
+  { href: "/admin/contacts", label: "Contacts", icon: LuBotMessageSquare },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
