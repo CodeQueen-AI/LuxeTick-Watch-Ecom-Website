@@ -115,9 +115,9 @@
 
 
 
-
+// backend/products/controllers/productController.js
 import Product from "../Models/Product.js";
-import cloudinary from "../config/cloudinary.js";
+import cloudinary from "../config/cloudinary.js"
 import multer from "multer";
 
 // Multer setup
@@ -207,6 +207,8 @@ export const updateProduct = async (req, res) => {
   }
 };
 
+
+// Toggle New Arrival
 export const toggleNewArrival = async (req, res) => {
   try {
     console.log("Toggle request ID:", req.params.id);
@@ -228,10 +230,3 @@ export const toggleNewArrival = async (req, res) => {
     res.status(500).json({ message: "Toggle failed" });
   }
 };
-
-
-
-
-
-
-
