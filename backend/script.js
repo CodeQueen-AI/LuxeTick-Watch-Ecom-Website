@@ -105,8 +105,11 @@ import authRoutes from './auth/routes/auth.js';
 import orderRoutes from './orders/routes/orders.js';
 import userRoutes from './auth/routes/users.js';
 import productRoutes from './products/routes/products.js';
+import { connectDB } from "./config/db";
+import contactRoutes from "./routes/contactRoutes";
 
 
+connectDB();
 const app = express();
 
 app.use(cors({
@@ -121,6 +124,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use("/api", contactRoutes);
 
 // Test Route
 app.get('/', (req, res) => {
@@ -156,4 +160,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📍 Test Route: http://localhost:${PORT}/`);
 });
+
+
 
