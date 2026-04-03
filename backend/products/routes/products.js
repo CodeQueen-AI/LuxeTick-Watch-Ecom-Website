@@ -82,11 +82,12 @@ import {
   getAllProducts, 
   updateProduct, 
   upload, 
-  toggleNewArrival 
+  toggleNewArrival,
+  addProduct 
 } from "../controllers/productController.js";
 import Product from "../Models/Product.js";
 import cloudinary from "../config/cloudinary.js";
-import { addProduct } from "../controllers/productController";
+
 
 const router = express.Router();
 
