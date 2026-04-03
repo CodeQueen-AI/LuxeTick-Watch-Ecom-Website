@@ -181,19 +181,19 @@ export default function ProductDetailPage() {
               <div className="flex items-center gap-4">
                 {/* Quantity */}
                 <div className="flex items-center gap-2 border px-4 py-2">
-                  <button onClick={() => setQuantity(q => Math.max(1, q - 1))}>-</button>
+                  <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="cursor-pointer">-</button>
                   <input
                     value={quantity}
                     onChange={(e) => setQuantity(Number(e.target.value))}
-                    className="w-12 text-center"
+                    className="w-12 text-center cursor-pointer"
                   />
-                  <button onClick={() => setQuantity(q => q + 1)}>+</button>
+                  <button onClick={() => setQuantity(q => q + 1)} className="cursor-pointer">+</button>
                 </div>
 
                 {/* Wishlist */}
                 <button
                   onClick={handleWishlistClick}
-                  className="text-3xl text-pink-500 transition-transform duration-300 hover:scale-110 hover:text-pink-700"
+                  className="text-3xl text-pink-500 transition-transform duration-300 hover:scale-110 hover:text-pink-700 cursor-pointer"
                 >
                   {wishlistItems.find((i: any) => i.id === product._id) ? <FaHeart /> : <FaRegHeart />}
                 </button>
