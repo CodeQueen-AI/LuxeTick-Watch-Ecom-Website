@@ -105,8 +105,8 @@ import authRoutes from './auth/routes/auth.js';
 import orderRoutes from './orders/routes/orders.js';
 import userRoutes from './auth/routes/users.js';
 import productRoutes from './products/routes/products.js';
-import { connectDB } from "./config/db";
-import contactRoutes from "./routes/contactRoutes";
+import connectDB from "./config/db.js"
+import contactRoutes from "./contact/routes/contactRoutes.js"
 
 
 connectDB();

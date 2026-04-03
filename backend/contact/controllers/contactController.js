@@ -1,7 +1,7 @@
-import Contact from "../Models/contact"
+import Contact from "../Models/contact.js"
 import nodemailer from "nodemailer";
 
-export const sendContact = async (req: any, res: any) => {
+export const sendContact = async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
