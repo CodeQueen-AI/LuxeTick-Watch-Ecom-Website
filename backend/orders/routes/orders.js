@@ -207,6 +207,7 @@ import {
   deleteOrder,
   checkStock
 } from "../controllers/ordersController.js";
+import { updateOrderStatus } from "../controllers/orderController";
 
 const router = express.Router();
 
@@ -214,6 +215,7 @@ const router = express.Router();
 router.post("/create", authMiddleware, createOrder);
 router.post("/create-from-cart", authMiddleware, createOrdersFromCart);
 router.get("/my-orders", authMiddleware, getMyOrders);
+router.put("/status", updateOrderStatus);
 
 // ---------------- Admin Routes ----------------
 router.get("/all", getAllOrders);

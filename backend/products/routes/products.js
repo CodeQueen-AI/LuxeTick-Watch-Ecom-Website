@@ -86,11 +86,13 @@ import {
 } from "../controllers/productController.js";
 import Product from "../Models/Product.js";
 import cloudinary from "../config/cloudinary.js";
+import { addProduct } from "../controllers/productController";
 
 const router = express.Router();
 
 // Add Product
 router.post("/add", upload.single("image"), createProduct);
+router.post("/add", addProduct);
 
 // Get All Products
 router.get("/", getAllProducts);

@@ -107,6 +107,7 @@ import userRoutes from './auth/routes/users.js';
 import productRoutes from './products/routes/products.js';
 import connectDB from "./config/db.js"
 import contactRoutes from "./contact/routes/contactRoutes.js"
+import notificationRoutes from "./routes/notificationRoutes";
 
 
 connectDB();
@@ -125,6 +126,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use("/api", contactRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 // Test Route
 app.get('/', (req, res) => {
