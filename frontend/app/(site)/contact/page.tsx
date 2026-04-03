@@ -264,7 +264,7 @@ export default function ContactPage() {
 
       if (data.success) {
         setType("success");
-        setToast("Message sent successfully ✅");
+        setToast("Message Sent Successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
         setType("error");
@@ -357,7 +357,7 @@ export default function ContactPage() {
 
       {/* TOAST NOTIFICATION */}
       {toast && (
-        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white border shadow-xl px-5 py-3 z-50 rounded-lg">
+        <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white shadow-xl px-5 py-3 z-50">
           {type === "success" ? (
             <AiOutlineCheckCircle className="text-green-500 text-2xl" />
           ) : (
@@ -369,3 +369,11 @@ export default function ContactPage() {
     </section>
   );
 }
+
+
+
+
+
+
+
+
