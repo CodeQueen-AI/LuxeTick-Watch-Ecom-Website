@@ -1,3 +1,69 @@
+// "use client";
+// import Image from "next/image";
+// import Link from "next/link";
+
+// export default function WatchSection() {
+
+//   const products = [
+//     { id: 5, name: "Tatum", price: 150, img: "/watch/w4.webp" },
+//     { id: 6, name: "Theo", price: 145, img: "/watch/w5.webp" },
+//     { id: 7, name: "Xavier", price: 190, img: "/watch/w6.webp" },
+//     { id: 8, name: "Pro-mariner", price: 188, img: "/watch/w7.webp" },
+//   ];
+
+//   return (
+//     <section className="py-12 poppins relative">
+//       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-6">
+//         <div className="relative">
+//           <Image
+//             src="/Imges/Img4.jpg"
+//             alt="watch"
+//             width={700}
+//             height={600}
+//             className="w-full object-cover"/>
+//           <button className="absolute bottom-6 left-1/2 -translate-x-1/2 border border-black px-6 py-2 text-sm hover:bg-black hover:text-white transition">
+//             The Aviator Watch
+//           </button>
+//         </div>
+//         <div className="grid grid-cols-2 gap-10 text-center">
+//           {products.map((item) => (
+//             <div key={item.id}>
+//               <Image
+//                 src={item.img}
+//                 alt={item.name}
+//                 width={150}
+//                 height={150}
+//                 className="mx-auto"/>
+//               <h3 className="mt-3 text-sm font-medium">{item.name}</h3>
+//               <p className="text-xs text-gray-600 mt-1">
+//                 ${item.price.toLocaleString()}
+//               </p>
+//               <Link href="/products">
+//               <button
+//                 className="mt-2 border border-black px-4 py-1 text-xs hover:bg-black hover:text-white transition cursor-pointer">
+//                 View
+//               </button>
+//               </Link>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,41 +78,75 @@ export default function WatchSection() {
   ];
 
   return (
-    <section className="py-12 poppins relative">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-6">
+    <section className="py-10 md:py-12 poppins relative">
+      
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-center px-4 md:px-6">
+        
+        {/* Left Image */}
         <div className="relative">
           <Image
             src="/Imges/Img4.jpg"
             alt="watch"
             width={700}
             height={600}
-            className="w-full object-cover"/>
-          <button className="absolute bottom-6 left-1/2 -translate-x-1/2 border border-black px-6 py-2 text-sm hover:bg-black hover:text-white transition">
+            className="w-full h-[250px] sm:h-[350px] md:h-[500px] object-cover"
+          />
+
+          <button className="
+            absolute bottom-4 md:bottom-6 
+            left-1/2 -translate-x-1/2 
+            border border-black 
+            px-4 md:px-6 py-2 
+            text-xs md:text-sm 
+            bg-white/80 backdrop-blur
+            hover:bg-black hover:text-white transition cursor-pointer
+          ">
             The Aviator Watch
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-10 text-center">
+
+        {/* Right Products */}
+        <div className="
+          grid grid-cols-2 
+          gap-6 md:gap-10 
+          text-center
+        ">
           {products.map((item) => (
             <div key={item.id}>
+              
               <Image
                 src={item.img}
                 alt={item.name}
                 width={150}
                 height={150}
-                className="mx-auto"/>
-              <h3 className="mt-3 text-sm font-medium">{item.name}</h3>
-              <p className="text-xs text-gray-600 mt-1">
+                className="mx-auto w-[90px] sm:w-[120px] md:w-[150px] h-auto"
+              />
+
+              <h3 className="mt-2 md:mt-3 text-xs sm:text-sm md:text-base font-medium">
+                {item.name}
+              </h3>
+
+              <p className="text-[10px] sm:text-xs text-gray-600 mt-1">
                 ${item.price.toLocaleString()}
               </p>
+
               <Link href="/products">
-              <button
-                className="mt-2 border border-black px-4 py-1 text-xs hover:bg-black hover:text-white transition cursor-pointer">
-                View
-              </button>
+                <button className="
+                  mt-2 
+                  border border-black 
+                  px-3 md:px-4 py-1 
+                  text-[10px] sm:text-xs 
+                  hover:bg-black hover:text-white transition
+                  cursor-pointer
+                ">
+                  View
+                </button>
               </Link>
+
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
