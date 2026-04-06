@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://127.0.0.1:27017/watchAuthDB')
+mongoose.connect('mongodb://127.0.0.1:27017/EcomData')
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },

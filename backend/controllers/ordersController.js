@@ -330,7 +330,7 @@
 
 
 import Order from "../Models/orders.js";
-import Product from "../../products/Models/Product.js"
+import Product from "../Models/Product.js"
 
 // Create Single Order
 export const createOrder = async (req, res) => {

@@ -197,7 +197,17 @@
 
 
 import express from "express";
-import authMiddleware from "../../auth/middleware/authMiddleware.js";
+// import authMiddleware from "../../middleware/authMiddleware.js";
+// import {
+//   createOrder,
+//   getMyOrders,
+//   createOrdersFromCart,
+//   getAllOrders,
+//   updateOrderStatus,
+//   deleteOrder,
+//   checkStock
+// } from "../controllers/ordersController.js";
+import authMiddleware from "../middleware/authMiddleware.js"
 import {
   createOrder,
   getMyOrders,
