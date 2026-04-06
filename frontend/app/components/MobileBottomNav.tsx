@@ -623,7 +623,7 @@ export default function MobileNavbar() {
             </button>
           </Link> */}
           {/* ✅ Mobile Top: SIGN UP button only */}
-{!user && (
+{/* {!user && (
   <div className="fixed top-3 right-0 z-50 md:hidden flex items-center p-2">
     <Link href="/signup">
       <button className="px-3 py-1 bg-[#09162c] text-white text-sm border border-transparent hover:bg-white hover:text-[#09162c] hover:border-[#09162c] transition cursor-pointer">
@@ -631,7 +631,8 @@ export default function MobileNavbar() {
       </button>
     </Link>
   </div>
-)}
+)} */}
+{/* ✅ Mobile Top: SIGN UP button only */}
         {/* </div>
       )} */}
 
