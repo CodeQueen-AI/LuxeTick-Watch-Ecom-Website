@@ -7,14 +7,14 @@ const productSchema = new mongoose.Schema({
   stock: { type: Number, required: true, default: 0 },
   discount: { type: Number, default: 0 },
   newArrival: { type: Boolean, default: false },
-  image: { type: String, required: true },   // ✅ make sure inside schema {}
+  image: { type: String, required: true },  
   publicId: { type: String },
   brand: { type: String },
   color: { type: String },
   strap: { type: String },
   category: { type: String },
   gender: { type: String },
-}, { timestamps: true }); // add options as second argument
+}, { timestamps: true }); 
 
 const Product = mongoose.model("Product", productSchema);
 
