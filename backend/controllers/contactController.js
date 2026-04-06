@@ -4,11 +4,9 @@ import nodemailer from "nodemailer";
 export const sendContact = async (req, res) => {
   try {
     const { name, email, message } = req.body;
-
-    // 1️⃣ Save to DB
     const newContact = await Contact.create({ name, email, message });
 
-    // 2️⃣ Email send
+    // Email send
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
