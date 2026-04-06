@@ -1,6 +1,5 @@
 import express from "express";
 const router = express.Router();
-
 import User from "../Models/user.js";
 
 // GET all users
@@ -16,27 +15,22 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 // CREATE user
 router.post("/", async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
     const user = new User({ name, email, password });
     await user.save();
-
     res.status(201).json(user);
   } catch (error) {
     res.status(500).json({ message: "Error creating user" });
   }
 });
 
-
 // UPDATE user
 router.put("/:id", async (req, res) => {
   try {
     const { name, email } = req.body;
-
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
       { name, email },
@@ -53,7 +47,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-
 // DELETE user
 router.delete("/:id", async (req, res) => {
   try {
@@ -62,7 +55,6 @@ router.delete("/:id", async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
     res.status(200).json({ message: "User deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: "Error deleting user" });
