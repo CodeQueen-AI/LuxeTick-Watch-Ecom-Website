@@ -6,6 +6,7 @@ import orderRoutes from "./routes/orders.js"
 import userRoutes from './routes/users.js';
 import productRoutes from './routes/products.js';
 import contactRoutes from "./routes/contactRoutes.js"
+import dashboardRoutes from "./routes/dashboard.js"; // ← import added
 
 const app = express();
 app.use(cors({
@@ -21,6 +22,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use("/api", contactRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 // 404 Handler
 app.use((req, res) => {
