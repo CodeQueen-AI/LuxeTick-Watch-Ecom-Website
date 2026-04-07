@@ -1236,12 +1236,6 @@
 
 
 
-
-
-
-
-
-
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -1347,14 +1341,8 @@ export default function ProductsPage() {
     setCurrentPage(1);
   };
 
-  // const handleAddCart = (product: any) => {
-  //   addToCart({ ...product, quantity: 1 });
-  //   setToast(`${product.name} Added To Cart!`);
-  //   setTimeout(() => setToast(""), 2500);
-  // };
-
-  const handleAddCart = (product: any) => {
-  addToCart({ ...product, quantity }); // <-- use quantity from state
+const handleAddCart = (product: any) => {
+  addToCart({ ...product, quantity: 1 });
   setToast(`${product.name} Added To Cart!`);
   setTimeout(() => setToast(""), 2500);
 };
@@ -1523,17 +1511,3 @@ export default function ProductsPage() {
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
