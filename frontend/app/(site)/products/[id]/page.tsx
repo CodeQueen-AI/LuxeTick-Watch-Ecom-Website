@@ -137,7 +137,6 @@ export default function ProductDetailPage() {
                       {product?.color} {product?.name} by{" "}
                       <span className="font-medium">{product?.brand}</span> in{" "}
                       <span className="font-medium">{product?.category}</span> for{" "}
-                      <span className="font-medium">{product?.gender}</span>.
                     </p>
                   </div>
                 </div>

@@ -13,7 +13,6 @@ const productSchema = new mongoose.Schema({
   color: { type: String },
   strap: { type: String },
   category: { type: String },
-  gender: { type: String },
 }, { timestamps: true }); 
 
 const Product = mongoose.model("Product", productSchema);

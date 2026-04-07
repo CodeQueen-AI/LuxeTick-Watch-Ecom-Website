@@ -62,8 +62,8 @@ export default function AdminContactMessages() {
                     <td className="border p-3 text-sm text-gray-700">{msg.email}</td>
                     <td className="border p-3 text-sm text-gray-700">{msg.message}</td>
                     <td className="border p-3 text-sm text-gray-700">
-                      {new Date(msg.createdAt).toLocaleString()}
-                    </td>
+  {new Date(msg.createdAt).toLocaleString()}
+</td>
                   </tr>
                 ))}
               </tbody>
