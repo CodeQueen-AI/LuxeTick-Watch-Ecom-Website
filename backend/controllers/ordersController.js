@@ -1,6 +1,7 @@
 import Order from "../Models/orders.js";
-import Product from "../Models/Product.js"
+import Product from "..//Models/Product.js"
 
+// Create Single Order
 export const createOrder = async (req, res) => {
   try {
     const { productId, productName, image, price, quantity } = req.body;
@@ -59,6 +60,7 @@ export const createOrder = async (req, res) => {
 export const createOrdersFromCart = async (req, res) => {
   try {
     const { cartItems } = req.body;
+
     if (!cartItems || cartItems.length === 0) {
       return res.status(400).json({
         message: "Cart is empty",

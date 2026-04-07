@@ -43,8 +43,8 @@ import Image from "next/image";
 
 export default function DiscoverSection() {
   const items = [
-    { title: "MEN", img: "/Discover/D1.avif" },
-    { title: "WOMEN", img: "/Discover/D2.avif" },
+    { title: "CHRONO CLASSIC", img: "/Discover/D1.jpg" },
+    { title: "ROYAL STEEL", img: "/Discover/D2.jpg" },
     { title: "JAZZMASTER", img: "/Discover/D3.avif" },
     { title: "AUTOMATIC", img: "/Discover/D4.avif" },
     { title: "KHAKKI NAVY", img: "/Discover/D5.webp" },

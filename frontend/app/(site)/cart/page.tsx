@@ -161,7 +161,7 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <div className="flex flex-col items-center gap-4 py-40">
           <LiaShoppingCartSolid size={60} />
-          <p className="text-xl">Your Cart is Empty!</p>
+          <p className="text-xl font-serif">Your Cart is Empty!</p>
         </div>
       ) : (
         <>
@@ -232,8 +232,7 @@ const Cart = () => {
                         <td className="py-6">
                           <button
                             onClick={() => removeFromCart(item.id)}
-                            className="text-red-500 hover:text-red-700 transition cursor-pointer"
-                          >
+                            className="text-red-500 hover:text-red-700 transition cursor-pointer">
                             <FaTrash />
                           </button>
                         </td>
@@ -273,9 +272,7 @@ const Cart = () => {
                   onClick={handleCheckout}
                   disabled={loading}
                   className={`mt-6 px-6 py-3 bg-white text-black hover:bg-gray-100 transition font-medium cursor-pointer w-full sm:w-auto ${
-                    loading ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
-                >
+                    loading ? "opacity-50 cursor-not-allowed" : ""}`}>
                   {loading ? "Processing..." : "Checkout"}
                 </button>
               </div>

@@ -42,7 +42,7 @@
 
 "use client";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Hero() {
   return (
     <section className="w-full min-h-screen flex flex-col md:flex-row overflow-hidden">
@@ -68,9 +68,11 @@ export default function Hero() {
             Explore the legend of the Hamilton Murph, an iconic watch whose story
             blends cinematic emotion with timeless craftsmanship
           </p>
+          <Link href={'/products'}>
           <button className="mt-6 sm:mt-8 px-6 sm:px-8 py-2 sm:py-3 border border-gray-400 text-gray-800 hover:bg-black hover:text-white font-semibold transition cursor-pointer">
             DISCOVER
           </button>
+          </Link>
         </div>
       </div>
     </section>

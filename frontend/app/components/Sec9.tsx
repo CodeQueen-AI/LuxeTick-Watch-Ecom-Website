@@ -40,7 +40,7 @@
 
 
 
-
+import Link from "next/link";
 import Image from "next/image";
 
 export default function RacingSection() {
@@ -65,10 +65,11 @@ export default function RacingSection() {
             Chronograph H brings tactile mechanics and bold color together in
             one dynamic reference
           </p>
-          
+          <Link href = {"/products"}>
           <button className="mt-6 md:mt-8 w-36 md:w-40 border border-gray-400 font-semibold py-2 md:py-3 text-sm md:text-base tracking-wider hover:bg-black hover:text-white transition cursor-pointer mx-auto lg:mx-0">
             DISCOVER
           </button>
+          </Link>
         </div>
         
         {/* Image Section */}
