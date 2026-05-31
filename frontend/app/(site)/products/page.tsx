@@ -1874,7 +1874,7 @@ export default function ProductsPage() {
   };
 
   const handleAddCart = (product: any) => {
-    addToCart({ ...product, quantity: 1 });
+    addToCart({ id: product._id, name: product.name, price: product.price, image: product.image, quantity: 1, stock: product.stock });
     setToast(`${product.name} Added To Cart!`);
     setTimeout(() => setToast(""), 2500);
   };

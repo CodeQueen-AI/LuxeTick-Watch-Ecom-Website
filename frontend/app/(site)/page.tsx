@@ -12,23 +12,24 @@ import Sec10 from '../components/Sec10'
 import Sec11 from '../components/Sec11'
 import Sec12 from '../components/Sec12'
 import Sec13 from '../components/Sec13'
+
 export default function Page() {
   return (
     <div>
-    <Home/>
-    <Sec1/>
-    <Sec2/>
-    <Sec3/>
-    <Sec4/>
-    <Sec5/>
-    <Sec6/>
-    <Sec7/>
-    <Sec8/>
-    <Sec9/>
-    <Sec10/>
-    <Sec11/>
-    <Sec12/>
-    <Sec13/>
+      <Home />
+      <Sec1 />
+      <Sec2 />
+      <Sec3 />
+      <Sec4 />
+      <Sec5 />
+      <Sec6 />
+      <Sec7 />
+      <Sec8 />
+      <Sec9 />
+      <Sec10 />
+      <Sec11 />
+      <Sec12 />
+      <Sec13 />
     </div>
   );
 }

@@ -31,6 +31,8 @@ export default function LoginPage() {
       else {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
+        // Notify Navbar in the same tab to update immediately
+        window.dispatchEvent(new Event("userAuthChanged"));
         router.push("/");
       }
     } catch {

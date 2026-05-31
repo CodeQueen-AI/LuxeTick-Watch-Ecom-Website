@@ -836,6 +836,21 @@ export default function ProductsPage() {
   const handleUpdate = async (e: any) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+
+    const price = Number(formData.get("price"));
+    const stock = Number(formData.get("stock"));
+    const discount = Number(formData.get("discount") || 0);
+
+    if (price < 0) {
+      setType("error"); setToast("Price cannot be negative"); setTimeout(() => setToast(null), 3000); return;
+    }
+    if (stock < 0) {
+      setType("error"); setToast("Stock cannot be negative"); setTimeout(() => setToast(null), 3000); return;
+    }
+    if (discount < 0 || discount > 100) {
+      setType("error"); setToast("Discount must be between 0 and 100"); setTimeout(() => setToast(null), 3000); return;
+    }
+
     try {
       const res = await fetch(
         `http://localhost:5000/api/products/${editProduct._id}`,
@@ -1006,6 +1021,7 @@ export default function ProductsPage() {
                 type="number"
                 name="price"
                 defaultValue={editProduct?.price}
+                min="0"
                 className="w-full border border-gray-400 px-3 py-2"
               />
             </div>
@@ -1016,6 +1032,7 @@ export default function ProductsPage() {
                 type="number"
                 name="stock"
                 defaultValue={editProduct?.stock}
+                min="0"
                 className="w-full border border-gray-400 px-3 py-2"
               />
             </div>
@@ -1026,6 +1043,8 @@ export default function ProductsPage() {
                 type="number"
                 name="discount"
                 defaultValue={editProduct?.discount}
+                min="0"
+                max="100"
                 className="w-full border border-gray-400 px-3 py-2"
               />
             </div>

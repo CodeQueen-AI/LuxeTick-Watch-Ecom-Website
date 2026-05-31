@@ -163,6 +163,8 @@ export default function SignupPage() {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
         setSuccess("Signup successful!");
+        // Notify Navbar in the same tab to update immediately
+        window.dispatchEvent(new Event("userAuthChanged"));
         setTimeout(() => router.push("/"), 1000);
       }
     } catch {

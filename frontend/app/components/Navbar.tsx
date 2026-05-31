@@ -130,9 +130,46 @@ export default function Navbar() {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    const storedUser =
-      typeof window !== "undefined" && localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
+    const syncUser = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setUser(null);
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/auth/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.ok) {
+          const freshUser = await res.json();
+          localStorage.setItem("user", JSON.stringify(freshUser));
+          setUser(freshUser);
+        } else {
+          const cached = localStorage.getItem("user");
+          if (cached) setUser(JSON.parse(cached));
+          else setUser(null);
+        }
+      } catch {
+        const cached = localStorage.getItem("user");
+        if (cached) setUser(JSON.parse(cached));
+      }
+    };
+
+    // Run on mount
+    syncUser();
+
+    // Listen for localStorage changes from login/signup pages
+    // (storage event fires in other tabs; custom event fires in same tab)
+    const handleStorageChange = () => syncUser();
+    window.addEventListener("storage", handleStorageChange);
+    window.addEventListener("userAuthChanged", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("userAuthChanged", handleStorageChange);
+    };
   }, []);
 
   const handleLogout = () => {
@@ -156,17 +193,15 @@ export default function Navbar() {
       )}
 
       <h1
-        className={`text-3xl md:text-5xl tracking-tight allura ${
-          isHome ? "text-white" : "text-[#09162c]"
-        }`}>
+        className={`text-3xl md:text-5xl tracking-tight allura ${isHome ? "text-white" : "text-[#09162c]"
+          }`}>
         LuxeTick
       </h1>
 
       <div
-        className={`hidden md:flex items-center gap-8 font-medium poppins ml-auto ${
-          isHome ? "text-black" : "text-[#09162c]"
-        }`}>
-        
+        className={`hidden md:flex items-center gap-8 font-medium poppins ml-auto ${isHome ? "text-black" : "text-[#09162c]"
+          }`}>
+
         <Link href="/" className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
           HOME
         </Link>
@@ -208,8 +243,8 @@ export default function Navbar() {
               <Link href="/ordershistory" className="block w-full text-left px-2 py-2 rounded hover:bg-gray-100 hover:shadow-sm transition mt-2">
                 Order History
               </Link>
-              <button 
-                onClick={handleLogout} 
+              <button
+                onClick={handleLogout}
                 className="w-full text-left px-2 py-2 rounded hover:bg-gray-100 hover:shadow-sm transition mt-1 cursor-pointer"
               >
                 Logout
@@ -219,13 +254,12 @@ export default function Navbar() {
         ) : (
           <div className="flex items-center gap-3">
             {/* Sign In Button */}
-           {/* Sign In Button */}
-<Link href="/signin">
-  <button className="px-5 py-2.5 border border-[#09162c] text-[#09162c] font-medium transition-all duration-300 
+            <Link href="/signin">
+              <button className="px-5 py-2.5 border border-[#09162c] text-[#09162c] font-medium transition-all duration-300 
                      cursor-pointer">
-    SIGN IN
-  </button>
-</Link>
+                SIGN IN
+              </button>
+            </Link>
 
             {/* Sign Up Button */}
             <Link href="/signup">

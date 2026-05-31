@@ -272,13 +272,14 @@ export default function ProductDetailPage() {
 
   const handleAddToCart = () => {
     if (product.stock === 0) return;
-
+    const safeQty = Math.min(quantity, product.stock);
     addToCart({
       id: product._id,
       name: product.name,
       price: product.price,
       image: product.image,
-      quantity,
+      quantity: safeQty,
+      stock: product.stock,
     });
 
     setToastMessage(`${product.name} Added To Cart!`);
@@ -422,10 +423,17 @@ export default function ProductDetailPage() {
                   <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="cursor-pointer">-</button>
                   <input
                     value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
+                    onChange={(e) => {
+                      const val = Math.min(Math.max(1, Number(e.target.value)), product.stock);
+                      setQuantity(val);
+                    }}
                     className="w-12 text-center cursor-pointer"
                   />
-                  <button onClick={() => setQuantity(q => q + 1)} className="cursor-pointer">+</button>
+                  <button
+                    onClick={() => setQuantity(q => Math.min(product.stock, q + 1))}
+                    className="cursor-pointer"
+                    disabled={quantity >= product.stock}
+                  >+</button>
                 </div>
 
                 {/* Wishlist */}

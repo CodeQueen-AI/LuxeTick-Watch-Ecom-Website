@@ -30,8 +30,7 @@ export async function POST(req: Request) {
       line_items,
       mode: "payment",
 
-      success_url: `${req.headers.get("origin")}/cart?success=true`,
-
+      success_url: `${req.headers.get("origin")}/order-success`,
       cancel_url: `${req.headers.get("origin")}/cart?reject=true`,
     });
 

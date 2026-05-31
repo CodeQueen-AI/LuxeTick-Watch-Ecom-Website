@@ -582,109 +582,40 @@ import { FiMinus } from "react-icons/fi";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
-// Handle token expiry
-const handleAuthError = async (res: Response, router: any) => {
-  if (res.status === 401) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("cart");
-    localStorage.removeItem("checkoutCart");
-    alert("Session expired. Please login again.");
-    router.push("/login");
-    return true;
-  }
-  return false;
-};
+
 
 const Cart = () => {
-  const { cartItems, removeFromCart, updateItemQuantity, clearCart, isLoaded } = useCart();
+  const { cartItems, removeFromCart, updateItemQuantity, isLoaded } = useCart();
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState("");
   const [type, setType] = useState("");
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   // Handle orders after payment
   useEffect(() => {
-    const createOrders = async () => {
-      const token = localStorage.getItem("token");
-      const savedCart = JSON.parse(localStorage.getItem("checkoutCart") || "[]");
-      if (!token || savedCart.length === 0) return;
-
-      try {
-        const res = await fetch("http://localhost:5000/api/orders/create-from-cart", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-          body: JSON.stringify({ cartItems: savedCart }),
-        });
-
-        if (await handleAuthError(res, router)) return;
-
-        const data = await res.json();
-        if (data.success) {
-          localStorage.removeItem("cart");
-          localStorage.removeItem("checkoutCart");
-          clearCart();
-          setToast("Order placed successfully!");
-          setType("success");
-        } else {
-          setToast(data.message || "Failed to create orders");
-          setType("reject");
-        }
-        setTimeout(() => setToast(""), 3000);
-      } catch (err) {
-        console.error("Error creating orders:", err);
-        setToast("Error creating orders");
-        setType("reject");
-        setTimeout(() => setToast(""), 3000);
-      }
-    };
-
-    if (searchParams.get("success")) {
-      setToast("Payment Successful! Creating orders...");
-      setType("success");
-      createOrders();
-    }
     if (searchParams.get("reject")) {
       setToast("Payment Rejected!");
       setType("reject");
       setTimeout(() => setToast(""), 3000);
     }
-  }, [searchParams, clearCart, router]);
+  }, [searchParams]);
 
   // Handle checkout
   const handleCheckout = async () => {
     const token = localStorage.getItem("token");
     if (!token) {
-      setToast("Please login first!");
-      setType("reject");
-      setTimeout(() => setToast(""), 3000);
-      router.push("/login");
+      setShowLoginModal(true);
       return;
     }
 
     setLoading(true);
 
     try {
-      const stockCheck = await fetch("http://localhost:5000/api/orders/check-stock", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ cartItems }),
-      });
-
-      if (await handleAuthError(stockCheck, router)) { setLoading(false); return; }
-
-      const stockData = await stockCheck.json();
-      if (!stockData.success) {
-        setToast(stockData.message || "Some items are out of stock!");
-        setType("reject");
-        setTimeout(() => setToast(""), 3000);
-        setLoading(false);
-        return;
-      }
-
       localStorage.setItem("checkoutCart", JSON.stringify(cartItems));
 
       const res = await fetch("/api/checkout", {
@@ -707,6 +638,38 @@ const Cart = () => {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 py-10 poppins min-h-screen">
+      {/* Login required modal */}
+      {showLoginModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full mx-4 text-center">
+            <div className="text-5xl mb-4">🔒</div>
+            <h2 className="text-xl font-semibold mb-2">Login Required</h2>
+            <p className="text-gray-500 mb-6 text-sm">
+              You need to be logged in to checkout. Please sign in or create an account to continue.
+            </p>
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={() => { setShowLoginModal(false); router.push("/signup"); }}
+                className="w-full py-3 bg-[#09162c] text-white font-medium hover:bg-[#0d2040] transition"
+              >
+                Create an Account
+              </button>
+              <button
+                onClick={() => { setShowLoginModal(false); router.push("/login"); }}
+                className="w-full py-3 border border-[#09162c] text-[#09162c] font-medium hover:bg-gray-50 transition"
+              >
+                Log In
+              </button>
+              <button
+                onClick={() => setShowLoginModal(false)}
+                className="text-sm text-gray-400 hover:text-gray-600 transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Toast notifications */}
       {toast && (
         <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-white border shadow-xl px-5 py-3 z-50 rounded-lg">
@@ -754,10 +717,17 @@ const Cart = () => {
                         <td className="py-6">${item.price}</td>
                         <td className="py-6">
                           <div className="flex items-center border w-fit px-3 py-2 gap-4">
-                            <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}><FiMinus /></button>
+                            <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)} className="cursor-pointer"><FiMinus /></button>
                             <span>{item.quantity}</span>
-                            <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}><GoPlus /></button>
+                            <button
+                              onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                              disabled={item.stock ? item.quantity >= item.stock : false}
+                              className={item.stock && item.quantity >= item.stock ? "opacity-30 cursor-not-allowed" : "cursor-pointer"}
+                            ><GoPlus /></button>
                           </div>
+                          {item.stock && item.quantity >= item.stock && (
+                            <p className="text-xs text-orange-500 mt-1">Max stock reached</p>
+                          )}
                         </td>
                         <td className="py-6 font-semibold">${(item.price * item.quantity).toFixed(2)}</td>
                         <td className="py-6">

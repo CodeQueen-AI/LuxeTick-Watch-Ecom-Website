@@ -1,12 +1,18 @@
 import express from 'express';
 import cors from 'cors';
 import "dotenv/config";
+import mongoose from 'mongoose';
 import authRoutes from "./routes/auth.js"
 import orderRoutes from "./routes/orders.js"
 import userRoutes from './routes/users.js';
 import productRoutes from './routes/products.js';
 import contactRoutes from "./routes/contactRoutes.js"
-import dashboardRoutes from "./routes/dashboard.js"; // ← import added
+import dashboardRoutes from "./routes/dashboard.js";
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB Atlas connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 const app = express();
 app.use(cors({

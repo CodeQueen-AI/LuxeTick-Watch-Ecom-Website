@@ -270,6 +270,7 @@ interface Product {
   price: number;
   image: string;
   quantity: number;
+  stock: number; // max allowed quantity
 }
 
 interface CartContextType {
@@ -317,20 +318,27 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     setCartItems(prev => {
       const existing = prev.find(item => item.id === product.id);
       if (existing) {
+        const newQty = existing.quantity + (product.quantity || 1);
+        const capped = Math.min(newQty, product.stock ?? newQty);
         return prev.map(item =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + (product.quantity || 1) }
+            ? { ...item, quantity: capped }
             : item
         );
       }
-      return [...prev, { ...product, quantity: product.quantity || 1 }];
+      const initialQty = Math.min(product.quantity || 1, (product.stock ?? product.quantity) || 1);
+      return [...prev, { ...product, quantity: initialQty }];
     });
   };
 
   const removeFromCart = (id: string) => setCartItems(prev => prev.filter(item => item.id !== id));
   const updateItemQuantity = (id: string, quantity: number) => {
     if (quantity < 1) return;
-    setCartItems(prev => prev.map(item => (item.id === id ? { ...item, quantity } : item)));
+    setCartItems(prev => prev.map(item => {
+      if (item.id !== id) return item;
+      const capped = item.stock ? Math.min(quantity, item.stock) : quantity;
+      return { ...item, quantity: capped };
+    }));
   };
   const clearCart = () => {
     setCartItems([]);
