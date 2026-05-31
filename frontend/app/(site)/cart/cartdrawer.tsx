@@ -75,12 +75,6 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
              border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all cursor-pointer">Cart
             </button>
           </Link>
-          <button onClick={() => {setIsOpen(false); setTimeout(() => {
-                console.log("Checkout triggered");}, 300); }} className="flex-1 w-full py-4 text-sm font-semibold 
-                border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all 
-                cursor-pointer">
-            Checkout
-          </button>
         </div>
         </div>
       </div>
